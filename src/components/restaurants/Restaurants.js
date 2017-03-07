@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Restaurant from './restaurant';
+import Restaurant from './Restaurant';
 
 class Restaurants extends Component {
 
   render() {
-    const restaurants =
-    this.props.store.getState().restaurants.map((restaurant, index) => {
-      return <Restaurant key={index} restaurant={restaurant} store={this.props.store} />
-    })
-    console.log(restaurants)
+    const { store } = this.props;
+    const restaurants = store.getState().restaurants.map((restaurant, index) => {
+      return <Restaurant key={index} restaurant={restaurant} store={store} />
+    });
 
     return(
       <ul>
@@ -17,4 +16,5 @@ class Restaurants extends Component {
     );
   }
 };
+
 export default Restaurants;

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 class RestaurantInput extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
-      text: '',
+      text: ''
     };
-  }
+  };
 
   handleOnChange(event) {
     this.setState({
@@ -24,14 +25,14 @@ class RestaurantInput extends Component {
       },
     });
     this.setState({
-      text: '',
+      text: ''
     });
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
+        <form onSubmit={(event) => this.handleOnSubmit(event)} >
           <input
             type="text"
             value={this.state.text}
@@ -42,7 +43,5 @@ class RestaurantInput extends Component {
     );
   }
 };
-
-
 
 export default RestaurantInput;
