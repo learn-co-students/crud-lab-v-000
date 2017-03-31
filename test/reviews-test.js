@@ -60,13 +60,7 @@ describe('ReviewInput Component', () => {
     expect(store.getState().reviews[0].text).to.equal('Hello');
   });
 
-  it('sets a property of restaurantId on the review component from the parent components id', () => {
-    const store = createStore(manageRestaurant);
-    const restaurant = { id: 1, text: 'hello' };
-    const wrapper = shallow(<Restaurant store={store} restaurant={restaurant} />)
-    let review = wrapper.find(ReviewInput);
-    expect(review.props().restaurantId).to.equal(restaurant.id);
-  });
+
 
   it('associates the review with the restaurant with a foreign key on the review', () => {
     const store = createStore(manageRestaurant);
