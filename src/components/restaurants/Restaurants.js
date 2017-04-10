@@ -16,7 +16,7 @@ class Restaurants extends Component {
 
     return(
       <div>
-        <h3>Restaurants</h3>
+        <h2>Restaurants</h2>
         <ul>
           {restaurants}
         </ul>
