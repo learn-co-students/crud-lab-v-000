@@ -5,7 +5,10 @@ class Reviews extends Component {
   render() {
     return (
       <ul>
-        Reviews
+        {this.props.store.getState().reviews
+          .filter(review => review.restaurantId === this.props.restaurantId)
+          .map(review => <Review store={this.props.store} key={review.id} review={review} />)
+        }
       </ul>
     );
   }
