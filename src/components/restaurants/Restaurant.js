@@ -12,7 +12,7 @@ class Restaurant extends Component {
 
   handleClick() {
     this.props.store.dispatch({
-      type: 'DELETE RESTAURANT',
+      type: 'DELETE_RESTAURANT',
       id: this.props.restaurant.id
     })
   }
