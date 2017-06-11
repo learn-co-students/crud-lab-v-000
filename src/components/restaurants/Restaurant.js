@@ -12,8 +12,11 @@ class Restaurant extends Component {
   render() {
     return (
       <div>
-        <li>{this.props.restaurant.text}</li>
-        <button onClick={this.handleOnClick} />
+        <li>
+          {this.props.restaurant.text}
+          <button onClick={this.handleOnClick} />
+          < ReviewInput store={this.props.store} restaurantId={this.props.restaurant.id} />
+        </li>
       </div>
     );
   }

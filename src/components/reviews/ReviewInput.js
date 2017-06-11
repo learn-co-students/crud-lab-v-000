@@ -21,6 +21,7 @@ class ReviewInput extends Component {
       type: 'ADD_REVIEW', 
       review: {
         text: this.state.text,
+        restaurantId: this.props.restaurantId
       },
     })
     this.setState({ 
@@ -38,6 +39,7 @@ class ReviewInput extends Component {
           </p>
           <input type="submit" />
         </form>
+        < Reviews store={this.props.store} />
       </div>
     );
   }
