@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
 class Restaurant extends Component {
-  render() {
-    return (
-      <li>
-          <h1 key={this.props.index}>{this.props.restaurant.text}</h1>
-      </li>
-    );
-  }
+    handleOnClick = () => {
+        this.props.store.dispatch({
+            type: 'DELETE_RESTAURANT',
+            id: this.props.restaurant.id,
+        })
+    }
+    render() {
+        return (
+            <li>
+                {this.props.restaurant.text}
+                <button onClick={this.handleOnClick} >X</button>          
+            </li>
+        );
+    }
 };
 
 export default Restaurant;
