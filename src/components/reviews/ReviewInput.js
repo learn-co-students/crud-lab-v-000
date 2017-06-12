@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Reviews from '../reviews/Reviews';
 
 class ReviewInput extends Component {
     constructor () {
@@ -17,7 +18,7 @@ class ReviewInput extends Component {
         this.props.store.dispatch({
             type:'ADD_REVIEW',
             review: {text: this.state.text,
-                    restaurant_id: this.props.restaurant.id}
+                    restaurantId: this.props.restaurantId}
         })
         this.setState({
             text:'',
@@ -29,6 +30,7 @@ class ReviewInput extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.state.text} onChange={this.handleOnChange} />
                     <button type="submit">Add Review</button>
+                    <Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
                 </form>
             </div>
         );
