@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
 
 class ReviewInput extends Component {
     constructor () {
@@ -17,8 +16,8 @@ class ReviewInput extends Component {
         e.preventDefault();
         this.props.store.dispatch({
             type:'ADD_REVIEW',
-            restaurant: this.props.restaurant,
-            review: {text: this.state.text}
+            review: {text: this.state.text,
+                    restaurant_id: this.props.restaurant.id}
         })
         this.setState({
             text:'',

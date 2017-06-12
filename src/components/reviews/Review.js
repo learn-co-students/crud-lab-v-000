@@ -4,6 +4,7 @@ class Review extends Component {
   render() {
     return (
       <li>
+          {this.props.review.text}
       </li>
     );
   }
