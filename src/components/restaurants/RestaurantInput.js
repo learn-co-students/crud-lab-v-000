@@ -13,7 +13,7 @@ class RestaurantInput extends Component {
   }
 
   submitForm = (event) => {
-    event.preventDefault;
+    event.preventDefault();
     this.props.store.dispatch({type: "ADD_RESTURANT", restaurant: this.state.text});
     this.setState({
       text: ''
@@ -23,6 +23,7 @@ class RestaurantInput extends Component {
     return (
       <form onSubmit={this.submitForm}>
         <input type="text" value={this.state.text} onChange={this.enterText}/>
+        <input type="submit" value="Create Restaurant" />
       </form>
     );
   }

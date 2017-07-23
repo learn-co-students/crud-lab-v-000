@@ -30,6 +30,7 @@ class ReviewInput extends Component {
       <div className="reviews">
         <form onSubmit={this.submitForm}>
           <input type="text" onChange={this.enterText} value={this.state.text} />
+          <input type="submit" value="Create Review" />
         </form>
         <Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
       </div>
