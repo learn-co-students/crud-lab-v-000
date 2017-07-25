@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class RestaurantInput extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: "" }
+    this.state = { text: "", reviews: [] }
   }
   
   handleChange(event) {

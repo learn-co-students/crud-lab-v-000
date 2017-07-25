@@ -7,6 +7,7 @@ class Restaurant extends Component {
     this.props.store.dispatch({
       type: 'DELETE_RESTAURANT',
       id: this.props.restaurant.id,
+      reviews: [],
     });
   }
   
@@ -16,7 +17,7 @@ class Restaurant extends Component {
         <li>
           {this.props.restaurant.text}
           <button onClick={this.handleOnClick} />
-          <ReviewInput restaurant={this} />
+          <ReviewInput restaurantId={this.props.restaurant.id} store={this.props.store} />
         </li>
       </div>
     );
