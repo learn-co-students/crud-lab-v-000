@@ -1,26 +1,25 @@
 
 import cuid from 'cuid';
 export const cuidFn = cuid;
+let id = 0;
 
-export default function manageRestaurants(state = {restaurants: []}, action) {
+export default function manageRestaurants(state = {restaurants: [], reviews: []}, action) {
     switch (action.type) {
         case 'ADD_RESTAURANT':
-            const r = Object.assign([], {text: action.restaurant.text, id: cuid(), reviews: []});
-            let rest = state.restaurants;
-            rest.push(r);
-            return { restaurants: rest };
+            const r = Object.assign([], {text: action.restaurant.text, id: cuid()});
+            state.restaurants.push(r);
+            return { restaurants: state.restaurants, reviews: state.reviews };
         case 'DELETE_RESTAURANT':
             const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id);
-            return  { restaurants }
+            return  { restaurants: restaurants, reviews: state.reviews }
         case 'ADD_REVIEW':
-            //const rev = Object.assign([], {text: action.review.text});
-            let restaurant = state.restaurants.find((r) => r.id === action.restaurantId);
-            let restaurantIndex = state.restaurants.findIndex((r) => r === restaurant);
-            //console.log("Restaurant Index is " + restaurantIndex)
-            //let reviews = restaurant.reviews
-            restaurant.reviews.push(action.review);
-            console.log("Review is  " + restaurant.reviews[0].text)
-            return { restaurants: state.restaurants.slice(0,restaurantIndex).concat(restaurant).concat(restaurantIndex+1, -1) };
+            id++;
+            const rev = Object.assign([], {id: id, text: action.review.text, restaurantId: action.restaurantId});
+            state.reviews.push(rev);
+            return { restaurants: state.restaurants, reviews: state.reviews };
+        case 'DELETE_REVIEW':
+            const reviews = state.reviews.filter(review => review.id !== action.id);
+            return  { restaurants:state.restaurants, reviews: reviews }
         default:
             return state;
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
+import Reviews from './Reviews.js'
 
 class ReviewInput extends Component {
   constructor(props) {
@@ -33,6 +33,7 @@ class ReviewInput extends Component {
           <input type="text" value={this.state.text} onChange={(event) => this.handleChange(event)}/>
           <input type="submit" />
         </form>
+        <Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
       </div>
     );
   }
