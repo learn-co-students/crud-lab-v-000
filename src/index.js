@@ -14,5 +14,5 @@ function render() {
 };
 
 export const renderer = { render: render };
-
+	
 store.dispatch({ type: '@@init' });

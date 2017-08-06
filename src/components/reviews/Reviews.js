@@ -5,7 +5,7 @@ class Reviews extends Component {
   render() {
     return (
       <ul>
-        Reviews
+        <Review store={this.props.store} />
       </ul>
     );
   }
