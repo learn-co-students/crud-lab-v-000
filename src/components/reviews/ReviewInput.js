@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
-
+import Reviews from './Reviews'
 class ReviewInput extends Component {
   
   constructor(){
@@ -16,17 +15,19 @@ class ReviewInput extends Component {
     })
   }
 
-  handleSubmit = () => {
-  	this.props.store.dispatch({type: "ADD_REVIEW", restaurantId: this.props.restaurant.id, text: this.state.text})
+  handleSubmit = (event) => {
+        event.preventDefault()
+  	this.props.store.dispatch({type: "ADD_REVIEW", restaurantId: this.props.restaurantId, review: this.state.text})
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleSubmit}>
           <input type="text" onChange={this.handleChange}/>
           <input type="submit"/>
         </form>
+        <Reviews store={this.props.store} restaurant={this.props.restaurant} />
       </div>
     );
   }

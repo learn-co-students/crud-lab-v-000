@@ -11,11 +11,10 @@ class Restaurant extends Component {
   render() {
     return (
       <div>
-        <li>
+        <li id={this.props.restaurant.id}>
           {this.props.restaurant.text} 
           <button onClick={this.handleClick}>Delete Restaurant</button>
-          <ReviewInput store={this.props.store} restaurant={this.props.restaurant}/>
-          <Reviews store={this.props.store} restaurant={this.props.restaurant} />
+          <ReviewInput store={this.props.store} restaurantId={this.props.restaurant.id} restaurant={this.props.restaurant}/>
         </li>
       </div>
     );
