@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import ReviewInput from '../reviews/ReviewInput';
+import Reviews from '../reviews/Reviews';
 class Restaurant extends Component {
   handleOnClick = () => {
     this.props.store.dispatch({
@@ -11,6 +12,11 @@ class Restaurant extends Component {
     return (
       <li>{this.props.restaurant.text}
         <button onClick={this.handleOnClick}>delete</button>
+        <ReviewInput
+          store={this.props.store}
+          restaurantId={this.props.restaurant.id}
+        />
+
       </li>
     );
   }
