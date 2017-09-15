@@ -35,6 +35,9 @@ describe('RestaurantInput', () => {
     const wrapper = shallow(<RestaurantInput store={store}/>)
     sinon.stub(renderer, "render");
     let form = wrapper.find('form')
+    
+    console.log(store.getState())
+
     let input = wrapper.find('input').first()
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
