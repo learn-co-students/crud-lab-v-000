@@ -10,7 +10,7 @@ class Reviews extends Component {
 
     return (
       <ul>
-        <li>{ reviews }</li>
+        { reviews }
       </ul>
     );
   }
