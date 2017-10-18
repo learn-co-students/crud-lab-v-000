@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
 
 class RestaurantInput extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      text: '',
+    };
+  }
+
+
+  handleSubmit = () => {
+
+    
+  }
+
+
+
   render() {
     return (
       <div>
-        Restaurant Input
+        <form>
+          Enter Restaurant: <input type="text" />
+          <input type="submit" onSubmit={this.handleSubmit} />
+        </form>
       </div>
     );
   }
