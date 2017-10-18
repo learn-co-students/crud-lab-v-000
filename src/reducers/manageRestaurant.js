@@ -13,8 +13,9 @@ export default function manageRestaurants(state = {
       id++;
       const restaurant = Object.assign({}, action.restaurant, {id: id});
       return { restaurants: state.restaurants.concat(restaurant) }
-    // case 'DELETE_RESTAURANT':
-      // return 
+    case 'DELETE_RESTAURANT':
+      const restaurants = state.restaurants.filter((restaurant => restaurant.id !== action.id))
+      return {restaurants}
     default:
       return state;
   }
