@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Reviews from './Reviews'
 
 class ReviewInput extends Component {
   constructor(props) {
@@ -19,8 +20,10 @@ class ReviewInput extends Component {
     event.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_REVIEW',
-      review: this.state,
-      restaurantId: this.props.restaurant.id,
+      review: {
+        text: this.state.text,
+        restaurantId: this.props.restaurantId,
+      }
     });
     this.setState({
       text: '',
@@ -30,6 +33,7 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
+        <Reviews restaurantId={this.props.restaurantId} store={this.props.store} />
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <label>Add Review: </label>
           <input
@@ -38,7 +42,7 @@ class ReviewInput extends Component {
             onChange={(event) => this.handleOnChange(event)}
           />
           <input type='submit' />
-        </form>
+        </form>  
       </div>
     );
   }

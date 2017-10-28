@@ -19,7 +19,9 @@ class RestaurantInput extends Component {
     event.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_RESTAURANT',
-      restaurant: this.state,
+      restaurant: {
+        text: this.state.text,
+      }
     });
     this.setState({
       text: '',

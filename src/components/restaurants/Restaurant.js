@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReviewInput from '../reviews/ReviewInput'
-import Reviews from '../reviews/Reviews'
+
 
 class Restaurant extends Component {
 
@@ -12,12 +12,14 @@ class Restaurant extends Component {
   }
 
   render() {
+
+    const { text, id } = this.props.restaurant;
+
     return (
       <li>
-        {this.props.restaurant.text}
+        {text}
         <button onClick={this.handleOnClick} />
-        <Reviews restaurant={this.props.restaurant} store={this.props.store} />
-        <ReviewInput restaurant={this.props.restaurant} store={this.props.store} />
+        <ReviewInput restaurantId={id} store={this.props.store} />
       </li>
     );
   }
