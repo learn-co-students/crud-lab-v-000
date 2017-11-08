@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Restaurant from './Restaurant';
 
 class Restaurants extends Component {
   render() {
@@ -6,7 +7,6 @@ class Restaurants extends Component {
       return <Restaurant key={index} restaurant={restaurant} store={this.props.store} />
     });
     return(
-
       <ul>
         { restaurants }
       </ul>
