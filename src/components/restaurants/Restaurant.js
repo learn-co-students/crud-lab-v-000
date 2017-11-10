@@ -8,6 +8,7 @@ class Restaurant extends Component {
 			id: this.props.restaurant.id,
 		})
 	}
+
   render() {
     return (
       <li>

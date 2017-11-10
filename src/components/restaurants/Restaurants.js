@@ -3,7 +3,6 @@ import Restaurant from './Restaurant';
 
 class Restaurants extends Component {
   render() {
-  	// console.log("hello")
   	const restaurants = this.props.store.getState().restaurants.map((restaurant, index) => {
   		return (
   			<Restaurant
