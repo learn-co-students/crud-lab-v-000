@@ -3,9 +3,20 @@ import Review from './Review';
 
 class Reviews extends Component {
   render() {
+    const reviews = this.props.store.getState().reviews.map((review, index)=>{
+       if(review.restaurantId === this.props.restaurantId){
+         return (<Review 
+                  key={index} 
+                  review={review} 
+                  store={this.props.store}
+                 />
+         ); 
+       }
+    });
+
     return (
       <ul>
-        Reviews
+        {reviews}
       </ul>
     );
   }
