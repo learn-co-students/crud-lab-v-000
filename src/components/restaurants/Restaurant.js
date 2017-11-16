@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-class Restaurant extends Component {
+export default class Restaurant extends Component {
+  handleDelete = () => {
+    this.props.store.dispatch({
+      type: 'DELETE_RESTAURANT',
+      id: this.props.restaurant.id
+    })
+  }
+  
   render() {
     return (
-      <div>
-      </div>
-    );
+      <li>{this.props.restaurant.text}
+      <button onClick={()=>this.handleDelete()}> X </button>
+      </li>
+    )
   }
-};
-
-export default Restaurant;
+}
