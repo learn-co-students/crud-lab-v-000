@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 
-class Review extends Component {
+export default class Review extends Component {
+  
+  handleDelete = () => {
+    this.props.store.dispatch({
+      type: 'DELETE_REVIEW',
+      id: this.props.review.id
+    })
+  }
+
   render() {
     return (
-      <li>
-      </li>
-    );
+      <div>
+        <li>
+          {this.props.review.text}
+          <button onClick={() => this.handleDelete()}>x</button>
+        </li>
+      </div>
+    )
   }
-};
+}
 
-export default Review;
