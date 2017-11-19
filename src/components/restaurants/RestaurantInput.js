@@ -17,12 +17,12 @@ export default class RestaurantInput extends Component {
       restaurant: this.state
     })
     this.setState({text: ''})
+    console.log(this.state)
   }
 
   render() {
     return (
       <div>
-        
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <p><label>Add your restaurant</label></p>
           <input type="text" value={this.state.text} onChange={(event) => this.handleChange(event)}/>

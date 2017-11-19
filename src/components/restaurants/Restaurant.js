@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReviewInput from '../reviews/ReviewInput';
+
 
 export default class Restaurant extends Component {
   handleDelete = () => {
@@ -10,9 +12,12 @@ export default class Restaurant extends Component {
   
   render() {
     return (
-      <li>{this.props.restaurant.text}
-      <button onClick={()=>this.handleDelete()}> X </button>
-      </li>
+      <div>
+        <li>{this.props.restaurant.text}
+        <button onClick={()=>this.handleDelete()}> x </button>
+        <ReviewInput store={this.props.store} restaurantId={this.props.restaurant.id}/>
+        </li>
+      </div>
     )
   }
 }
