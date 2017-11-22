@@ -23,12 +23,12 @@ class Restaurant extends Component {
       <div>
         <li>{this.props.restaurant.text}
           <button onClick={()=>this.handleOnClick()}>Delete Restaurant</button>
-          <ul>
-            {/* {reviews} */}   reviews...
-          </ul>
+ 
+          <Reviews store={this.props.store} restaurant={this.props.restaurant}/>
+          
         </li>
        
-        <ReviewInput restaurant={this.props.restaurant} store={this.props.store} />
+        <ReviewInput restaurantId={this.props.restaurant.id} store={this.props.store} />
  
         <br />
         <br />

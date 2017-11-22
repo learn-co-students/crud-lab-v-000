@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 
 class Review extends Component {
+
+  handleOnClick(){
+    this.props.store.dispatch({
+      type: 'DELETE_REVIEW',
+    })
+  }
+
   render() {
     return (
-      <li>
-        {this.props.restaurant} reviews...
-      </li>
+      <div>
+        <li>
+          {this.props.review.text}
+        </li>
+        <button onClick={() => this.handleOnClick()}> Delete Review </button>
+      </div>
     );
   }
 };
