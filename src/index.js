@@ -16,3 +16,8 @@ function render() {
 export const renderer = { render: render };
 
 store.dispatch({ type: '@@init' });
+
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'wert'} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'sdfg'} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'xcvb'} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'wefv'} });
