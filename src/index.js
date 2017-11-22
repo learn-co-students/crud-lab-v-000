@@ -17,10 +17,10 @@ export const renderer = { render: render };
 
 store.dispatch({ type: '@@init' });
 
-store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: "Johnny Ds"} });
-store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'Saguru'} });
-store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'Ocean Buffet'} });
-store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'Eat Here Now'} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: "Johnny Ds"} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'Saguru'} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'Ocean Buffet'} });
+// store.dispatch({ type: 'ADD_RESTAURANT', restaurant: {text: 'Eat Here Now'} });
 
 // const temp_id0 = store.getState().restaurants[0].id
 // const temp_id1 = store.getState().restaurants[1].id

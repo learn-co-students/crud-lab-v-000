@@ -12,25 +12,13 @@ class Restaurant extends Component {
   }
   
   render() {
-
-    // debugger;
-
-    // const reviews = this.props.store.getState().reviews.filter(review => review.id === this.props.restaurant.id).map((review, index) => {
-    //   return <Review key={index} review={review} store={this.props.store} />
-    // });
-
     return (
       <div>
         <li>{this.props.restaurant.text}
           <button onClick={()=>this.handleOnClick()}>Delete Restaurant</button>
- 
-          <Reviews store={this.props.store} restaurant={this.props.restaurant}/>
-          
+          <Reviews store={this.props.store} restaurantId={this.props.restaurant.id} />
         </li>
-       
-        <ReviewInput restaurantId={this.props.restaurant.id} store={this.props.store} />
- 
-        <br />
+        <ReviewInput store={this.props.store} restaurantId={this.props.restaurant.id} />
         <br />
       </div>
     );
