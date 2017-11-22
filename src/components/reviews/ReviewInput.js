@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-
   constructor(props){
     super(props);
     this.state = {
@@ -10,32 +9,30 @@ class ReviewInput extends Component {
     };
   }
 
-  handleChange(event) {
-    this.setState({
-      text: event.target.value
-    });
-  }
-
   handleOnSubmit(event){
     event.preventDefault();
     this.props.store.dispatch({
-      type: 'ADD_REVIEW', 
-      review: {
-        text: this.state.text,
-      },
+      type: 'ADD_REVIEW',
+      id: this.props.restaurant.id,
+      text: this.state.text,
     });
     this.setState({
       text: '',
     });
   }
 
+  handleOnChange(event){
+    this.setState({
+      text: event.target.value,
+    });
+  }
+ 
   render() {
     return (
       <div>
-        review Input
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input type="text" value={this.state.text} onChange={(event) => this.handleOnChange(event)} />
-          <input type="submit" />
+        <form onSubmit={(event)=>this.handleOnSubmit(event)}> 
+          <input type='text' onChange={(event)=>this.handleOnChange(event)} value= {this.value}/><br />
+          <input type="submit" value="Submit Review" />
         </form>
       </div>
     );
