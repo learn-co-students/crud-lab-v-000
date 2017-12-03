@@ -22,6 +22,11 @@ class RestaurantInput extends Component {
       type: 'ADD_RESTAURANT',
       restaurant: this.state.text
     })
+
+    this.setState({
+      text: ""
+    })
+
   }
 
   render() {

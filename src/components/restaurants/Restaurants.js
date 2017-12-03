@@ -7,7 +7,7 @@ class Restaurants extends Component {
       <ul>
         {
           this.props.store.getState().restaurants.map(restaurant=> {
-            return <Restaurant restaurant={restaurant} store={this.props.store}/>
+            return <Restaurant key={restaurant.id} restaurant={restaurant} store={this.props.store}/>
           })
         }
       </ul>
