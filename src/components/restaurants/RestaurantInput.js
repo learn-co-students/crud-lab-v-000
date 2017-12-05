@@ -16,8 +16,14 @@ class RestaurantInput extends Component {
   }
 
   handleOnSubmit = (event) => {
-    debugger
-    // this.props.store.dispatch()
+    event.preventDefault()
+    this.props.store.dispatch({
+      type: "ADD_RESTAURANT",
+      text: this.state
+    })
+    this.setState({
+      text: ""
+    })
   }
 
   render() {
@@ -25,8 +31,8 @@ class RestaurantInput extends Component {
       <div>
         Restaurant Input
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input type='text' onChange={(event) => this.handleOnChange(event)} />
-          <input type='submit' value="New Restaurant" />
+          <input type='text' value={this.state.text} onChange={(event) => this.handleOnChange(event)} />
+          <input type='submit' value="New Restaurant"/>
         </form>
         {this.state.text}
       </div>
