@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ReviewInput from '../reviews/ReviewInput';
 
 class Restaurant extends Component {
   
@@ -12,10 +12,16 @@ class Restaurant extends Component {
   }
 
   render() {
+    const { text, id } = this.props.restaurant;
+
     return (
       <div>
-        <li>{this.props.restaurant.text}</li>
-        <button onClick={this.handleClick} >Delete</button>
+        <li>{text}</li>
+        <button onClick={this.handleClick} > Delete</button>
+        <ReviewInput 
+          store={this.props.store}
+          restaurantId={id}
+        />
       </div>
     );
   }
