@@ -7,11 +7,15 @@ class Restaurants extends Component {
     // const restaurants = this.props.store.getState().restaurants.map((restaurant, index) => {
     //   return <Restaurant key={index} restaurant={restaurant} store={this.props.store} />
     // })
-    debugger;
+    // debugger;
+    const { store } = this.props;
+    const restaurants = store.getState().restaurants.map((restaurant, index) => {
+      return <Restaurant key={index} restaurant={restaurant} store={store} />
+    });
 
     return(
       <ul>
-        Wtf is going on?
+        {restaurants}
       </ul>
     );
   }
