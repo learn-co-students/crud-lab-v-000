@@ -1,5 +1,3 @@
-let id = 0;
-
 import React, { Component } from 'react';
 
 class RestaurantInput extends Component {
@@ -18,8 +16,7 @@ class RestaurantInput extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		id++;
-		this.props.store.dispatch({type: 'ADD_RESTAURANT', text: this.state.text, id: id});
+		this.props.store.dispatch({type: 'ADD_RESTAURANT', restaurant: this.state});
 		this.state = "";
 	}
 
