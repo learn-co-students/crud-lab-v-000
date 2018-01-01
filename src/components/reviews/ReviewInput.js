@@ -33,9 +33,6 @@ class ReviewInput extends Component {
 
 
     render() {
-
-        let filteredReviews = (this.props.store && this.props.store.getState())? (this.props.store.getState().reviews.filter(review => review.restaurantId === this.props.restaurantId)) : [];
-
         return (
           <div>
               <form onSubmit={this.handleSubmit}>
