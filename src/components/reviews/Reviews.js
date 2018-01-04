@@ -3,13 +3,6 @@ import Review from './Review';
 
 class Reviews extends Component {
 
-  handleOnClick = () => {
-    this.props.store.dispatch({
-      type: 'DELETE_REVIEW',
-      id: this.props.review.review_id
-    })
-  }
-
   render() {
    const specific_reviews = this.props.store.getState().reviews.filter((review)=> {return review.restaurantId === this.props.id});
 
