@@ -31,8 +31,6 @@ class ReviewInput extends Component {
   }
 
   render() {
-    const reviews = this.props.store.getState().restaurants.find(restaurant => restaurant.id === this.props.restaurantId).reviews
-    debugger
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>

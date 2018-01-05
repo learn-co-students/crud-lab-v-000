@@ -4,9 +4,10 @@ class Review extends Component {
 
   handleDelete = () =>{
     this.props.store.dispatch({
-      type: 'REMOVE_REVIEW',
+      type: "DELETE_REVIEW",
+      id: this.props.review.id,
       review: this.props.review
-    })
+    });
   }
 
   render() {

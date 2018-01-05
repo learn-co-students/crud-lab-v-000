@@ -1,30 +1,27 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-export default function manageRestaurants(state = {restaurants:[]}, action) {
-  let updatedRestaurants
-  let parent
+export default function manageRestaurants(state = {restaurants:[], reviews:[]}, action) {
   switch (action.type) {
-    case 'ADD_RESTAURANT':
-      const restaurant = Object.assign({}, action.restaurant, {id: cuid(), reviews: []} )
-      return {restaurants: state.restaurants.concat(restaurant)}
-    case 'DELETE_RESTAURANT':
-      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id)
-      return { restaurants }
-    case 'ADD_REVIEW':
-      let newReview = action.review;
-      parent = state.restaurants.find(restaurant => restaurant.id === newReview.restaurantId);
-      newReview.id = cuid();
-      parent.reviews.push(action.review);
-      updatedRestaurants = state.restaurants.filter(restaurant => restaurant.id !== parent.id);
-      return { restaurants: updatedRestaurants.concat(parent) };
-    case 'REMOVE_REVIEW':
-      parent = state.restaurants.find(restaurant => restaurant.id === action.review.restaurantId);
-      updatedRestaurants = state.restaurants.filter(restaurant => restaurant.id !== parent.id);
-      let reviews = parent.reviews.filter(review => review.id !== action.review.id)
-      parent.reviews = reviews
-      return {restaurants: updatedRestaurants.concat(parent)}
+    case "ADD_RESTAURANT":
+      const restaurant = Object.assign({}, action.restaurant, {
+        id: cuid()
+      });
+      return Object.assign({}, state, { restaurants: state.restaurants.concat(restaurant) })
+    case "DELETE_RESTAURANT":
+      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id);
+      return Object.assign({}, state, {restaurants: restaurants})
+
+    case "ADD_REVIEW":
+      const review = Object.assign({}, action.review, { id: cuidFn() });
+      return Object.assign({}, state, {
+        reviews: state.reviews.concat(review)
+      });
+
+    case "DELETE_REVIEW":
+      const reviews = state.reviews.filter(review => review.id !== action.id);
+      return Object.assign({}, state, { reviews: reviews });
     default:
-      return state
+      return state;
   }
 }
