@@ -3,10 +3,9 @@ import ReviewInput from '../reviews/ReviewInput'
 class Restaurant extends Component {
 
   handleClick = (event) => {
-    event.preventDefault()
     this.props.store.dispatch({
       type: 'DELETE_RESTAURANT',
-      id: this.props.id
+      id: this.props.restaurant.id
     })
   }
 
