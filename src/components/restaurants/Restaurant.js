@@ -4,9 +4,9 @@ class Restaurant extends Component {
 
   constructor(){
     super();
-    this.state({
-      reviews: [];
-    })
+    this.state = {
+      reviews: []
+    }
   }
 
   handleClick = (event) => {
@@ -23,7 +23,7 @@ class Restaurant extends Component {
         {this.props.restaurant.text}
         <button onClick={this.handleClick} >x</button>
         <br />
-        <ReviewInput restaurant={this.props.restaurant} />
+        <ReviewInput restaurant={this.props.restaurant} restaurantId={this.props.restaurant.id} store={this.props.store} />
       </li>
     );
   }

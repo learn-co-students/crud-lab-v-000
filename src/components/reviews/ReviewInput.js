@@ -20,17 +20,16 @@ class ReviewInput extends Component {
     event.preventDefault()
     this.props.store.dispatch({
       type: 'ADD_REVIEW',
-      review: this.state,
-      restaurant: this.props.restaurant
+      review: {...this.state, restaurantId: this.props.restaurantId}
     })
   }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input type='text' onChange={this.handleChange} value={this.state.text} /> <br />
-          <input onSubmit={this.handleSubmit} value='Submit Review' type='submit' />
+          <input  value='Submit Review' type='submit' />
         </form>
       </div>
     );
