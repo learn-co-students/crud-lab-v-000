@@ -22,6 +22,9 @@ class ReviewInput extends Component {
       type: 'ADD_REVIEW',
       review: {...this.state, restaurantId: this.props.restaurantId}
     })
+    this.setState({
+      text: ''
+    });
   }
 
   render() {

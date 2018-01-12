@@ -1,4 +1,3 @@
-
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
@@ -11,9 +10,8 @@ export default function manageRestaurants(state = {restaurants: [], reviews: []}
       const restaurants = state.restaurants.filter((restaurant) => restaurant.id !== action.id)
       return {...state, restaurants}
     case 'ADD_REVIEW':
-      debugger;
       const review = {...action.review, id: cuid()}
-      return {reviews: state.reviews.concat(review)}
+      return {...state, reviews: state.reviews.concat(review)}
     default:
         return state;
   }
