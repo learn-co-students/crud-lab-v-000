@@ -5,7 +5,10 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
-        Review Input
+        <form>
+          <textarea /> <br />
+          <input value='Submit Review' type='submit' />
+        </form>
       </div>
     );
   }
