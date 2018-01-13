@@ -38,6 +38,7 @@ describe('RestaurantInput', () => {
     let input = wrapper.find('input').first()
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
+    console.log(store.getState())
     expect(store.getState().restaurants[0].text).to.equal('Hello')
   });
 
@@ -93,7 +94,7 @@ describe('Restaurant Component with Redux', () => {
     sinon.stub(store, 'getState').returns({
       restaurants: [
         {id: 1, text: 'hello'},
-        {id: 2, text: 'goodbye'}, 
+        {id: 2, text: 'goodbye'},
         {id: 3, text: 'ciao'}
       ]
     });
