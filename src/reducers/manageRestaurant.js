@@ -9,7 +9,7 @@ export default function manageRestaurants(state = {
      switch (action.type){
       case 'ADD_RESTAURANT':
        id++;
-       const restaurant = Object.assign({}, action.restaurant, {id: id})
+       const restaurant = Object.assign({}, action.restaurant, {id: cuidFn()})
        return Object.assign({}, state, {
          restaurants: state.restaurants.concat(restaurant),
        })
@@ -19,7 +19,7 @@ export default function manageRestaurants(state = {
 
       case 'ADD_REVIEW':
       id++
-       const review = Object.assign({}, action.review, {id: id})
+       const review = Object.assign({}, action.review, {id: cuidFn()})
        return Object.assign({}, state, {
          reviews: state.reviews.concat(review),
        })

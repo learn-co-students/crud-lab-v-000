@@ -6,6 +6,7 @@ class Review extends Component {
       type: 'DELETE_REVIEW',
       id: this.props.review.id
     })
+ 
   }
   render() {
     
