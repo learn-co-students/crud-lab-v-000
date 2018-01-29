@@ -36,6 +36,9 @@ class ReviewInput extends Component {
             value={this.state.text}
             onChange={(event) => this.handleOnChange(event)}/>
         </form>
+        <Reviews
+          store={this.props.store}
+          restaurantId={this.props.restaurantId} />
       </div>
     );
   }
