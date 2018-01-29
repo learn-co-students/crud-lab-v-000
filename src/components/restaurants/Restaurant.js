@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReviewInput from '../reviews/ReviewInput'
 
 class Restaurant extends Component {
 
@@ -14,6 +15,8 @@ class Restaurant extends Component {
       <div>
         <li>{this.props.restaurant.text}</li>
         <button onClick={(event) => this.handleOnChange(event)}>REMOVE</button>
+
+        <ReviewInput />
       </div>
     );
   }
