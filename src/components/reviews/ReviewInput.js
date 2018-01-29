@@ -17,10 +17,10 @@ class ReviewInput extends Component {
   }
   handleSubmit(event){
     event.preventDefault()
-    debugger
+    
     this.props.store.dispatch({
       type: 'ADD_REVIEW',
-      review: this.state,
+      review: {text: this.state.text, restaurantId: this.props.restaurantId}
     })
     this.setState({
       text: ''
@@ -30,10 +30,11 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
+        <form onSubmit={(event)=> this.handleSubmit(event)}>
         <input type="text" value={this.state.text} onChange={(event) => this.handleOnChange(event)}/>
-        <input type="submit" onClick={(event) => this.handleSubmit(event)}/>
-      
-      <Reviews store={this.props.store} resturantId={this.props.resturantId}/>
+        <input type="submit" />
+        </form>
+      <Reviews store={this.props.store} restaurantId={this.props.restaurantId}/>
       </div>
     );
   }
