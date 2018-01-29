@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Reviews from './Reviews';
 
-
 class ReviewInput extends Component {
   constructor() {
     super();
@@ -31,7 +30,7 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input
             type="text"
             value={this.state.text}
