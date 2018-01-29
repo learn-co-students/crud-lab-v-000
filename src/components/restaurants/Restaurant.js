@@ -4,6 +4,7 @@ class Restaurant extends Component {
   render() {
     return (
       <div>
+        <li>{this.props.restaurant.text}</li>
       </div>
     );
   }
