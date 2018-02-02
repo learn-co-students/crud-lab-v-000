@@ -41,7 +41,7 @@ handleOnSubmit(event) {
           </p>
           <input type="submit" /> 
         </form>
-        <Reviews restaurantId={this.props.restaurantId} store={this.props.store} />
+        <Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
       </div>
     );
   }

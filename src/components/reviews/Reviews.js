@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Review from './Review';
 
 class Reviews extends Component { 
-  debugger;
   render() { 
       const reviews = this.props.store.getState().reviews.filter(review => review.restaurantId === this.props.restaurantId) 
       const filteredReviews = reviews.map((review, index) => {
