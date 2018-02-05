@@ -65,18 +65,18 @@ describe('ReviewInput Component', () => {
     const restaurant = { id: 1, text: 'hello' };
     const wrapper = shallow(<Restaurant store={store} restaurant={restaurant} />)
     let review = wrapper.find(ReviewInput);
-    expect(review.props().restaurantId).to.equal(restaurant.id);
+    expect(review.props().restId).to.equal(restaurant.id);
   });
 
   it('associates the review with the restaurant with a foreign key on the review', () => {
     const store = createStore(manageRestaurant);
     let restaurantId = 34039;
-    const wrapper = shallow(<ReviewInput store={store} restaurantId={restaurantId}/>)
+    const wrapper = shallow(<ReviewInput store={store} restId={restaurantId}/>)
     let reviewForm = wrapper.find('form');
     let textField =  wrapper.find('input').first();
     textField.simulate('change', { target: { value: 'Hello' } });
     reviewForm.simulate('submit',  { preventDefault() {} });
-    expect(store.getState().reviews[0].restaurantId).to.equal(restaurantId);
+    expect(store.getState().reviews[0].restId).to.equal(restaurantId);
   });
 });
 
@@ -95,14 +95,14 @@ describe('Reviews Component', () => {
         { id: 1, text: 'hello' },
         { id: 2, text: 'goodbye' },
         { id: 3, text: 'ciao' }
-      ], 
+      ],
       reviews: [
         { id: 1, restaurantId: 1, text: 'it was good' },
         { id: 2, restaurantId: 1, text: 'it was good' }
       ]
     });
     let restaurantId = 1;
-    const wrapper = mount(<Reviews store={store} restaurantId={1} />);
+    const wrapper = mount(<Reviews store={store} restId={1} />);
 
     expect(wrapper.find(Review)).to.have.length(2);
   });
@@ -114,15 +114,15 @@ describe('Reviews Component', () => {
         { id: 1, text: 'hello' },
         { id: 2, text: 'goodbye' },
         { id: 3, text: 'ciao' }
-      ], 
+      ],
       reviews: [
-        { id: 1, restaurantId: 1, text: 'it was good' },
-        { id: 2, restaurantId: 1, text: 'it was very good' },
-        { id: 2, restaurantId: 2, text: 'it was very bad' }
+        { id: 1, restId: 1, text: 'it was good' },
+        { id: 2, restId: 1, text: 'it was very good' },
+        { id: 2, restId: 2, text: 'it was very bad' }
       ]
     });
     let restaurantId = 1;
-    const wrapper = mount(<Reviews store={store} restaurantId={1} />);
+    const wrapper = mount(<Reviews store={store} restId={1} />);
     expect(wrapper.find(Review)).to.have.length(2);
     expect(wrapper.text()).to.contain('it was good');
     expect(wrapper.text()).to.not.contain('bad');
@@ -131,7 +131,7 @@ describe('Reviews Component', () => {
   it('has an unique id property that for each element', () => {
     const store = createStore(manageRestaurant);
     let restaurantId = 34039;
-    const wrapper = shallow(<ReviewInput store={store} restaurantId={restaurantId} />);
+    const wrapper = shallow(<ReviewInput store={store} restId={restaurantId} />);
     let reviewForm = wrapper.find('form');
     let textField =  wrapper.find('input').first();
     textField.simulate('change', { target: { value: 'Hello' } });
@@ -162,7 +162,7 @@ describe('Reviews Component', () => {
     form.simulate('submit',  { preventDefault() {} });
     input.simulate('change', { target: { value: 'ciao' } });
     form.simulate('submit',  { preventDefault() {} });
-    
+
     let review = store.getState().reviews[1];
     const ReviewComponent = shallow(<Review store={store} review={review} />)
     let deleteButton = ReviewComponent.find('button').first();
