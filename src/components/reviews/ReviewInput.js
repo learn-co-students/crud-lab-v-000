@@ -17,9 +17,15 @@ class ReviewInput extends Component {
   }
 
   handleSubmit = (event) => {
-    debugger;
     event.preventDefault();
-
+    this.props.store.dispatch({
+      type: 'ADD_REVIEW',
+      id: this.props.restaurantId,
+      text: this.state.text
+    })
+    this.setState({
+      text: '',
+    })
   }
 
 
