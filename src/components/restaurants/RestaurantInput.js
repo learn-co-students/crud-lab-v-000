@@ -18,7 +18,13 @@ class RestaurantInput extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.store.dispatch({type: 'ADD_RESTAURANT', text: this.state.text})
+    this.props.store.dispatch({
+      type: 'ADD_RESTAURANT',
+      text: this.state.text
+    })
+    this.setState({
+      text: ''
+    })
   }
 
   render() {
