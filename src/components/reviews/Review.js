@@ -7,7 +7,7 @@ class Review extends Component {
       id: this.props.review.id
     })
   }
-
+  
   render() {
     return (
       <div>
