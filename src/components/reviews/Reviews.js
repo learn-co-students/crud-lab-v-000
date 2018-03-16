@@ -6,9 +6,12 @@ class Reviews extends Component {
     return (
       <ul>
         {this.props.store.getState().reviews
-          .filter(r => r.restoId === this.props.restoId)
+          .filter(r => r.restaurantId === this.props.restaurantId)
           .map((r, i) => {
-          return <Review key={i} store={this.props.store} review={r}/>
+          return <Review
+            key={i}
+            store={this.props.store}
+            review={r}/>
         })}
       </ul>
     );
