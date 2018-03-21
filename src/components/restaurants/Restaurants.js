@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Restaurant from './Restaurant';
+import Restaurant from './Restaurant'
 
 class Restaurants extends Component {
   render() {
     const restaurants = this.props.store.getState().restaurants.map((restaurant, index) => {
-      return <Restaurant key={index} store={this.prop.store} restaurant={restaurant} />
-    });
+      return <Restaurant restaurant={restaurant} key={index} store={this.props.store}/>
+    })
     return(
       <ul>
-        {restaurants}
+       {restaurants}
       </ul>
     );
   }

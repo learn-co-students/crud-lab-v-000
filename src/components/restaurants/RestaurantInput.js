@@ -8,13 +8,13 @@ class RestaurantInput extends Component {
       text: '',
     };
   }
- 
+
   handleChange(event) {
     this.setState({
       text: event.target.value
     });
   }
-  
+
   handleSubmit(event) {
   event.preventDefault();
   this.props.store.dispatch({
@@ -25,7 +25,7 @@ class RestaurantInput extends Component {
     }
   });
 }
- 
+
   render() {
     return(
       <div>
