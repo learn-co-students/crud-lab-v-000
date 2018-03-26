@@ -4,7 +4,7 @@ import Review from './Review';
 class Reviews extends Component {
   
 
-  //cannot read filter of undefined...
+  //cannot read property map of undefined...
   //so reviews don't seem to be passed in properly
   render() {
     const resReviews = this.props.store.getState().reviews.filter(r => r.restaurantId === this.props.restaurantId)
