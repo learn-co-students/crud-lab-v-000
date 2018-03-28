@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 class Review extends Component {
   handleClick = ()=> {
-    this.props.store.dispatch({type: 'DELETE_REVIEW', 
+    this.props.store.dispatch({
+                   type: 'DELETE_REVIEW', 
     						   id: this.props.review.id, 
-    						   restaurantId: this.props.restaurantId})
-  }
+    						   restaurantId: this.props.restaurantId
+    })
+  };
 
   render() {
     return (

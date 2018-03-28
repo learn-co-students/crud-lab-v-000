@@ -23,10 +23,11 @@ class ReviewInput extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-		  <label htmlFor="name">Review</label>
-		  <input type="text" onChange={this.handleChange} value={this.state.text} />
-		  <button type="submit">submit</button>
+		     <label htmlFor="name">Review</label>
+		      <input type="text" onChange={this.handleChange} value={this.state.text} />
+		      <button type="submit">submit</button>
         </form>
+        <Reviews restaurantId={this.props.restaurantId} store={this.props.store}/>
       </div>
     );
   }
