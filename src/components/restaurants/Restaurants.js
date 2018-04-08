@@ -3,7 +3,9 @@ import Restaurant from './Restaurant'
 
 class Restaurants extends Component {
   render() {
-    const restaurantLIs = this.props.store.getState().restaurants.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant} store={this.props.store} />)
+    const restaurantLIs = this.props.store.getState().restaurants
+    .sort((a, b) => a.text.toLowerCase() > b.text.toLowerCase())
+    .map((restaurant, index) => <Restaurant key={index} restaurant={restaurant} store={this.props.store} />)
     return(
       <ul>
         {restaurantLIs}
