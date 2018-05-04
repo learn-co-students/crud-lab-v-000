@@ -5,8 +5,7 @@ export const cuidFn = cuid;
 export default function manageRestaurants(state = {restaurants: []}, action) {
     switch (action.type) {
     case 'ADD_RESTAURANT':
-      let id = cuid();    
-      const restaurant = Object.assign({}, {id: id}, action.restaurant);
+      const restaurant = Object.assign({}, action.restaurant, {id: cuidFn()});
       return { restaurants: state.restaurants.concat(restaurant) };
       
     //  case 'DELETE_TODO':
