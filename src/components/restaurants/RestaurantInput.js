@@ -10,7 +10,6 @@ class RestaurantInput extends Component {
   }
   
   onKeyPressed = (event) => {
-    // debugger
     console.log(event);
     this.setState({
       text: event.target.value
@@ -18,10 +17,11 @@ class RestaurantInput extends Component {
   }
   
   handleOnSubmit = (event) => {
+    debugger
     event.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_RESTAURANT', 
-      restaurent: this.state,
+      restaurant: this.state,
     });
     this.setState({
       text: '',
@@ -43,7 +43,6 @@ class RestaurantInput extends Component {
           </p>
           <input type="submit" />
         </form>
-        {this.state.text}
       </div>
     );
   }
