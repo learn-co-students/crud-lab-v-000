@@ -17,7 +17,7 @@ class RestaurantInput extends Component {
   }
   
   handleOnSubmit = (event) => {
-    debugger
+    // debugger
     event.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_RESTAURANT', 
