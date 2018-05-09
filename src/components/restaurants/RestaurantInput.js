@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Reviews from '../reviews/Reviews';
 
 class RestaurantInput extends Component {
   constructor(props) {
@@ -17,12 +16,11 @@ class RestaurantInput extends Component {
   }
 
   handleOnSubmit (e) {
-    // e.preventDefault();
+    e.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_RESTAURANT',
       restaurant: {
         text: this.state.text,
-        restaurantId: this.props.restaurantId
       },
     });
     this.setState({
@@ -39,7 +37,6 @@ class RestaurantInput extends Component {
           </p>
           <input type="submit" value="Submit"/>
         </form>
-        // <Reviews store={this.props.store} restaurantId={this.props.restaurantId}/>
       </div>
     );
   }

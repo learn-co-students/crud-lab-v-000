@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Reviews from './Reviews'
 
 class ReviewInput extends Component {
   constructor(props) {
@@ -19,9 +20,10 @@ class ReviewInput extends Component {
     // e.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_REVIEW',
+      restaurantId: this.props.restaurantId,
       review: {
         text: this.state.text,
-        restaurantId: this.props.restaurantID
+        restaurantId: this.props.restaurantId
       },
     });
     this.setState({
@@ -33,9 +35,10 @@ class ReviewInput extends Component {
     return (
       <div>
         <form id="review" onSubmit={(e)=>this.handleOnSubmit(e)}>
-          <p><input type="text" value={this.state.text} restaurantId={this.state.restaurantId} onChange={(e)=>this.handleOnChange(e)}/></p>
+          <p><input type="text" value={this.state.text} onChange={(e)=>this.handleOnChange(e)}/></p>
           <input type="submit" value="Submit"/>
         </form>
+        <Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
       </div>
     );
   }
