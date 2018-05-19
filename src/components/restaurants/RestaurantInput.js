@@ -14,7 +14,7 @@ class RestaurantInput extends Component {
       type: 'ADD_RESTAURANT',
       text: this.state.text
     });
-    this.setState({input: ''})
+    this.setState({text: ''})
   }
 
   handleChange = (event) => {

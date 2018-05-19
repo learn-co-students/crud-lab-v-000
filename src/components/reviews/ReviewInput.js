@@ -21,11 +21,10 @@ class ReviewInput extends Component {
       text: this.state.text,
       restaurantId: this.props.restaurantId
     });
+    this.setState({text: ''})
   }
 
   render() {
-    debugger;
-    let reviews = this.props.store.getState().reviews.filter(review => review.restaurantId === this.props.restaurantId);
     return (
       <div>
       Write a review:
@@ -35,7 +34,7 @@ class ReviewInput extends Component {
         </form>
 
       Existing reviews:
-        <Reviews reviews={reviews}/>
+        <Reviews store={this.props.store} restaurantId={this.props.restaurantId}/>
       </div>
     );
   }
