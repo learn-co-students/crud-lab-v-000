@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ReviewInput from './reviews/ReviewInput';
+import ReviewInput from '../reviews/ReviewInput';
 
 class Restaurant extends Component {
-  handleClick(){
+  handleRestaurantClick(){
     this.props.store.dispatch({
       type: 'DELETE_RESTAURANT',
       id: this.props.restaurant.id
@@ -13,11 +13,11 @@ class Restaurant extends Component {
     return (
       <div>
         <li>
-          {this.props.restaurant.text}
-          <button onClick={() => this.handleClick()}>Delete
+          <strong>{this.props.restaurant.text}</strong> &nbsp;
+          <button onClick={() => this.handleRestaurantClick()}>Delete
           </button>
-          <ReviewInput store={this.props.store} restaurantId={this.props.restaurant.id} />
         </li>
+        <ReviewInput store={this.props.store} restaurantId={this.props.restaurant.id} />
       </div>
     );
   }

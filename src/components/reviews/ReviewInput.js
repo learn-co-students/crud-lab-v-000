@@ -9,34 +9,38 @@ class ReviewInput extends Component {
     }
   }
 
-  handleChange(event){
+  handleReviewChange(event){
     this.setState({
       text: event.target.value
     });
   };
 
-  // handleSubmit(event){
-  //   event.preventDefault();
-  //   this.props.store.dispatch({
-  //     type: 'ADD_REVIEW',
-  //     restaurant: {
-  //       text: this.state.text
-  //     }
-  //   });
-  //   this.setState({
-  //     text: ''
-  //   });
-  // }
+  handleReviewSubmit(event){
+    event.preventDefault();
+    this.props.store.dispatch({
+      type: 'ADD_REVIEW',
+      review: {
+        restaurantId: this.props.restaurantId,
+        text: this.state.text
+      }
+    });
+    this.setState({
+      text: ''
+    });
+  }
 
 
   render() {
     return (
       <div>
-        <form>
+        <p>Reviews:</p>
+        <Reviews store={this.props.store} restaurantId={this.props.restaurantId}/>
+        <form onSubmit={(event) => this.handleReviewSubmit(event)}>
+          <label>Add Review </label>
           <input
             type="text"
             value={this.state.text}
-            onChange={(event) => this.handleChange(event)}
+            onChange={(event) => this.handleReviewChange(event)}
           />
           <input type="submit"/>
         </form>
