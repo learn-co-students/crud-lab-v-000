@@ -12,13 +12,13 @@ export default function manageRestaurants(
         // TN: this is the prob here: need to return state as modified
         // UP TO HERE: HAVE TO MODIFY/MERGE THE STATE AND RETURN THE STATE
         const restaurant = Object.assign({}, action.restaurant, {id: id})
-        return {restaurants: state.restaurants.concat(restaurant)}
+        return Object.assign({}, state, {restaurants: state.restaurants.concat(restaurant)})
       case 'DELETE_RESTAURANT':
         // console.log("Action id: " + action.id)
         // console.log("restaurants: ")
         // console.log(state.restaurants)
         const restaurants = state.restaurants.filter(r => r.id !== action.id)
-        return {restaurants}
+        return Object.assign({}, state, {restaurants: restaurants})
       case 'ADD_REVIEW':
         const review = Object.assign({}, action.review, {restaurantId: action.restaurantId})
         return {reviews: state.reviews.concat(review)}
