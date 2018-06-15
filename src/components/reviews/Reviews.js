@@ -25,7 +25,9 @@ class Reviews extends Component {
 
     return (
       <ul>
+
         Review console button: <button onClick={(event)=>this.clicky(event)} />
+
         {reviews}
       </ul>
     );
