@@ -9,6 +9,8 @@ export default function manageRestaurants(
     switch (action.type) {
       case 'ADD_RESTAURANT':
         const id = cuid()
+        // TN: this is the prob here: need to return state as modified
+        // UP TO HERE: HAVE TO MODIFY/MERGE THE STATE AND RETURN THE STATE
         const restaurant = Object.assign({}, action.restaurant, {id: id})
         return {restaurants: state.restaurants.concat(restaurant)}
       case 'DELETE_RESTAURANT':

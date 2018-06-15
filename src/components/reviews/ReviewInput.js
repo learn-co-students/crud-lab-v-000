@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Reviews from './Reviews';
+import Review from './Review';
 
 class ReviewInput extends Component {
 
@@ -31,13 +32,17 @@ class ReviewInput extends Component {
     });
   }
 
+
   render() {
+
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input type="text" onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" />
         </form>
+
+        <Reviews store={this.props.store} restaurantId={this.props.restaurantId}/>
       </div>
     );
   }
