@@ -30,8 +30,9 @@ class ReviewInput extends Component {
           <input type="text" value={this.state.text} onChange={(event) => this.handleChange(event)}/>
           <input type="submit" />
         </form>
-
-        < Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
+      //   if(this.props.store.getState().reviews) {
+      //   < Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
+      // }
       </div>
     );
   }
