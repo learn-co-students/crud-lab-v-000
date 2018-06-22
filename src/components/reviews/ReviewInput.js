@@ -17,7 +17,7 @@ class ReviewInput extends Component {
     event.preventDefault();
     this.props.store.dispatch({
       type: 'ADD_REVIEW',
-      review: {text: this.state.text, restaurantId: this.props.restaurantId},
+      review: {text: this.state.text, restaurantId: this.props.restaurantId}
     });
     this.setState({ text: '' });
   }
@@ -30,9 +30,7 @@ class ReviewInput extends Component {
           <input type="text" value={this.state.text} onChange={(event) => this.handleChange(event)}/>
           <input type="submit" />
         </form>
-      //   if(this.props.store.getState().reviews) {
-      //   < Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
-      // }
+        < Reviews store={this.props.store} restaurantId={this.props.restaurantId} />
       </div>
     );
   }

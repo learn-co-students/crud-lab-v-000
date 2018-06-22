@@ -4,8 +4,7 @@ export const cuidFn = cuid;
 export default function manageRestaurants(state = {restaurants: [], reviews: []}, action) {
   switch (action.type) {
     case 'ADD_RESTAURANT':
-      const id = cuid();
-      const restaurant = {text: action.restaurant.text, id: id};
+      const restaurant = {text: action.restaurant.text, id: cuid()};
       return { restaurants: state.restaurants.concat(restaurant) };
     case 'DELETE_RESTAURANT':
       const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id);

@@ -7,7 +7,7 @@ class Reviews extends Component {
       const reviews = this.props.store.getState().reviews.filter(review => review.restaurantId === this.props.restaurantId)
       return (
         <ul>
-          {reviews.map(review => {
+          {reviews.map((review) => {
             return < Review store={this.props.store} review={review} key={review.id} />
           })}
         </ul>
