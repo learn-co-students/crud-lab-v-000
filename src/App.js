@@ -7,6 +7,7 @@ export class App extends Component {
     return (
       <div className="App">
         <RestaurantInput store={this.props.store} />
+        <h1>Restaurants</h1>
         <Restaurants store={this.props.store}/>
       </div>
     );
