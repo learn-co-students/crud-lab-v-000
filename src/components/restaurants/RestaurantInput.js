@@ -16,7 +16,15 @@ class RestaurantInput extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('working!')
+    this.props.store.dispatch({
+      type: 'ADD_RESTAURANT',
+      restaurant: {
+        text: this.state.text,
+      }
+    })
+    this.setState({
+      text: ''
+    })
   }
 
   render() {
@@ -24,7 +32,7 @@ class RestaurantInput extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Add Restaurant: </label>
-          <input type="text" onChange={this.handleInputChange}/>
+          <input type="text" onChange={this.handleInputChange} value={this.state.text}/>
           <input type="submit"/>
         </form>
       </div>
