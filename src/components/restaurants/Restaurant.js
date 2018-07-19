@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class Restaurant extends Component {
   render() {
     return (
-      <div>
-      </div>
+      <li>
+        { this.props.restaurant.text }
+      </li>
     );
   }
 };
