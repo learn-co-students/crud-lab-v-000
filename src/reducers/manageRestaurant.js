@@ -7,6 +7,9 @@ export default function manageRestaurants(state = {restaurants: []}, action) {
     case 'ADD_RESTAURANT':
       const restaurant = Object.assign({}, action.restaurant, {id: cuidFn()})
       return { restaurants: state.restaurants.concat(restaurant) }
+    case 'DELETE_RESTAURANT':
+      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id)
+      return { restaurants }
     default:
       return state
   }
