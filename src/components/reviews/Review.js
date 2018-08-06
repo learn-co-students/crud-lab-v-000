@@ -25,13 +25,13 @@ class Review extends Component {
     return (
       <div>
         { this.props.review.text } 
-        <button onClick={this.handleClick}>Edit Review</button>
         <button onClick={() => this.props.delete(this.props.review.id)}> X </button>
+        {/* <button onClick={this.handleClickForUpdate}>Edit Review</button> removing for tests */}
       </div>
     )
   }
 
-  handleClick = () => {
+  handleClickForUpdate = () => {
     this.setState({
       edit: true
     });

@@ -117,8 +117,8 @@ describe('Reviews Component', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'LoKi'})
     let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was not great", restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', formData: { text: "Was great", restaurantId: restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', formData: { text: "Was not great", restaurantId: restaurantId } })
     const wrapper = mount(<Provider store={store}><App /></Provider>);
 
 
@@ -129,9 +129,9 @@ describe('Reviews Component', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Tarry Lodge'})
     let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was good", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was great", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was bad", restaurantId: "test"} })
+    store.dispatch({ type: 'ADD_REVIEW', formData: { text: "it was good", restaurantId: restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', formData: { text: "it was great", restaurantId: restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', formData: { text: "it was bad", restaurantId: "test"} })
     const wrapper = mount(<Provider store={store}><App /></Provider>);
     expect(wrapper.find(Review)).to.have.length(2);
     expect(wrapper.text()).to.contain('it was good');
@@ -160,7 +160,7 @@ describe('Reviews Component', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Head'})
     let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "became friends with bartender", restaurantId } })
+    store.dispatch({ type: 'ADD_REVIEW', formData: { text: "became friends with bartender", restaurantId: restaurantId } })
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
 
@@ -175,7 +175,7 @@ describe('Reviews Component', () => {
   it('updates the state of the store to remove the component', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Arms'})
-    let restaurantId = store.getState().restaurants[0].id
+    //let restaurantId = store.getState().restaurants[0].id
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
 

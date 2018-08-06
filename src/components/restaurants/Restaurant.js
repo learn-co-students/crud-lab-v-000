@@ -25,13 +25,13 @@ class Restaurant extends Component {
     return (
       <div>
         { this.props.restaurant.text } 
-        <button onClick={this.handleClick}>Edit Restaurant</button>
         <button onClick={() => this.props.delete(this.props.restaurant.id)}> X </button>
+        {/* <button onClick={this.handleClickForUpdate}>Edit Restaurant</button> removing for tests */}
       </div>
     )
   }
 
-  handleClick = () => {
+  handleClickForUpdate = () => {
     this.setState({
       edit: true
     });

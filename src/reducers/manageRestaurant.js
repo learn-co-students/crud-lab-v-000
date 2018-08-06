@@ -6,9 +6,9 @@ export default function manageRestaurants(state = {
     restaurants: [], 
     reviews: []
     }, action) {
-    console.log('action dispatched: ', action);
     switch(action.type){
         case 'ADD_RESTAURANT':
+            debugger
             const restaurant = {
                 id: cuid(),
                 text: action.formData
