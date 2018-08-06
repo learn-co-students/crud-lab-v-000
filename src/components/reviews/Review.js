@@ -2,15 +2,61 @@ import React, { Component } from 'react';
 
 class Review extends Component {
 
-  render() {
-    const { review } = this.props
+  constructor(props){
+    super(props);
 
+    this.state = {
+      edit: false,
+      text: this.props.review.text,
+      id: this.props.review.id
+    }
+  }
+
+  renderForm = () => {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type='text' onChange={this.handleChange} value={this.state.text}/>
+        <input type='submit' value='Edit' />
+      </form>
+    )
+  }
+
+  renderReviewDetails = () => {
+    return (
+      <div>
+        { this.props.review.text } 
+        <button onClick={this.handleClick}>Edit Review</button>
+        <button onClick={() => this.props.delete(this.props.review.id)}> X </button>
+      </div>
+    )
+  }
+
+  handleClick = () => {
+    this.setState({
+      edit: true
+    });
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      text: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.update(this.state);
+    this.setState({
+      edit: false
+    });
+  }
+
+  render() {
     return (
       <div>
         <li>
-          {review.text}
+          { this.state.edit ? this.renderForm() : this.renderReviewDetails() }
         </li>
-        <button> X </button>
       </div>
     );
   }
