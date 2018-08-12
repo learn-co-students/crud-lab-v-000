@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import Review from './Review';
 
 class Reviews extends Component {
-  renderReviews = () => {
-    return this.props.reviews.map((review) => <Review id={review.id} key={review.id} review={review} />)
-  }
+
   render() {
+    const { reviews, restaurantId, deleteReview} = this.props;
+ const restaurantReviews = reviews.filter(review => review.restaurantId === restaurantId);
+  const reviewList = restaurantReviews.map((review, index) => {
+   return <Review key={index} review={review} deleteReview={deleteReview} />
+ })
+
     return (
       <ul>
-        {this.renderReviews()}
+        {reviewList}
       </ul>
     );
   }

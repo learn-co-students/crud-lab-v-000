@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       text: ''
     }
@@ -17,10 +17,11 @@ class ReviewInput extends Component {
 
   handleReviewSubmit = e => {
     e.preventDefault()
-    this.props.addReview(this.state.text)
+     this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId })
     this.setState({
       text: ''
     })
+    console.log(this.props)
   }
   render() {
     return (
@@ -29,6 +30,7 @@ class ReviewInput extends Component {
           <input type="text" value={this.state.text} onChange={(e) => this.handleChange(e)} />
           <input type="submit" />
         </form>
+
       </div>
     );
   }
