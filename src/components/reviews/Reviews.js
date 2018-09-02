@@ -7,7 +7,7 @@ class Reviews extends Component {
     const relatedReviews = this.props.reviews.filter(review => review.restaurantId === this.props.restaurantId)
     
     const reviewList = relatedReviews.map(review => {
-      return <Review key={review.id} review={review} deleteReview={deleteReview} />
+      return <Review key={review.id} review={review} deleteReview={this.props.deleteReview} />
     })
 
     return (
