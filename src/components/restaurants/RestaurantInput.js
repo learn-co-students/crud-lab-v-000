@@ -6,7 +6,6 @@ class RestaurantInput extends Component {
     super(props);
     this.state = {
       text: '',
-      id: 0,
     }
   }
 
