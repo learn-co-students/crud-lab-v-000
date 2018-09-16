@@ -5,11 +5,13 @@ class ReviewInput extends Component {
   state = {
     text: ""
   };
+
   handleOnChange(event) {
     this.setState({
       text: event.target.value
     });
   }
+
   handleOnSubmit(event) {
     event.preventDefault();
     this.props.addReview({
@@ -20,6 +22,7 @@ class ReviewInput extends Component {
       text: ""
     });
   }
+
   render() {
     return (
       <div>

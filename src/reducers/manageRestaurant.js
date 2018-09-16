@@ -14,11 +14,11 @@ export default function manageRestaurants(
         id: cuid(),
         text: action.name
       };
-
       return {
         ...state,
         restaurants: [...state.restaurants, restaurant]
       };
+
     case "DELETE_RESTAURANT":
       const restaurants = state.restaurants.filter(
         restaurant => restaurant.id !== action.id
@@ -31,11 +31,11 @@ export default function manageRestaurants(
         restaurantId: action.review.restaurantId,
         text: action.review.text
       };
-
       return {
         ...state,
         reviews: [...state.reviews, review]
       };
+
     case "DELETE_REVIEW":
       return {
         ...state,

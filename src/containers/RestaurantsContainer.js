@@ -18,10 +18,12 @@ class RestaurantsContainer extends Component {
 }
 
 const mapStateToProps = ({ restaurants }) => ({ restaurants });
+
 const mapDispatchToProps = dispatch => ({
   addRestaurant: name => dispatch({ type: "ADD_RESTAURANT", name }),
   deleteRestaurant: id => dispatch({ type: "DELETE_RESTAURANT", id })
 });
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
