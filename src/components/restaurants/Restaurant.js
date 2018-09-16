@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import ReviewsContainer from '../../containers/ReviewsContainer'
+import React, { Component } from "react";
+import ReviewsContainer from "../../containers/ReviewsContainer";
 
 class Restaurant extends Component {
-
-
   render() {
     const { restaurant } = this.props;
 
@@ -11,12 +9,21 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button> X </button>
-          <ReviewsContainer restaurant={restaurant}/>
+          <button
+            onClick={
+              this.props.deleteRestaurant
+                ? this.props.deleteRestaurant.bind(null, restaurant)
+                : ""
+            }
+          >
+            {" "}
+            X{" "}
+          </button>
+          <ReviewsContainer restaurant={restaurant} />
         </li>
       </div>
     );
   }
-};
+}
 
 export default Restaurant;
