@@ -3,6 +3,7 @@ import RestaurantsContainer from './containers/RestaurantsContainer';
 
 class App extends Component {
   render() {
+    
     return (
       <div className="App">
         <RestaurantsContainer />
