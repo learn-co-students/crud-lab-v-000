@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
 
 class Restaurant extends Component {
-
-
+  
+  handleClick = () => {
+    this.props.deleteRestaurant(this.props.restaurant.id);
+  }
+  
   render() {
     const { restaurant } = this.props;
-    console.log("inside R single class")
     
     return (
-      // <div>
+      <div>
         <li>
-          {restaurant.text}???
-          <button> X </button>
-          {/* <ReviewsContainer restaurant={restaurant}/> */}
+          {restaurant.text}
+          <button onClick={this.handleClick}> X </button> 
+          <ReviewsContainer restaurant={restaurant}/>
         </li>
-      // </div>
+      </div>
     );
   }
 };
