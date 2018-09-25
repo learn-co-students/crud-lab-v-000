@@ -6,15 +6,16 @@ class Restaurant extends Component {
 
   render() {
     const { restaurant } = this.props;
-
+    console.log("inside R single class")
+    
     return (
-      <div>
+      // <div>
         <li>
-          {restaurant.text}
+          {restaurant.text}???
           <button> X </button>
-          <ReviewsContainer restaurant={restaurant}/>
+          {/* <ReviewsContainer restaurant={restaurant}/> */}
         </li>
-      </div>
+      // </div>
     );
   }
 };
