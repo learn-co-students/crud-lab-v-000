@@ -6,7 +6,7 @@ class RestaurantInput extends Component {
     text: ''
   }
 
-  handleOnKeyDown(event) {
+  handleOnChange(event) {
     this.setState({
       text: event.target.value,
     });
@@ -27,7 +27,7 @@ class RestaurantInput extends Component {
           <input
             type="text"
             value={this.state.text}
-            onKeyDown={(event) => this.handleOnKeyDown(event)} />
+            onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" />
         </form>
       </div>
