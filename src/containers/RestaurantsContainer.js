@@ -27,4 +27,4 @@ const mapStateToProps = state => {
   return {restaurants: state.restaurants}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (RestaurantsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)

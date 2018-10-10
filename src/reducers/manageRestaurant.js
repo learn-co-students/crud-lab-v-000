@@ -6,7 +6,7 @@ export default function manageRestaurants(state = {
     restaurants: [],
      reviews: []
     }, action) {
-    // debugger;
+    debugger;
     switch (action.type) {
         case "ADD_RESTAURANT":
             const resaurant = {id: cuidFn(), text: action.text}
