@@ -26,17 +26,20 @@ describe('ReviewInput Component', () => {
   });
 
   it('has a text input field', () => {
-    const wrapper = shallow(<ReviewInput />);
+    const store = createStore(manageRestaurant)
+    const wrapper = shallow(<ReviewInput store={store} />).dive();
     expect(wrapper.find('input').first().type()).to.equal('input');
   });
 
   it('has an initial state with text key set to empty string', () => {
-    const wrapper = shallow(<ReviewInput />);
+    const store = createStore(manageRestaurant)
+    const wrapper = shallow(<ReviewInput store={store} />).dive();
     expect(wrapper.state('text')).to.equal('');
   });
 
   it('has changes the state on a keydown', () => {
-    const wrapper = shallow(<ReviewInput />);
+    const store = createStore(manageRestaurant)
+    const wrapper = shallow(<ReviewInput store={store} />).dive();
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Hello' } });
@@ -117,10 +120,11 @@ describe('Reviews Component', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'LoKi'})
     let restaurantId = store.getState().restaurants[0].id
+
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId } })
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was not great", restaurantId } })
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
 
+    const wrapper = mount(<Provider store={store}><App /></Provider>)
 
     expect(wrapper.find(Review)).to.have.length(2);
   });
@@ -132,7 +136,9 @@ describe('Reviews Component', () => {
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was good", restaurantId } })
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was great", restaurantId } })
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was bad", restaurantId: "test"} })
+
     const wrapper = mount(<Provider store={store}><App /></Provider>);
+
     expect(wrapper.find(Review)).to.have.length(2);
     expect(wrapper.text()).to.contain('it was good');
     expect(wrapper.text()).to.not.contain('bad');
