@@ -25,6 +25,12 @@ export default function manageRestaurants
 
         case "ADD_REVIEW":
             console.log("ADD_REVIEW called")
+            const review = {
+                id: cuid(),
+                restaurantId: action.restaurantId,
+                text: action.text
+            }
+            return {...state, reviews: [...state.reviews, review]}
 
         default:
             return state
