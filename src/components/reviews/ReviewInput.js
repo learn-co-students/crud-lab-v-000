@@ -18,7 +18,7 @@ class ReviewInput extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.dispatch({type: "ADD_REVIEW", text: this.state.text, restaurantId: this.props.restaurantId})
+    this.props.dispatch({type: "ADD_REVIEW", review: {text: this.state.text, restaurantId: this.props.restaurantId}})
     this.setState({
       text: ''
     })
@@ -30,7 +30,7 @@ class ReviewInput extends Component {
         <form onSubmit={this.handleSubmit}>
           <p>
             <label>Add your review:</label>
-            <textarea name="reviewTextarea" value={this.state.text} onChange={this.handleChange} />
+            <input type="text" value={this.state.text} onChange={this.handleChange} />
           </p>
           <input type="submit" />
         </form>

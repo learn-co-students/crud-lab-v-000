@@ -15,17 +15,20 @@ configure({ adapter: new Adapter() })
 
 describe('RestaurantInput', () => {
   it('has an text input field', () => {
-    const wrapper = shallow(<RestaurantInput />);
+    const store = createStore(manageRestaurant)
+    const wrapper = shallow(<RestaurantInput store={store} />).dive();
     expect(wrapper.find('input').first().type()).to.equal('input');
   });
 
   it('has an initial state with text key set to empty string', () => {
-    const wrapper = shallow(<RestaurantInput />);
+    const store = createStore(manageRestaurant)
+    const wrapper = shallow(<RestaurantInput store={store} />).dive();
     expect(wrapper.state('text')).to.equal('');
   });
 
   it('changes the state on a keydown', () => {
-    const wrapper = shallow(<RestaurantInput />);
+    const store = createStore(manageRestaurant)
+    const wrapper = shallow(<RestaurantInput store={store} />).dive();
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Hello' } });
