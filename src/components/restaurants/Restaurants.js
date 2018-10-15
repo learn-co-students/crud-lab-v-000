@@ -22,4 +22,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Restaurants);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteRestaurant: id => dispatch({type: "DELETE_RESTAURANT", id: id})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurants);
