@@ -17,6 +17,9 @@ export default function manageRestaurants
                 id: cuid(),
                 text: action.text
             }
-            return {...state, }
+            return {...state, restaurants: [...state.restaurants, restaurant]}
+        
+        default:
+            return state
     }
 }
