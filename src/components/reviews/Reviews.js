@@ -9,14 +9,13 @@ class Reviews extends Component {
   )
 
   renderReviews = () => this.reviewsFilteredByRestaurant().map(review =>
-    <Review key={review.id} delete={id => this.props.deleteReview(id)} review={review} />
+    <Review key={review.id} delete={this.props.deleteReview} review={review} />
   )
 
   render() {
     return (
       <ul>
         {this.renderReviews()}
-        Reviews
       </ul>
     );
   }
