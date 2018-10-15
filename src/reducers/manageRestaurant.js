@@ -23,6 +23,9 @@ export default function manageRestaurants
             console.log("DELETE_RESTAURANT called")
             return {...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
 
+        case "ADD_REVIEW":
+            console.log("ADD_REVIEW called")
+
         default:
             return state
     }
