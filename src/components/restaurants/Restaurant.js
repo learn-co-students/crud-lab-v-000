@@ -5,7 +5,9 @@ class Restaurant extends Component {
   handleDelete = () => { this.props.deleteRestaurant(this.props.restaurant.id) }
 
   render() {
+    console.log(this.props)
     const { restaurant } = this.props;
+    console.log(restaurant)
     return (
       <div>
         <li>
