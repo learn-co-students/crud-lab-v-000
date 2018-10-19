@@ -8,12 +8,11 @@ import { addReview, deleteReview } from '../actions/Reviews';
 class ReviewsContainer extends Component {
 
   render() {
-    console.log("reviews container",this.props);
     return (
       <div>
         <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id} />
         <Reviews deleteReview={this.props.deleteReview} 
-          reviews={this.props.reviews.reviews.filter( review => review.restaurantId === this.props.restaurant.id)} />
+          reviews={this.props.reviews.filter( review => review.restaurantId === this.props.restaurant.id)} />
       </div>
     )
   }

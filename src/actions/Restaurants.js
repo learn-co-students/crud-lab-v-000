@@ -11,3 +11,4 @@ export const deleteRestaurant = (id) => {
     id: id
   };
 };
+
