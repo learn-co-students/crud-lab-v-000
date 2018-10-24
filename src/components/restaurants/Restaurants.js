@@ -4,9 +4,9 @@ import Restaurant from './Restaurant'
 class Restaurants extends Component {
 
   renderRestaurants = () => {
-    return this.props.restaurants.map((r, idx) => {
+    return this.props.restaurants.map((r) => {
       return (
-        <Restaurant idx={idx} text={r.text} />
+        <Restaurant restaurant={r} />
       )
     })
   }

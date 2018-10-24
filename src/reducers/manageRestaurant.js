@@ -7,6 +7,7 @@ export default function manageRestaurants(state = {
 }, action) {
 
   const restaurant = {
+    id: Math.random()*10000000000000000,
     text: action.formData
   }
 
