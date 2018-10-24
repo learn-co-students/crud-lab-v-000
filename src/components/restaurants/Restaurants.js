@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Restaurant from './Restaurant'
+import Restaurant from './Restaurant';
+import { connect } from 'react-redux'
 
 class Restaurants extends Component {
 
   renderRestaurants = () => {
     return this.props.restaurants.map((r) => {
       return (
-        <Restaurant restaurant={r} />
+        <Restaurant deleteRestaurant={this.props.deleteRestaurant} restaurant={r} />
       )
     })
   }

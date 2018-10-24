@@ -16,6 +16,9 @@ export default function manageRestaurants(state = {
     case 'ADD_RESTAURANT':
       return { restaurants: [...state.restaurants, restaurant] }
     
+    case 'DELETE_RESTAURANT':
+      return { restaurants: state.restaurants.filter(r => r.id !== action.formData)}
+
     default:
       return state
     }
