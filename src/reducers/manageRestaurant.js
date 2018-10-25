@@ -29,14 +29,16 @@ function manageRestaurants(state = [], action) {
 }
 
 function manageReviews(state = [], action) {
-  const review = {
-    id: cuid(),
-    text: action.formData
-  }
-
+  
   switch (action.type) {
 
     case 'ADD_REVIEW':
+      const review = {
+        id: cuid(),
+        text: action.formData.text,
+        restaurantId: action.formData.restaurantId
+      }
+  
       return [...state, review]
 
     default:
