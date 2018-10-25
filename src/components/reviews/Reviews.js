@@ -10,12 +10,12 @@ class Reviews extends Component {
   }
 
   render() {
-    return (
-      <ul>
-        { this.reviewz() }
-      </ul>
-    );
-  }
+      return (
+        <ul>
+          { this.reviewz() }
+        </ul>
+      );
+    }
 };
 
 export default Reviews;
