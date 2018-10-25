@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
+import { connect } from 'react-redux'
 
 class ReviewsContainer extends Component {
 
@@ -14,4 +15,4 @@ class ReviewsContainer extends Component {
   }
 }
 
-export default ReviewsContainer
+export default connect()(ReviewsContainer)
