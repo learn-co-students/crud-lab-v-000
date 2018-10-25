@@ -33,7 +33,7 @@ function manageReviews(state = [], action) {
   switch (action.type) {
 
     case 'ADD_REVIEW':
-      debugger;
+      
       const review = {
         id: cuid(),
         text: action.review.text,
@@ -41,6 +41,12 @@ function manageReviews(state = [], action) {
       }
   
       return [...state, review]
+
+    case 'DELETE_REVIEW':
+      
+      return state.filter(r => 
+        r.id !== action.id
+      )
 
     default:
       return state

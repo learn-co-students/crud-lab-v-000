@@ -6,7 +6,7 @@ class Reviews extends Component {
     return this.props.reviews.filter(r => {
       return r.restaurantId === this.props.restaurantId
     }).map(r => {
-      return <Review review={r} />
+      return <Review deleteReview={this.props.deleteReview} review={r} />
     })
   }
 
