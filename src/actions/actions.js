@@ -13,7 +13,9 @@ export const removeReview = id => ({
     id
 })
 
-export const removeRestaurant = id => ({
+export const removeRestaurant = id => {
+    console.log("Anything", id)
+    return {
     type: 'REMOVE_RESTAURANT',
-    id
-})
+    id}
+}

@@ -24,7 +24,7 @@ export default function manageRestaurants(
         case 'REMOVE_REVIEW':
 
             return {...state, reviews: state.reviews.filter(review => review.id !== action.id)}
-        case 'REMOVE_REVIEW':
+        case 'REMOVE_RESTAURANT':
             return{...state, restaurants: state.restaurants.filter(rest => rest.id !== action.id),
                     reviews: state.reviews.filter(review => review.restaurantId !== action.id)}
         default:
