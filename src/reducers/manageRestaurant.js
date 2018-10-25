@@ -33,10 +33,11 @@ function manageReviews(state = [], action) {
   switch (action.type) {
 
     case 'ADD_REVIEW':
+      debugger;
       const review = {
         id: cuid(),
-        text: action.formData.text,
-        restaurantId: action.formData.restaurantId
+        text: action.review.text,
+        restaurantId: action.review.restaurantId
       }
   
       return [...state, review]
