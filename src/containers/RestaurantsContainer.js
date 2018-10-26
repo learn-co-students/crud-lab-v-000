@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import RestaurantInput from '../components/restaurants/RestaurantInput'
 import Restaurants from '../components/restaurants/Restaurants'
 import {connect} from 'react-redux';
-import {addRestaurant, removeRestaurant} from '../actions/actions.js'
+import {addRestaurant, removeRestaurant, updateRestaurant} from '../actions/actions.js'
 
 class RestaurantsContainer extends Component {
 
@@ -10,7 +10,7 @@ class RestaurantsContainer extends Component {
     return (
       <div>
         <RestaurantInput addRestaurant={this.props.addRestaurant}/>
-        <Restaurants delete={this.props.removeRestaurant} restaurantList={this.props.restaurants}/>
+        <Restaurants delete={this.props.removeRestaurant} update={this.props.updateRestaurant} restaurantList={this.props.restaurants}/>
       </div>
     )
   }
@@ -19,4 +19,4 @@ class RestaurantsContainer extends Component {
 const mapStoreToProps = (state) =>{
   return {restaurants: state.restaurants}
 }
-export default connect(mapStoreToProps,{addRestaurant, removeRestaurant})(RestaurantsContainer)
+export default connect(mapStoreToProps,{addRestaurant, removeRestaurant, updateRestaurant})(RestaurantsContainer)

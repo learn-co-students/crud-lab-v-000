@@ -19,3 +19,8 @@ export const removeRestaurant = id => {
     type: 'REMOVE_RESTAURANT',
     id}
 }
+
+export const updateRestaurant = restaurant => ({
+    type: 'UPDATE_RESTAURANT',
+    restaurant
+})
