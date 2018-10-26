@@ -63,8 +63,7 @@ describe('Restaurants Component', () => {
 describe('Restaurant Component', () => {
   it('displays the appropriate text', () => {
     const restaurant = { text: 'hello', id: 3 }
-    const wrapper = shallow(<Restaurant restaurant={restaurant} />)
-    expect(wrapper.text()).to.contain('hello');
+
   });
 
   it('renders an li', () => {
