@@ -1,17 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react';
 import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 
-class ReviewsContainer extends Component {
 
-  render() {
+const ReviewsContainer = props => {
     return (
       <div>
-        <ReviewInput />
-        <Reviews />
+        <ReviewInput
+          reviews={props.reviews}
+          addReview={props.addReview}
+          deleteReview={props.deleteReview}
+          restaurantId={props.restaurantId}
+        />
+        <Reviews
+          reviews={props.reviews}
+          addReview={props.addReview}
+          deleteReview={props.deleteReview}
+          restaurantId={props.restaurantId}
+        />
       </div>
     )
-  }
 }
 
 export default ReviewsContainer
