@@ -9,7 +9,7 @@ class Reviews extends Component {
 
     const associatedReviews = reviews.filter(review => review.restaurantId === restaurantId)
 
-    const reviewList = associatedReviews.map(review => <Review key={review.id} review={review} deleteReview={deleteReview}/>)
+    const reviewList = associatedReviews.map((review, index) => <Review key={index} review={review} deleteReview={deleteReview}/>)
 
     return (
       <div>
