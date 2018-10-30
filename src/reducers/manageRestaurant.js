@@ -10,25 +10,24 @@ export default function manageRestaurants(state = {
     case 'ADD_RESTAURANT':
 
       const restaurant = {
-        id: cuid(),
+        id: cuidFn(),
         text: action.payload,
         reviews: []
       }
-
-      return {...state, restaurants: state.restaurants.concat(restaurant) }
+      return {...state, restaurants: [...state.restaurants, restaurant] }
 
     case 'DELETE_RESTAURANT':
-
-      return {...state, restaurants: state.restaurants.filter(restaurant =>
-        restaurant.id !== action.payload)}
+      const restaurants = state.restaurants.filter(restaurant =>
+        restaurant.id !== action.payload)
+      return {...state, restaurants }
 
     case 'ADD_REVIEW':
-      const review = {text: action.payload, restaurantId: action.restaurantId, id: cuid()}
-
-      return {...state, reviews: state.reviews.concat(review) }
+      const review = {text: action.payload, restaurantId: action.restaurantId, id: cuidFn()}
+      return {...state, reviews: [...state.reviews, review] }
 
     case 'DELETE_REVIEW':
-      return {...state, reviews: state.reviews.filter(review => review.id !== action.payload)}
+      const reviews = state.reviews.filter(review => review.id !== action.id)
+      return {...state, reviews }
 
     default:
       return state
