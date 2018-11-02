@@ -9,13 +9,14 @@ export default function manageRestaurants(
   
   switch ( action.type ) {
     case "ADD_RESTAURANT":
-      debugger
-      console.log("Adding Restaurant")
-      return { ...state, restaurants: [...state.restaurants, action.restaurant] }
+      const restaurant = { text: action.restaurant.text, id: cuidFn() };
+      return { ...state, restaurants: [...state.restaurants, restaurant ]}
     default:
       return state
   }
 }
+
+
 // export default function manageRestaurants( 
 //   state = {
 //     restaurants: [],
