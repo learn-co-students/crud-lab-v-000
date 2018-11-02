@@ -6,12 +6,16 @@ class RestaurantInput extends Component {
     text: ''
   }
 
-  handleChange(event){
+  handleChange(e){
     this.setState({
-      text: event.target.value
+      text: e.target.value
     })
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.addRestaurant(this.state);
+  }
 
   render() {
     return (

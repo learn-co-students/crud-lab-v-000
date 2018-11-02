@@ -9,14 +9,31 @@ export default function manageRestaurants(
   
   switch ( action.type ) {
     case "ADD_RESTAURANT":
-      return // code to add restaurant
-    case "DELETE_RESTAURANT":
-      return // code to delete restaurant
-    case "ADD_REVIEW":
-      return //code to add new review
-    case "DELETE_REVIEW":
-      return //delete review
+      debugger
+      console.log("Adding Restaurant")
+      return { ...state, restaurants: [...state.restaurants, action.restaurant] }
     default:
       return state
   }
 }
+// export default function manageRestaurants( 
+//   state = {
+//     restaurants: [],
+//     reviews: []
+//   }, action) {
+  
+//   switch ( action.type ) {
+//     case "ADD_RESTAURANT":
+//       debugger
+//       console.log("hit the reducer")
+//       return [...state].concat(action.restaurants)
+//     case "DELETE_RESTAURANT":
+//       return // code to delete restaurant
+//     case "ADD_REVIEW":
+//       return //code to add new review
+//     case "DELETE_REVIEW":
+//       return //delete review
+//     default:
+//       return state
+//   }
+// }
