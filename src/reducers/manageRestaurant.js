@@ -9,8 +9,10 @@ export default function manageRestaurants(
   
   switch ( action.type ) {
     case "ADD_RESTAURANT":
-      const restaurant = { text: action.restaurant.text, id: cuidFn() };
+      const restaurant = { text: action.text, id: cuidFn() };
       return { ...state, restaurants: [...state.restaurants, restaurant ]}
+    case "DELETE_RESTAURANT":
+       return {restaurants: state.restaurants.filter( restaurant => restaurant.id !== action.id)};
     default:
       return state
   }

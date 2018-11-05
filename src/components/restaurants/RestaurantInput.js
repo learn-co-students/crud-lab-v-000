@@ -14,7 +14,7 @@ class RestaurantInput extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addRestaurant(this.state);
+    this.props.addRestaurant(this.state.text);
     this.setState({
       text: ''
     })
@@ -33,7 +33,6 @@ class RestaurantInput extends Component {
           />
           <input type="submit" />
         </form>
-        {this.state.text}
       </div>
     );
   }
