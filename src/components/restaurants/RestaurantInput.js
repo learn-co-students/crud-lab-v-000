@@ -12,9 +12,12 @@ class RestaurantInput extends Component {
     })
   }
 
-  handleSubmit(e){
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.addRestaurant(this.state);
+    this.setState({
+      text: ''
+    })
   }
 
   render() {
