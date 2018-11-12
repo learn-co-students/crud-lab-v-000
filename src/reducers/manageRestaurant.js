@@ -7,7 +7,7 @@ export default function manageRestaurants(state ={restaurants: []}, action) {
     case 'ADD_RESTAURANT':
   	 const restaurant = {
         id: Math.random()*10000000000000000,
-        name: action.restaurant
+        text: action.restaurant
         }
       return { ...state, restaurants: [...state.restaurants, restaurant] }
       case 'DELETE_BAND':
