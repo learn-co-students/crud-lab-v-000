@@ -22,10 +22,10 @@ export default function manageRestaurants(state = {restaurants: [], reviews: []}
           restaurantId: action.review.restaurantId,
           text: action.review.text
         }
-        return {...state, review: [...state.reviews, review]}
+        return {...state, reviews: [...state.reviews, review]}
 
       case 'DELETE_REVIEW':
-        return {...state, review: state.reviews.filter(review => review.id !== action.id)}
+        return {...state, reviews: state.reviews.filter(review => review.id !== action.id)}
 
       default:
         return state
