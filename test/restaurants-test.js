@@ -21,15 +21,15 @@ describe('RestaurantInput', () => {
 
   it('has an initial state with text key set to empty string', () => {
     const wrapper = shallow(<RestaurantInput />);
-    expect(wrapper.state('text')).to.equal('');
+    expect(wrapper.state('name')).to.equal('');
   });
 
   it('changes the state on a keydown', () => {
     const wrapper = shallow(<RestaurantInput />);
-    expect(wrapper.state('text')).to.equal('');
+    expect(wrapper.state('name')).to.equal('');
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Hello' } });
-    expect(wrapper.state('text')).to.equal('Hello');
+    expect(wrapper.state('name')).to.equal('Hello');
   });
 
   it('updates the state of the store after submitting the form', () => {
@@ -43,7 +43,7 @@ describe('RestaurantInput', () => {
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
     // console.log(store.getState());
-    expect(store.getState().restaurants[0].text).to.equal('Hello')
+    expect(store.getState().restaurants[0].name).to.equal('Hello')
   });
 
 });
@@ -62,7 +62,7 @@ describe('Restaurants Component', () => {
 
 describe('Restaurant Component', () => {
   it('displays the appropriate text', () => {
-    const restaurant = { text: 'hello', id: 3 }
+    const restaurant = { name: 'hello', id: 3 }
     const wrapper = shallow(<Restaurant restaurant={restaurant} />)
     expect(wrapper.text()).to.contain('hello');
   });
@@ -90,8 +90,8 @@ describe('RestaurantInput Component with Redux', () => {
       return restaurant.id
     })
 
-    expect(store.getState().restaurants[0].text).to.equal('Sbarro')
-    expect(store.getState().restaurants[1].text).to.equal('La Villa')
+    expect(store.getState().restaurants[0].name).to.equal('Sbarro')
+    expect(store.getState().restaurants[1].name).to.equal('La Villa')
     expect(new Set(ids).size === ids.length).to.equal(true)
   });
 });
@@ -153,7 +153,7 @@ describe('Restaurant Component with Redux', () => {
     deleteButton.simulate('click');
 
     expect(store.getState().restaurants.length).to.equal(1);
-    expect(store.getState().restaurants[0].text).to.equal('Chip Shop');
+    expect(store.getState().restaurants[0].name).to.equal('Chip Shop');
 
     input.simulate('change', { target: { value: 'Song' } });
     form.simulate('submit',  { preventDefault() {} });
@@ -163,6 +163,6 @@ describe('Restaurant Component with Redux', () => {
     deleteButton.simulate('click');
 
     expect(store.getState().restaurants.length).to.equal(1);
-    expect(store.getState().restaurants[0].text).to.equal('Chip Shop');
+    expect(store.getState().restaurants[0].name).to.equal('Chip Shop');
   });
 });
