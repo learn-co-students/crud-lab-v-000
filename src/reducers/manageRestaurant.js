@@ -1,34 +1,47 @@
-import uuid from "uuid";
+import cuid from 'cuid';
+export const cuidFn = cuid;
 
-const initialState = {
+export default function manageRestaurants(state = {
   restaurants: [],
-  reviews:[]
-}
-const manageRestaurant = (state = initialState, action) => {
-  switch(action.type) {
-    case 'ADD':
-    const rest = {name: action.name, id: uuid()}
-    return {
-      ...state, restaurants: [...state.restaurants, rest]
-    }
+  reviews: []
+}, action) {
+  switch (action.type) {
+    case 'ADD_RESTAURANT':
+
+      const restaurant = {
+        id: cuid(),
+        text: action.text
+      }
+
+      return {
+        ...state, restaurants: [...state.restaurants, restaurant]
+      }
+
     case 'DELETE_RESTAURANT':
-    let newArr = state.restaurants.filter(rest => rest.id !== action.id)
-    return {
-      restaurants: newArr
-    }
+
+      return {
+        ...state, restaurants: state.restaurants.filter(rest => rest.id !== action.restaurantId)
+      }
+
     case 'ADD_REVIEW':
-    const rev = {text: action.review.text, id: uuid(), restaurantId: action.review.restaurantId}
-    return {
-      ...state, reviews:[...state.reviews, rev]
-    }
+
+      const review = {
+        id: cuid(),
+        restaurantId: action.review.restaurantId,
+        text: action.review.text
+      }
+
+      return {
+        ...state, reviews: [...state.reviews, review]
+      }
+
     case 'DELETE_REVIEW':
-    let newRarr = state.reviews.filter(rev => rev.id !== action.id)
-    return {
-      ...state, reviews: newRarr
-    }
+
+      return {
+        ...state, reviews: state.reviews.filter(rev => rev.id !== action.reviewId)
+      }
+
     default:
-    return state;
+      return state;
   }
 }
-
-export default manageRestaurant
