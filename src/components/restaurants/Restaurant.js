@@ -8,12 +8,13 @@ class Restaurant extends Component {
   }
 
   render() {
+    debugger
     const  restaurant = this.props.restaurant;
     return (
       <div>
         <li>
           {restaurant.text}
-          <button onClick={this.handleOnClick}> X </button>
+          <button onClick={() => this.handleOnClick()}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
