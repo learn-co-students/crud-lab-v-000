@@ -21,6 +21,11 @@ const manageRestaurant = (state = initialState, action) => {
     return {
       ...state, reviews:[...state.reviews, rev]
     }
+    case 'DELETE_REVIEW':
+    let newRarr = state.reviews.filter(rev => rev.id !== action.id)
+    return {
+      ...state, reviews: newRarr
+    }
     default:
     return state;
   }

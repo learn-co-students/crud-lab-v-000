@@ -6,7 +6,7 @@ class Reviews extends Component {
   render() {
     debugger
     const reviewsList = this.props.reviews.map(rev => {
-      return (<Reviews key={rev.id} review={rev} />)
+      return (<Review key={rev.id} review={rev} deleteReview={this.props.deleteReview}/>)
     })
     return (
       <ul>
