@@ -4,7 +4,7 @@ class Review extends Component {
 
   render() {
     const { review } = this.props
-
+debugger
     return (
       <div>
         <li>
