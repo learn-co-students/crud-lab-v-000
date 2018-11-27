@@ -9,7 +9,7 @@ class Review extends Component {
     return (
       <div>
         <li>
-          {review.text}
+          {this.props.review.text}
         </li>
         <button onClick={this.handleOnClick}> X </button>
       </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class RestaurantInput extends Component {
   state = {
-    text: ''
+    text: '',
   }
 
   handleOnChange(event) {
@@ -22,6 +22,7 @@ class RestaurantInput extends Component {
   render() {
     return (
       <div>
+        New Restaurant
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input
             type="text"
