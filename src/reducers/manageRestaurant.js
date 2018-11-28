@@ -3,36 +3,44 @@ import cuid from 'cuid';
 export const cuidFn = cuid;
 
 export default function manageRestaurants(state = {
- restaurants: []
+ restaurants: [],
+ reviews: []
 }, action) { 
   switch (action.type) {
     case 'ADD_RESTAURANT':
-debugger
 
       const restaurant = {
           id: cuidFn(),
-          name: action.payload
+          text: action.payload
       }
 
       return { ...state, restaurants: [...state.restaurants, restaurant] }
     
     case 'DELETE_RESTAURANT':
-debugger
-      return { restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
-    case 'ADD_REVIEW':
-debugger 
-      //const review	
-     //state.restaurants.filter(restaurant => restaurant.id === action.id)
-     const reviews = state.restaurants.map(restaurant =>{ 
-        let result = {};
-	if (restaurant.id == action.id) {
-    	  result[restaurant.review] = 'Here goes the action value. This should be the review content from the input';
-	  return result;
-	}
-     });
 
-  return { ...state }
-      //return { reviews: state.restaurants.filter(restaurant => restaurant.id === action.id) }
+      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id)
+
+      return { ...state, restaurants}
+
+    case 'ADD_REVIEW':
+
+     const review = {
+	restaurantId: action.review.restaurantId,
+	id: cuidFn(),
+	text: action.review.text
+     }
+	
+      if(state.reviews){
+        return {...state, reviews:[...state.reviews, review]}
+      } else {
+        return { ...state, reviews: [review]}
+      }
+
+    case 'DELETE_REVIEW':
+
+     const reviews = state.reviews.filter(review => review.id !== action.id) 
+
+     return { ...state, reviews }
 
     default:
       return state;

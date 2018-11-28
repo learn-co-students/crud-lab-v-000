@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
+import {connect} from 'react-redux';
 
-class Restaurant extends Component {
+const Restaurant = props => {
 
-  render() {
-	  debugger
-    const { restaurant } = this.props;
+  const handleOnClick = e => {
+    e.preventDefault();
+
+    props.deleteRestaurant(e.target.id)
+  }
+
+    const { restaurant } = props;
 
     return (
       <div>
         <li>
-          {restaurant.name}
-          <button onClick={ this.props.delete(restaurant.id) }> X </button>
+          {restaurant.text}
+          <button id={restaurant.id} onClick={ handleOnClick }> X </button> 
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
     );
-  }
 };
 
 export default Restaurant;
