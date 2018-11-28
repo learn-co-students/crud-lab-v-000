@@ -3,16 +3,17 @@ import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
 
-class ReviewsContainer extends Component {
+//class ReviewsContainer extends Component {
+const ReviewsContainer = props => {
 
-  render() {
+  //render() {
     return (
       <div>
-        <ReviewInput restaurantId={this.props.restaurant.id}  addReview={this.props.addReview} restaurant={this.props.restaurant}/>
-	<Reviews restaurantId={this.props.restaurant.id} restaurant={this.props.restaurant} reviews={this.props.reviews} deleteReview={this.props.deleteReview} /> 
+        <ReviewInput restaurantId={props.restaurant.id}  addReview={props.addReview} restaurant={props.restaurant}/>
+	<Reviews restaurantId={props.restaurant.id} restaurant={props.restaurant} reviews={props.reviews} deleteReview={props.deleteReview} /> 
       </div>
     )
-  }
+  //}
 }
 
 const mapStateToProps = ({ reviews }) => ({ reviews })
