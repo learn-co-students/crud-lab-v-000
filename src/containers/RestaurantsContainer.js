@@ -3,16 +3,14 @@ import RestaurantInput from '../components/restaurants/RestaurantInput'
 import Restaurants from '../components/restaurants/Restaurants'
 import { connect } from 'react-redux'
 
-class RestaurantsContainer extends Component {
+const RestaurantsContainer = props => {
 
-  render() {
     return (
       <div>
-        <RestaurantInput addRestaurant={this.props.addRestaurant}/>
-        <Restaurants restaurants={this.props.restaurants} deleteRestaurant={ this.props.deleteRestaurant }/>
+        <RestaurantInput addRestaurant={props.addRestaurant}/>
+        <Restaurants restaurants={props.restaurants} deleteRestaurant={ props.deleteRestaurant }/>
       </div>
     )
-  }
 }
 
 const mapStateToProps = ({ restaurants }) => ({ restaurants })
