@@ -2,7 +2,6 @@ import { expect } from 'chai';
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme';
 import RestaurantInput from '../src/components/restaurants/RestaurantInput'
-// import RestaurantsContainer from '../src/containers/RestaurantsContainer'
 import sinon from 'sinon'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -14,25 +13,19 @@ import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
 
-describe.only('RestaurantInput', () => {
+describe('RestaurantInput', () => {
   it('has an text input field', () => {
-    const store = createStore(manageRestaurant);
-
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
+    const wrapper = shallow(<RestaurantInput />);
     expect(wrapper.find('input').first().type()).to.equal('input');
   });
 
   it('has an initial state with text key set to empty string', () => {
-    const store = createStore(manageRestaurant);
-    const wrapper = mount(<RestaurantInput store={store} />);
-    console.log('state', wrapper.state('text'))
+    const wrapper = shallow(<RestaurantInput />);
     expect(wrapper.state('text')).to.equal('');
   });
 
   it('changes the state on a keydown', () => {
-    const store = createStore(manageRestaurant);
-
-    const wrapper = mount(<RestaurantInput store={store} />);
+    const wrapper = shallow(<RestaurantInput />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Hello' } });
