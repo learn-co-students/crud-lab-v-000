@@ -24,7 +24,7 @@ describe.only('RestaurantInput', () => {
 
   it('has an initial state with text key set to empty string', () => {
     const store = createStore(manageRestaurant);
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
+    const wrapper = mount(<RestaurantInput store={store} />);
     console.log('state', wrapper.state('text'))
     expect(wrapper.state('text')).to.equal('');
   });
@@ -32,7 +32,7 @@ describe.only('RestaurantInput', () => {
   it('changes the state on a keydown', () => {
     const store = createStore(manageRestaurant);
 
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
+    const wrapper = mount(<RestaurantInput store={store} />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Hello' } });
