@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 
 class RestaurantInput extends Component {
-  constructor(props) {
-    super(props);
+
+  constructor() {
+    super();
     
     this.state = {
       text: ''
     };
   }
-
-  // state = {
-  //   text: 
-  // }
-
+  
   handleChange = event => {
     this.setState({
       text: event.target.value
@@ -35,7 +32,8 @@ class RestaurantInput extends Component {
           <input
             type="text"
             value={this.state.text}
-            onChange={this.handleChange}></input>
+            onChange={this.handleChange}
+          />
           <input type="submit" />
         </form>
       </div>
