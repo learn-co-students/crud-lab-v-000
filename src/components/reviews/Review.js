@@ -3,18 +3,17 @@ import React, { Component } from 'react';
 class Review extends Component {
 
   render() {
-    const { review } = this.props
-
+    const { review, restaurantId, deleteReview } = this.props;
     return (
-      <div>
-        <li>
+      <li>
+        <span>
           {review.text}
-        </li>
-        <button> X </button>
-      </div>
+        </span>
+        <button onClick={() => deleteReview(review.id)} > X </button>
+      </li>
     );
   }
 
-};
+}
 
 export default Review;
