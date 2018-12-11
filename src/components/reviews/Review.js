@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 class Review extends Component {
 
+
   render() {
-    const { review } = this.props
 
     return (
       <div>
         <li>
-          {review.text}
+          {this.props.review.text}
         </li>
-        <button> X </button>
+        <button onClick={() => this.props.deleteReview(this.props.review.id)}> X </button>
       </div>
     );
   }
@@ -18,3 +18,21 @@ class Review extends Component {
 };
 
 export default Review;
+
+
+
+
+// import React, { Component } from 'react';
+
+// class Band extends Component {
+
+//   render() {
+//     return(
+//       <div>
+//         <li>{this.props.name}</li><button onClick={() => this.props.deleteBand(this.props.id)}>DELETE</button>
+//       </div>      
+//     );
+//   }
+// };
+
+// export default Band;
