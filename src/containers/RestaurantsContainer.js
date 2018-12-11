@@ -29,18 +29,24 @@ export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer
 
 
 
-
 // import React, { Component } from 'react'
 // import BandInput from './BandInput';
-// import Bands from './Bands';
+// import Band from './Band'
+
 // import { connect } from 'react-redux'
 
 // class BandsContainer extends Component {
+
+//   renderBands = () => {
+//     return this.props.bands.map(band => <Band id={band.id} name={band.name} deleteBand={this.props.deleteBand} key={band.id} band={band} />)
+//   }
+
 //   render() {
 //     return (
 //       <div>
 //         <BandInput addBand={this.props.addBand}/>
-//         <Bands bands={this.props.bands} deleteBand={this.props.deleteBand}/>
+//         {this.renderBands()}
+    
 //       </div>
 //     )
 //   }
@@ -50,7 +56,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer
 
 // const mapDispatchToProps = dispatch => ({
 //   addBand: name => dispatch({ type: "ADD_BAND", name }),
-//   deleteBand: id => dispatch({type: "DELETE_BAND", id})
+//   deleteBand: id => dispatch({type: 'DELETE_BAND', id})
 // })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(BandsContainer)
+

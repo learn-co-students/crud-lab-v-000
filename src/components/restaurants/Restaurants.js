@@ -5,12 +5,12 @@ class Restaurants extends Component {
 
   render() {
 
-    const {restaurants, deleteRestaurant} = this.props
-    const restaurantArr = restaurants.map(restaurant => {
+    const restaurantArr = this.props.restaurants.map(restaurant => {
       return (
-        <Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={deleteRestaurant} />
+        <Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={this.props.deleteRestaurant} />
       )
     })
+
 
     return(
       <ul>
