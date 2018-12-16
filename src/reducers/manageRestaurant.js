@@ -9,7 +9,7 @@ export default function manageRestaurants(state = {
     case 'ADD_RESTAURANT':
 
       const restaurant = {
-        id: cuid(),
+        id: cuidFn(),
         text: action.text
       }
 
@@ -26,7 +26,7 @@ export default function manageRestaurants(state = {
     case 'ADD_REVIEW':
 
       const review = {
-        id: cuid(),
+        id: cuidFn(),
         restaurantId: action.review.restaurantId,
         text: action.review.text
       }
