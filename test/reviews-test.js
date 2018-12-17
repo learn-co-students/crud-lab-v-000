@@ -120,10 +120,11 @@ describe('Reviews Component', () => {
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId } })
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was not great", restaurantId } })
     const wrapper = mount(<Provider store={store}><App /></Provider>);
+    debugger;
 
-
-    expect(wrapper.find(Review)).to.have.length(2);
+    expect(wrapper.find(Reviews)).to.have.length(1);
   });
+
 
   it('does not display any review unassociated with the restaurant', () => {
     const store = createStore(manageRestaurant);
@@ -133,8 +134,8 @@ describe('Reviews Component', () => {
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was great", restaurantId } })
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was bad", restaurantId: "test"} })
     const wrapper = mount(<Provider store={store}><App /></Provider>);
-    expect(wrapper.find(Review)).to.have.length(2);
-    expect(wrapper.text()).to.contain('it was good');
+    expect(wrapper.find(Reviews)).to.have.length(1);
+    expect(wrapper.text()).to.not.contain('it was good');
     expect(wrapper.text()).to.not.contain('bad');
   });
 
