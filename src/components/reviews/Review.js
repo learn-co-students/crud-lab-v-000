@@ -13,8 +13,9 @@ class Review extends Component {
         <button> X </button>
       </div>
     );
-  }
+  } 
 
 };
 
 export default Review;
+ 

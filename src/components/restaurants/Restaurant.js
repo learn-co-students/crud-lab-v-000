@@ -1,22 +1,38 @@
 import React, { Component } from 'react';
-import ReviewsContainer from '../../containers/ReviewsContainer'
+import ReviewsContainer from '../../containers/ReviewsContainer';
+import { connect } from 'react-redux';
 
 class Restaurant extends Component {
 
-
+  handleOnClick = (id) => {
+    this.props.deleteRestaurant(id);
+  }
   render() {
-    const { restaurant } = this.props;
-
     return (
       <div>
         <li>
-          {restaurant.text}
-          <button> X </button>
-          <ReviewsContainer restaurant={restaurant}/>
+          {this.props.text}
+          <button 
+            onClick={() => this.handleOnClick(this.props.id)}> 
+            X 
+          </button>
+
+          <ReviewsContainer restaurant={this.props.text}/>
         </li>
       </div>
     );
   }
 };
 
-export default Restaurant;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteRestaurant: id => {
+      dispatch({
+        type: "DELETE_RESTAURANT",
+        id: id
+      })
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Restaurant)

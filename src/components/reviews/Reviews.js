@@ -11,4 +11,4 @@ class Reviews extends Component {
   }
 };
 
-export default Reviews;
+export default Reviews; 
