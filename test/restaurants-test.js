@@ -11,21 +11,23 @@ import Restaurants from '../src/components/restaurants/Restaurants'
 import Restaurant from '../src/components/restaurants/Restaurant'
 import Adapter from 'enzyme-adapter-react-16'
 
+const store = createStore(manageRestaurant)
+
 configure({ adapter: new Adapter() })
 
 describe('RestaurantInput', () => {
   it('has an text input field', () => {
-    const wrapper = shallow(<RestaurantInput />);
+    const wrapper = shallow(<RestaurantInput store={store}/>);
     expect(wrapper.find('input').first().type()).to.equal('input');
   });
 
   it('has an initial state with text key set to empty string', () => {
-    const wrapper = shallow(<RestaurantInput />);
+    const wrapper = shallow(<RestaurantInput store={store}/>);
     expect(wrapper.state('text')).to.equal('');
   });
 
   it('changes the state on a keydown', () => {
-    const wrapper = shallow(<RestaurantInput />);
+    const wrapper = shallow(<RestaurantInput store={store}/>);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Hello' } });
@@ -63,13 +65,15 @@ describe('Restaurants Component', () => {
 describe('Restaurant Component', () => {
   it('displays the appropriate text', () => {
     const restaurant = { text: 'hello', id: 3 }
-    const wrapper = shallow(<Restaurant restaurant={restaurant} />)
+    const wrapper = shallow(<Restaurant store={store} text={restaurant.text} />)
+    console.log(wrapper.childAt(0)
+    .text())
     expect(wrapper.text()).to.contain('hello');
   });
 
   it('renders an li', () => {
     const restaurant = { text: 'hello', id: 3 }
-    const wrapper = shallow(<Restaurant restaurant={restaurant} />)
+    const wrapper = shallow(<Restaurant store={store} restaurant={restaurant} />)
     expect(wrapper.find('li')).to.have.length(1)
   });
 });
