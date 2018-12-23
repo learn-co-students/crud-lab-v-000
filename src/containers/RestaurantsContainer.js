@@ -23,7 +23,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {  
+  return {
     addRestaurant: formData => {
       dispatch({
         type: "ADD_RESTAURANT",

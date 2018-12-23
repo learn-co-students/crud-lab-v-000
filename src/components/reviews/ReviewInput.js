@@ -9,19 +9,32 @@ class ReviewInput extends Component {
     }
   }
 
+
+  handleOnChange = event => {
+    this.setState({
+      text: event.target.value
+    });
+  }
+
   handleOnClick = event => {
     event.preventDefault();
-    debugger;
-    
+    this.props.addReview({
+      text: this.state.text,
+      restaurantId: this.props.restaurantId
+    });
+    this.setState({ text: '' });
   }
 
   render() {
     return (
-      <div>
-        <from onClick={(event) => this.handleOnClick(event)}>
-        <input type="text" value={this.state.text}/>
-        <input />
-        </from>
+      <div className='ReviewInput'>
+        <form onSubmit={(event) => this.handleOnClick(event)}>
+          <input type="text" 
+            onChange={event => this.handleOnChange(event)}
+            value={this.state.text}
+          />
+          <input type='submit' />
+        </form>
       </div>
     );
   }

@@ -65,7 +65,9 @@ describe('Restaurants Component', () => {
 describe('Restaurant Component', () => {
   it('displays the appropriate text', () => {
     const restaurant = { text: 'hello', id: 3 }
-    const wrapper = shallow(<Restaurant store={store} restaurant={restaurant} />)
+    const wrapper = shallow(<Restaurant store={store} text={restaurant.text} />)
+    console.log(wrapper.childAt(0)
+    .text())
     expect(wrapper.text()).to.contain('hello');
   });
 
