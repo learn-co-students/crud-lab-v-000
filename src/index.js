@@ -4,9 +4,10 @@ import App from './App';
 import manageRestaurant from './reducers/manageRestaurant'
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger'
 
-const store = createStore(manageRestaurant)
+const store = createStore(manageRestaurant, applyMiddleware(logger))
 
 
 ReactDOM.render(
