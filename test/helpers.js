@@ -6,7 +6,7 @@ var exposedProperties = ['window', 'navigator', 'document'];
 
 process.env.NODE_ENV = 'test';
 
-global.document = jsdom('<div id="root"></div>');
+global.document = jsdom('<div id="global"></div>');
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach((property) => {
   if (typeof global[property] === 'undefined') {
