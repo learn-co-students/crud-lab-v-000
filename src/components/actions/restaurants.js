@@ -12,3 +12,17 @@ export const deleteRestaurant = (id) => {
     id
   }
 }
+
+export const addReview = ({restaurantId, text}) => {
+  return {
+    type: 'ADD_REVIEW',
+    restaurantId, text
+  }
+}
+
+export const deleteReview = (id) => {
+  return {
+    type: 'DELETE_REVIEW',
+    id
+  }
+}
