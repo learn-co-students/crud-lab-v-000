@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import Review from './Review';
+// import Review from './Review';
 
 class Reviews extends Component {
+  handleDelete = id => {
+    this.props.delete(id)
+  }
+  
   render() {
+    const review = this.props.review;
+    
     return (
-      <ul>
-        Reviews
-      </ul>
+      <li>
+        {review.text} <button onClick={() => this.handleDelete(review.id)}>X</button>
+      </li>
     );
   }
 };
