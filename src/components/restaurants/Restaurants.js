@@ -12,12 +12,10 @@ class Restaurants extends Component {
           deleteRestaurant={this.props.deleteRestaurant}
         />
       ));
-      return <ul>{restaurantList}</ul>;
+      return <ul style={{ listStyleType: "none" }}>{restaurantList}</ul>;
     } else {
       return null;
     }
-
-    return <ul>{restaurantList}</ul>;
   }
 }
 

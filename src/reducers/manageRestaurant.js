@@ -11,17 +11,11 @@ export default function manageRestaurants(
         id: cuidFn(),
         text: action.text
       };
-      // return { restaurants: state.restaurants.concat(newRestaurant) };
       return {
         ...state,
         restaurants: [...state.restaurants, newRestaurant]
       };
-
     case "DELETE_RESTAURANT":
-      // const newRestaurants = state.restaurants.filter(
-      //   restaurant => restaurant.id !== action.id
-      // );
-      // return { ...state, newRestaurants };
       return {
         restaurants: state.restaurants.filter(
           restaurant => restaurant.id !== action.id
@@ -34,18 +28,14 @@ export default function manageRestaurants(
         restaurantId: action.review.restaurantId
       };
       return { ...state, reviews: [...state.reviews, newReview] };
-    // return { reviews: state.reviews.concat(newReview) };
     case "DELETE_REVIEW":
-      return {
-        reviews: state.reviews.filter(review => review.id !== action.id)
-      };
-
-    // case "UPDATE_RESTAURANT":
+      const reviews = state.reviews.filter(review => review.id !== action.id);
+      return { ...state, reviews };
+    // case "UPDATE_REVIEW":
     //   return {
-    //     restaurants: state.restaurants.filter(
-    //       restaurant => restaurant.id !== action.id
-    //     )
+    //     reviews: state.reviews.map(review => review.id === action.id)
     //   };
+
     default:
       return state;
   }

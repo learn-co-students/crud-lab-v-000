@@ -9,11 +9,19 @@ class Reviews extends Component {
         review => review.restaurantId === restaurantId
       );
       const reviewList = filteredReviews.map((review, i) => {
-        return <Review key={i} review={review} deleteReview={deleteReview} />;
+        return (
+          <Review
+            restaurantId={restaurantId}
+            key={i}
+            review={review}
+            reviews={reviews}
+            deleteReview={deleteReview}
+          />
+        );
       });
       return (
         <div>
-          <ul>{reviewList}</ul>
+          <ul style={{ listStyleType: "none" }}>{reviewList}</ul>
         </div>
       );
     } else {

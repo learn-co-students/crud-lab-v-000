@@ -25,12 +25,6 @@ const mapStateToProps = ({ reviews }) => {
   return { reviews };
 };
 
-// const mapStateToProps = state => ({ restaurants: state.restaurants });
-
-// const mapStateToProps = state => ({
-//   reviews: this.props.reviews
-// });
-
 const mapDispatchToProps = dispatch => ({
   addReview: review => dispatch({ type: "ADD_REVIEW", review }),
   deleteReview: id => dispatch({ type: "DELETE_REVIEW", id })
