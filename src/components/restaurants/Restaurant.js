@@ -37,11 +37,15 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button onClick={e => this.handleDeleteClick()}>
+          <button type="button" onClick={e => this.handleDeleteClick()}>
             {" "}
             Delete Restaurant
           </button>
-          {/* <button onClick={this.handleEditClick} data-id={restaurant.id}>
+          {/* <button
+            type="button"
+            onClick={this.handleEditClick}
+            data-id={restaurant.id}
+          >
             {" "}
             Edit Restaurant{" "}
           </button> */}
