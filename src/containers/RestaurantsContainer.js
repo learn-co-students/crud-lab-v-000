@@ -11,6 +11,7 @@ class RestaurantsContainer extends Component {
         <Restaurants
           restaurants={this.props.restaurants}
           deleteRestaurant={this.props.deleteRestaurant}
+          updateRestaurant={this.props.updateRestaurant}
         />
       </div>
     );
@@ -21,7 +22,9 @@ const mapStateToProps = state => ({ restaurants: state.restaurants });
 
 const mapDispatchToProps = dispatch => ({
   addRestaurant: text => dispatch({ type: "ADD_RESTAURANT", text }),
-  deleteRestaurant: id => dispatch({ type: "DELETE_RESTAURANT", id })
+  deleteRestaurant: id => dispatch({ type: "DELETE_RESTAURANT", id }),
+  updateRestaurant: restaurant =>
+    dispatch({ type: "UPDATE_RESTAURANT", restaurant })
 });
 
 export default connect(

@@ -10,6 +10,8 @@ class Restaurants extends Component {
           key={restaurant.id}
           restaurant={restaurant}
           deleteRestaurant={this.props.deleteRestaurant}
+          updateRestaurant={this.props.updateRestaurant}
+          restaurants={this.props.restaurants}
         />
       ));
       return <ul style={{ listStyleType: "none" }}>{restaurantList}</ul>;

@@ -16,6 +16,7 @@ class Reviews extends Component {
             review={review}
             reviews={reviews}
             deleteReview={deleteReview}
+            updateReview={this.props.updateReview}
           />
         );
       });
