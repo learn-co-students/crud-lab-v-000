@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 // import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-  constructor () {
-    super();
-    this.state = {
-      review: ''
-    }
+  state = {
+    text: '',
+    restaurantId: this.props.restaurantId
   }
+
   handleChange = event => {
-    this.setState({review: event.target.value})
+    this.setState({text: event.target.value})
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addReview({ review: this.state.review, restaurantId: this.props.restaurant.id });
-    this.setState({ review: ''})
+    this.props.addReview(this.state);
+    this.setState({ text: ''})
   }
   render() {
     return (
