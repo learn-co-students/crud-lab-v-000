@@ -1,17 +1,45 @@
 import React, { Component } from 'react';
+import ReviewInput from './ReviewInput'
 
 class Review extends Component {
+  state = {
+    form: ""
+  }
 
+  renderUpdateForm = (review) => {
+    const { restaurantId, formMethod } = this.props
+
+    this.setState({
+      form: (<ReviewInput review={review}
+                          restaurantId={restaurantId}
+                          formMethod={formMethod}
+                          removeUpdateForm={this.removeUpdateForm} />)
+    })
+  }
+
+  removeUpdateForm = () => {
+    this.setState({form: ""})
+  }
+  
   render() {
-    const { review } = this.props
+    const { review, deleteR } = this.props
 
     return (
-      <div>
+      <React.Fragment>
         <li>
-          {review.text}
+          <button onClick={e => deleteR(review.id)}>&times;</button>
+          {
+            this.state.form !== "" ? this.state.form : (
+              <React.Fragment>
+                <span style={{fontSize: '23px'}}>{review.text}</span>
+                <a onClick={e => this.renderUpdateForm(review)}>
+                  Update
+                </a>
+              </React.Fragment>
+            )
+          }
         </li>
-        <button> X </button>
-      </div>
+      </React.Fragment>
     );
   }
 
