@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 
 class ReviewInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ''
-    }
-  }
+  state = { text: '' }
 
   handleChange = (e) => {
     this.setState({ ...this.state, text: e.target.value })
