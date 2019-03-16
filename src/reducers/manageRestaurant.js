@@ -6,13 +6,17 @@ export default function manageRestaurants(state = {
   restaurants: []
 }, action) {
   switch (action.type) {
+
     case 'ADD_RESTAURANT':
 
+  let uniqueId = cuidFn()
+
         const restaurant = {
-          id: cuid(),
-          restaurant: action.payload
+          id: uniqueId,
+          text: action.payload
         }
-        return { ...state, restaurants: [...state.restaurants, restaurant]} //???
+        
+        return { ...state, restaurants: [...state.restaurants, restaurant]}
 
       case 'DELETE_RESTAURANT':
           return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.payload)}
