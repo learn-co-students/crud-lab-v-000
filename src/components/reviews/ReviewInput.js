@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+  this.state = {
     text: ''
   }
+}
 
   handleOnChange(event) {
     this.setState({
