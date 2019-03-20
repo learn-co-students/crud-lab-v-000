@@ -1,5 +1,4 @@
-import cuid from 'cuid';
-export const cuidFn = cuid;
+import cuid from 'cuid'
 
 export default function manageRestaurants(state = {
   restaurants: [],
@@ -22,7 +21,7 @@ export default function manageRestaurants(state = {
 
     case 'DELETE_RESTAURANT':
 
-      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id);
+      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id)
       return { ...state, restaurants}
 
     default:
