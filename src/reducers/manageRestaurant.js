@@ -12,7 +12,7 @@ export default function manageRestaurants(state = {
 
       const restaurant = {
           id: cuidFn(),
-          text: action.name
+          text: action.text
       }
       return {restaurants: state.restaurants.concat(restaurant)};
 
