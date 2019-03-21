@@ -4,18 +4,20 @@ import Review from './Review';
 class Reviews extends Component {
 
   render() {
+    const { reviews, restaurantId, deleteReview } = this.props;
 
-  
-    const theRestaurantsReviews = this.props.reviews.filter(review => this.props.review.restaurantId === this.props.restaurantId);
- 
-    const reviewList = theRestaurantsReviews.map((review, index) => { 
-      return <Review key={index} review={review} deleteReview={this.props.deleteReview} />
-    });
-    console.log(reviewList);
+    const restaurantsReviews = reviews.filter(review => review.restaurantId ===   restaurantId);
+    
+    const reviewList = restaurantsReviews.map((review, index) => {
+       return <Review key={index} review={review} deleteReview={deleteReview} />
+    })
+
     return (
-      <ul>
-        {reviewList}
-      </ul>
+      <div>
+        <ul>
+          {reviewList}
+        </ul>
+      </div>
     );
   }
 };

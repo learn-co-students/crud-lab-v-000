@@ -4,16 +4,14 @@ import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux';
 
 class ReviewsContainer extends Component {
-
+ 
   render() {
-    const { reviews, addReview, deleteReview, restaurantId } = this.props;
-
+    const { addReview, restaurantId, deleteReview, reviews } = this.props
     return (
       <div>
-
         <ReviewInput 
           addReview={addReview} 
-          restaurantId={restaurantId} 
+          restaurantId={restaurantId}
         />
      
         <Reviews 
@@ -22,17 +20,15 @@ class ReviewsContainer extends Component {
           deleteRestaurant={deleteReview}
         />
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = ({ reviews }) => {
-  return  { reviews }
-}
+const mapStateToProps = ({ reviews }) =>  ({ reviews })
 
 const mapDispatchToProps = dispatch => ({
- addReview: text => dispatch({ type: "ADD_REVIEW", text }),
-  deleteReview: id => dispatch({ type: "DELETE_REVIEW", id})
+  addReview: review => dispatch({ type: "ADD_REVIEW", review }),
+  deleteReview: id => dispatch({ type: "DELETE_REVIEW", id })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)

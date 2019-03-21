@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import Restaurant from './Restaurant';
 
+
 class Restaurants extends Component {
 
   render() {
     const {restaurants, deleteRestaurant} = this.props;
 
-    const restaurantList = 
+    const restaurantsList = 
     restaurants.map(restaurant => {
       return (
-      <Restaurant 
-        key={restaurant.id} 
-        restaurant = {restaurant} 
-        deleteRestaurant={deleteRestaurant} />
-      );
+        <Restaurant 
+          key={restaurant.id} 
+          restaurant = {restaurant} 
+          deleteRestaurant={deleteRestaurant} />
+        )
     });
 
     return(
-      <ul>
-        { restaurantList }
-      </ul>
+      <div>
+        <ul>
+          {restaurantsList}
+        </ul>
+      </div> 
     );
   }
 };

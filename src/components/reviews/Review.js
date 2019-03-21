@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
-class Review extends Component {
 
-  handleOnClick = () => {this.props.deleteReview(this.props.review.id)}
+class Review extends Component {
+debugger
+  handleOnClick = () => {
+    this.props.deleteReview(this.props.review.id)
+  }
 
   render() {
     return (
@@ -18,4 +21,3 @@ class Review extends Component {
 };
 
 export default Review;
- // const {reviews, deleteReview} = this.props;
