@@ -13,6 +13,7 @@ class Restaurant extends Component {
     return (
       this.props.restaurant.id !== '' ?
       <div>
+        <br />
         <li>
           {restaurant.text}
           <label> </label><button onClick={this.handleOnClick}>X</button>
