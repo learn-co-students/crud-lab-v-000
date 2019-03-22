@@ -39,10 +39,9 @@ describe('RestaurantInput', () => {
     let form = wrapper.find('form');
     let input = wrapper.find('input').first();
 
-    // console.log(store.getState());
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
-    // console.log(store.getState());
+    
     expect(store.getState().restaurants[0].text).to.equal('Hello')
   });
 
@@ -125,7 +124,7 @@ describe('Restaurant Component with Redux', () => {
     let deleteButton = wrapper.find('button').first();
 
     deleteButton.simulate('click',  { preventDefault() {} });
-
+    // console.log(store.getState().restaurants)
     expect(store.getState().restaurants.length).to.equal(0);
 
 
