@@ -6,14 +6,13 @@ import { connect } from 'react-redux';
 class RestaurantsContainer extends Component {
 
   render() {
-     const { restaurants, addRestaurant, deleteRestaurant, review } = this.props;
+     const { restaurants, addRestaurant, deleteRestaurant} = this.props;
 
     return (
       <div>
         <RestaurantInput 
           addRestaurant={addRestaurant}/>
         <Restaurants 
-          review = {review}
           restaurants={restaurants} 
           deleteRestaurant={deleteRestaurant} />
       </div>
@@ -28,6 +27,6 @@ const mapDispatchToProps = dispatch => ({
   deleteRestaurant: id => dispatch({ type: "DELETE_RESTAURANT", id }),
  
     })
-
+//text: text, rest:test dispatch is the function(the object is being passed in)
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)

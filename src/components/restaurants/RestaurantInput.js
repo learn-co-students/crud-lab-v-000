@@ -8,6 +8,7 @@ class RestaurantInput extends Component {
     this.setState({
       text: event.target.value,
     });
+    console.log("handleOnchange")
   }
 
   handleOnSubmit(event) {
@@ -16,6 +17,8 @@ class RestaurantInput extends Component {
     this.setState({
       text: ''
     })
+    console.log("handleOnSubmit")
+    
   }
 
   render() {
