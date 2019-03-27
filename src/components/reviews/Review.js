@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RestaurantContainer from '../../containers/ReviewsContainer'
 
 class Review extends Component {
-
+  
   render() {
     const { review } = this.props
  
@@ -11,7 +11,7 @@ class Review extends Component {
         <li>
           {review.text}
         </li>
-        <button onClick={() => this.props.delete(review.id)} > X </button>
+        <button onClick={() => this.props.deleteReview(review.id)} > X </button>
       </div>
     );
   }

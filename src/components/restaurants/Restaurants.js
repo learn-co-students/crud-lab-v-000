@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import Restaurant from './Restaurant'
-import { connect } from 'react-redux'
 
 
 class Restaurants extends Component {
-	renderRestaurants = () => this.props.restaurants.map((restaurant, id) => <Restaurant delete={this.props.delete} key={restaurant.id} restaurant={restaurant} />)
+  render(){
 
-  render() {
-    return(
-      <ul>
-      	{this.renderRestaurants()}
-      </ul>
-    );
-  }
-}; 
+  	const restaurants = this.props.restaurants.map(restaurant => <Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={this.props.deleteRestaurant}/>)
 
+  return (
+    <div>
+      {restaurants}
+    </div>
+  );
+ };
+};
 
-const mapDispatchToProps = dispatch => ({
-  delete: id => dispatch({ type: "DELETE_RESTAURANT", id })
-})
-
-export default connect(null, mapDispatchToProps)(Restaurants)
+export default Restaurants;
