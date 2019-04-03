@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Review from './Review';
 
-class Reviews extends Component {  
+class Reviews extends Component {
 
   render() {
 
@@ -10,14 +10,17 @@ class Reviews extends Component {
     
     const reviewList = associatedReviews.map((review, index) => {
       return <Review key={index} review={review} deleteReview={deleteReview} />
+    })
 
     return (
-      <ul>
-        All Reviews
-        {this.renderReview()}
-      </ul>
+      <div>
+        <ul>
+          {reviewList}
+        </ul>
+      </div>
     );
   }
+
 };
 
 export default Reviews;
