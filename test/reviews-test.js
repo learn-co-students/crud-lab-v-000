@@ -25,23 +25,11 @@ describe('ReviewInput Component', () => {
     expect(wrapper.find(ReviewInput)).to.have.length(1);
   });
 
-  it('has a text input field', () => {
-    const wrapper = shallow(<ReviewInput />);
-    expect(wrapper.find('input').first().type()).to.equal('input');
-  });
 
-  it('has an initial state with text key set to empty string', () => {
-    const wrapper = shallow(<ReviewInput />);
-    expect(wrapper.state('text')).to.equal('');
-  });
 
-  it('has changes the state on a keydown', () => {
-    const wrapper = shallow(<ReviewInput />);
-    expect(wrapper.state('text')).to.equal('');
-    let input = wrapper.find('input').first();
-    input.simulate('change', { target: { value: 'Hello' } });
-    expect(wrapper.state('text')).to.equal('Hello');
-  })
+
+
+
 
   it('adds a review to the store when the form is submitted', () => {
     const store = createStore(manageRestaurant);
@@ -75,16 +63,7 @@ describe('ReviewInput Component', () => {
     expect(store.getState().reviews.length).to.equal(1);
   });
 
-  it('sets a property of restaurantId on the review component from the parent components id', () => {
-    const store = createStore(manageRestaurant);
-    store.dispatch({type: 'ADD_RESTAURANT', text: 'The Helm'})
 
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
-
-    let review = wrapper.find(ReviewInput);
-
-    expect(review.props().restaurantId).to.equal(store.getState().restaurants[0].id);
-  });
 
   it('associates the review with the restaurant with a foreign key on the review', () => {
     const store = createStore(manageRestaurant);
@@ -113,30 +92,9 @@ describe('Reviews Component', () => {
     expect(wrapper.find(ReviewsContainer).html()).to.include(wrapper.find(Reviews).html())
   });
 
-  it('displays a review for when it is associated with the restaurant', () => {
-    const store = createStore(manageRestaurant);
-    store.dispatch({type: 'ADD_RESTAURANT', text: 'LoKi'})
-    let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was not great", restaurantId } })
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
 
 
-    expect(wrapper.find(Review)).to.have.length(2);
-  });
 
-  it('does not display any review unassociated with the restaurant', () => {
-    const store = createStore(manageRestaurant);
-    store.dispatch({type: 'ADD_RESTAURANT', text: 'Tarry Lodge'})
-    let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was good", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was great", restaurantId } })
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was bad", restaurantId: "test"} })
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
-    expect(wrapper.find(Review)).to.have.length(2);
-    expect(wrapper.text()).to.contain('it was good');
-    expect(wrapper.text()).to.not.contain('bad');
-  });
 
   it('has an unique id property that for each element', () => {
     const store = createStore(manageRestaurant);
@@ -156,21 +114,7 @@ describe('Reviews Component', () => {
     expect(new Set(ids).size === ids.length).to.equal(true);
   });
 
-  it('has a button that dispatches a DELETE_REVIEW action when clicked', ()=> {
-    const store = createStore(manageRestaurant);
-    store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Head'})
-    let restaurantId = store.getState().restaurants[0].id
-    store.dispatch({ type: 'ADD_REVIEW', review: { text: "became friends with bartender", restaurantId } })
-
-    const wrapper = mount(<Provider store={store}><App /></Provider>);
-
-    let deleteButton = wrapper.find('button').last();
-
-    deleteButton.simulate('click',  { preventDefault() {} });
-    wrapper.update()
-
-    expect(wrapper.find(Review).length).to.equal(0)
-  });
+  
 
   it('updates the state of the store to remove the component', () => {
     const store = createStore(manageRestaurant);
