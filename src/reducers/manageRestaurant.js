@@ -28,6 +28,9 @@ export default function manageRestaurants(state = {
       };
       return { ...state, reviews: [...state.reviews, review] };
 
+    case 'DELETE_REVIEW':
+      return { ...state, reviews: state.reviews.filter(review => review.id !== action.id ) };
+
     default:
       return state;
   }

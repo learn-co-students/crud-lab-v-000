@@ -16,14 +16,13 @@ class RestaurantsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { restaurants: state.restaurants };
-};
+  restaurants: state.restaurants
+}
 
 const mapDispatchToProps = dispatch => {
   return {
     addRestaurant: text => dispatch({type: 'ADD_RESTAURANT', text: text }),
-    deleteRestaurant: id => dispatch({type: 'DELETE_RESTAURANT', id: id }),
-    addReview: (text, id) => dispatch({type: 'ADD_REVIEW', id: id , text: text })
+    deleteRestaurant: id => dispatch({type: 'DELETE_RESTAURANT', id: id })
   };
 };
 
