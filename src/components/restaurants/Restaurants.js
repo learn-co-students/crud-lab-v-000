@@ -6,7 +6,7 @@ class Restaurants extends Component {
     const restaurants = this.props.restaurants
     const restaurantList = restaurants.map(restaurant => {
       return (
-        <Restaurant key={restaurants.id} restaurant={restaurant} 
+        <Restaurant key={restaurant.id} restaurant={restaurant} 
         deleteRestaurant = {this.props.deleteRestaurant}
         />
       )
