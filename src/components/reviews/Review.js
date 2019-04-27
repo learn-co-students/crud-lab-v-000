@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Review = props => {
-  return (
-    <div>
-      <li>
-        {props.review.text}
-      </li>
-      <button onClick={props.deleteReview(props.review.id)}> Delete </button>
-    </div>
-  );
+class Review extends Component {
+
+  handleOnClick = event => {
+    this.props.deleteReview(this.props.review.id)
+  }
+
+  render() {
+    return (
+      <div>
+        <li>
+          {this.props.review.text}
+        </li>
+        <button onClick={this.handleOnClick}> Delete </button>
+      </div>
+    );
+  }
 };
 
 export default Review;

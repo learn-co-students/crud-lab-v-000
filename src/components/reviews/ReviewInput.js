@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class ReviewInput extends Component {
+
   state = {
     text: ''
   }
@@ -15,7 +16,7 @@ class ReviewInput extends Component {
     event.preventDefault();
     const review = {
       text: this.state.text,
-      id: this.props.restaurantId
+      restaurantId: this.props.restaurantId
     }
     this.props.addReview(review);
     this.setState({
