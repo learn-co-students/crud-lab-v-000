@@ -20,11 +20,10 @@ export default function manageRestaurants(state = {
       return { ...state, restaurants: restaurants };
 
     case 'ADD_REVIEW':
-      restaurant = state.restaurants.filter(resto => resto.id !== action.id);
       review = {
-        text: action.text,
+        text: action.review.text,
         id: cuidFn(),
-        restaurantId: restaurant[0].id
+        restaurantId: action.review.restaurantId
       };
       return { ...state, reviews: [...state.reviews, review] };
 
