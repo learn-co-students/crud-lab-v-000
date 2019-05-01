@@ -11,13 +11,11 @@ class Restaurant extends Component {
     const { restaurant } = this.props;
 
     return (
-      <div>
         <li>
-          {restaurant.text}
+          <div>{restaurant.text}</div>
           <button onClick={this.handleClick}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
-      </div>
     );
   }
 };

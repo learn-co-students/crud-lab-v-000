@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-  state = {
-    text: ''
+  constructor(props){
+    super();
+    this.state = {text: '', restaurantId: props.restaurant.id};
+    debugger;
   }
 
   handleChange(event){
@@ -24,11 +26,10 @@ class ReviewInput extends Component {
 
   render() {
     return (
-      <div>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <input type="text" onChange={(event) => this.handleChange(event)} value={this.state.text}></input>
+          <input type="submit"></input>
         </form>
-      </div>
     );
   }
 };
