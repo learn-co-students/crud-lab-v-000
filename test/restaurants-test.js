@@ -39,10 +39,10 @@ describe('RestaurantInput', () => {
     let form = wrapper.find('form');
     let input = wrapper.find('input').first();
 
-    // console.log(store.getState());
+     console.log(store.getState());
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
-    // console.log(store.getState());
+     console.log(store.getState());
     expect(store.getState().restaurants[0].text).to.equal('Hello')
   });
 
