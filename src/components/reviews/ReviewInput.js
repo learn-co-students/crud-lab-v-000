@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-  constructor(props){
-    super();
-    this.state = {text: '', restaurantId: props.restaurant.id};
-    debugger;
+  //Test wont pass when you go this route
+  // constructor(props){
+  //   super();
+  //   this.state = {text: '', restaurantId: props.restaurant.id};
+  // }
+
+  state = {
+    text: ''
   }
 
   handleChange(event){
@@ -16,7 +20,7 @@ class ReviewInput extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    this.props.addReview(this.state)
+    this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId})
     //Reset the state
     this.setState({
       text: '',
