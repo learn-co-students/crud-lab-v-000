@@ -8,6 +8,7 @@ class Restaurants extends Component {
    }
 
   render() {
+    const { restaurants, deleteRestaurant } = this.props;
     return(
       <ul>
         {this.renderRestaurants()}
