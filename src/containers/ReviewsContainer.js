@@ -30,4 +30,8 @@ const mapDispatchToProps = dispatch => ({
   deleteReview: id => dispatch({type: 'DELETE_REVIEW', id})
 })
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)
+=======
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)
+>>>>>>> remotes/origin/solution
