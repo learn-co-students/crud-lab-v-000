@@ -32,7 +32,7 @@ export default function manageRestaurants(
         restaurantId: action.review.restaurantId
       };
 
-      return { reviews: state.reviews.concat(review) };
+      return { ...state, reviews: state.reviews.concat(review) };
 
     default:
       return state;
