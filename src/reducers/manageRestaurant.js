@@ -15,17 +15,17 @@ export default function manageRestaurants(
         text: action.text
       };
 
-      return { restaurants: state.restaurants.concat(restaurant) };
+      return { ...state, restaurants: state.restaurants.concat(restaurant) };
 
     case "DELETE_RESTAURANT":
       return {
+        ...state,
         restaurants: state.restaurants.filter(
           restaurant => restaurant.id !== action.id
         )
       };
 
     case "ADD_REVIEW":
-      debugger;
       const review = {
         id: cuid(),
         text: action.review.text,
@@ -33,6 +33,12 @@ export default function manageRestaurants(
       };
 
       return { ...state, reviews: state.reviews.concat(review) };
+
+    case "DELETE_REVIEW":
+      return {
+        ...state,
+        reviews: state.reviews.filter(review => review.id !== action.id)
+      };
 
     default:
       return state;
