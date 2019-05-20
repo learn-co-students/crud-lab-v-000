@@ -21,6 +21,6 @@ class Restaurants extends Component {
       </ul>
     );
   }
-}
+};
 
 export default Restaurants;

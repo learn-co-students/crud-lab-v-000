@@ -2,26 +2,36 @@ import cuid from 'cuid';
 export const cuidFn = cuid;
 
 export default function manageRestaurants(state = {
-   restaurants: [],
-   reviews: []
- }, action) {
+  restaurants: [],
+  reviews: [],
+}, action) {
+  switch (action.type) {
 
-  switch(action.type) {
     case 'ADD_RESTAURANT':
-    const restaurant  = { id: cuidFn(), text: action.text};
-    return {...state, restaurants: [...state.restaurants, restaurant]}
+
+      const restaurant = { text: action.text, id: cuidFn() };
+      return {
+        ...state,
+        restaurants: [ ...state.restaurants, restaurant]
+      }
 
     case 'DELETE_RESTAURANT':
-    return { restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
+      const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id);
+      return { ...state, restaurants}
 
     case 'ADD_REVIEW':
-    const review = {id: cuidFn(), restaurantId: action.review.restaurantId, text: action.review.text}
-    return {...state, reviews: [...state.reviews, review]}
+
+      const review = { text: action.review.text, restaurantId: action.review.restaurantId, id: cuidFn() };
+      return { ...state,
+        reviews: [...state.reviews, review]
+      }
 
     case 'DELETE_REVIEW':
-    return { ...state, reviews: state.reviews.filter(review=> review.id !== action.id)}
+      const reviews = state.reviews.filter(review => review.id !== action.id);
+      return {...state, reviews }
 
     default:
-    return state;
+      return state;
+
   }
-}
+};

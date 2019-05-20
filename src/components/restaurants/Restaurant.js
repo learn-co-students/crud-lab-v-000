@@ -8,6 +8,8 @@ class Restaurant extends Component {
   }
 
   render() {
+    const { restaurant } = this.props;
+
     return (
       <div>
         <li>
@@ -17,10 +19,6 @@ class Restaurant extends Component {
         </li>
       </div>
     );
-  }
-
-  handleClick = ()=>{
-    this.props.deleteRestaurant(this.props.restaurant.id);
   }
 };
 
