@@ -33,8 +33,11 @@ export default function manageRestaurants(
         text: action.review.text,
         restaurantId: action.review.restaurantId
       };
-
-      return { ...state, reviews: state.reviews.concat(review) };
+      return {
+        ...state,
+        reviews: [...state.reviews, review]
+      };
+    //   return { ...state, reviews: state.reviews.concat(review) };
 
     case "DELETE_REVIEW":
       const reviews = state.reviews.filter(review => review.id !== action.id);
