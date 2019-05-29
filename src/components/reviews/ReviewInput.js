@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Restaurant from "../restaurants/Restaurant";
 
 class ReviewInput extends Component {
   state = {
