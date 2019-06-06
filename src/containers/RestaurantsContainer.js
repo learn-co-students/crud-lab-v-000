@@ -19,6 +19,12 @@ class RestaurantsContainer extends Component {
           restaurants={this.props.restaurants}
           deleteRestaurant={this.props.deleteRestaurant}
         />
+
+        <Restaurants 
+          restaurants={this.props.restaurants}
+          deleteRestaurant={this.props.deleteRestaurant}
+          />
+
       </div>
     )
   }
@@ -31,4 +37,8 @@ const mapDispatchToProps = dispatch => ({
   deleteRestaurant: (id) => dispatch(deleteRestaurant(id)),
 })
 
+
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
+
+export default connect (mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
+
