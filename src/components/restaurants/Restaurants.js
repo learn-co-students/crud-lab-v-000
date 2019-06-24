@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Restaurants extends Component {
-  render() {
+import ReviewsContainer from '../../containers/ReviewsContainer'
+
+const Restaurants = ({ restaurants }) => {
+  const restaurantcard = restaurants.map(restaurant =>
+      <ReviewsContainer restaurant = {restaurant} />)
+
     return(
       <ul>
-        Restaurants Component
+        {restaurantcard}
       </ul>
     );
-  }
 };
 
 export default Restaurants;
