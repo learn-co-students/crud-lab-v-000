@@ -24,7 +24,7 @@ class RestaurantInput extends Component {
   render() {
     return (
       <div>
-      Enter Here
+    <h4> Please enter your Restaurant </h4>
       <form onSubmit={this.handleOnSubmit}>
       <input
         placeholder="restaurant name"

@@ -8,6 +8,7 @@ class Reviews extends Component {
 
     const { reviews, restaurantId, deleteReview } = this.props;
     // console.log("restaurantId:", restaurantId)
+    // console.log("review:", reviews)
     const associatedReviews = reviews.filter(review => review.restaurantId === restaurantId);
 
     const reviewRestList = associatedReviews.map((review, index) => {
@@ -25,3 +26,6 @@ class Reviews extends Component {
 };
 
 export default Reviews;
+
+
+  

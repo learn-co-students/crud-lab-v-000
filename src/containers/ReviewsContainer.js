@@ -17,14 +17,15 @@ class ReviewsContainer extends Component {
         <Reviews
           reviews={this.props.reviews}
           restaurantId={this.props.restaurant.id}
-          deleteReview={this.props.deleteReview}/>
+          deleteReview={this.props.deleteReview}
+          />
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  // console.log("state", state)
+  // console.log("reviews state", state)
   return ({
     reviews: state.reviews
   })

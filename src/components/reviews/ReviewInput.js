@@ -24,9 +24,9 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
-      Enter Review
         <form onSubmit={this.handleOnSubmit}>
-          <label> Add Review </label>
+        < br />
+          <label> Enter Your Review </label>
         <input
           placeholder = "review"
           type="text"

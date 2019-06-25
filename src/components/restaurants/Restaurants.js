@@ -1,11 +1,12 @@
 import React from 'react';
+import Restaurant from './Restaurant'
 
-import ReviewsContainer from '../../containers/ReviewsContainer'
 
-const Restaurants = ({ restaurants }) => {
+const Restaurants = ({ restaurants, deleteRestaurant }) => {
   const restaurantcard = restaurants.map(restaurant =>
-      <ReviewsContainer restaurant = {restaurant} />)
-
+      <Restaurant   key={restaurant.id}
+                    restaurant = {restaurant}
+                    deleteRestaurant={deleteRestaurant} />)
     return(
       <ul>
         {restaurantcard}
