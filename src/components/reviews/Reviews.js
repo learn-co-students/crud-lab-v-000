@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import Review from './Review';
 
 class Reviews extends Component {
-
-  renderReviews = () => this.props.reviews && this.props.reviews.map((review) => <Review restaurantId={this.props.restaurantId} delete={this.props.delete} key={review.id} review={review} />)
+ // i like my way better but cannot figure out how to get only the associated reviews
+  // renderReviews = () => this.props.reviews && this.props.reviews.map((review) => <Review restaurantId={this.props.restaurantId} delete={this.props.delete} key={review.id} review={review} />)
 
   render() {
-    console.log(this.props)
+    const { reviews, restaurantId, deleteReview } = this.props;
+    const associatedReviews = reviews && reviews.filter(review => review.restaurantId === restaurantId);
+    const reviewList = associatedReviews && associatedReviews.map((review, index) => {
+      return <Review key={index} review={review} deleteReview={deleteReview} />
+    })
     return (
       <ul>
-        Reviews
-        {this.renderReviews()}
+        Reviews:
+        {reviewList}
       </ul>
     );
   }
