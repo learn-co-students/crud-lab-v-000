@@ -15,16 +15,13 @@ class RestaurantsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  switch (state.restaurants) {
-    case "undefined":
-      return {
-       restaurants: []
-      };
-    default:
-      return {restaurants: state.restaurants};
-  }
-};
+function mapStateToProps(state){
+  return (
+    {restaurants: state.restaurants}
+  )
+}
+
+
 
 const mapDispatchToProps = dispatch => ({
   addRestaurant: text => dispatch({type: 'ADD_RESTAURANT', text}),
