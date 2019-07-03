@@ -10,7 +10,7 @@ render() {
         {this.props.restaurants ?
         <div>
             {this.props.restaurants.map(restaurant => {
-              <Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={this.props.deleteRestaurant}/>
+             return <Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={this.props.deleteRestaurant}/>
             })}
           </div>
           :

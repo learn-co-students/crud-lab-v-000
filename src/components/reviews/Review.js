@@ -7,12 +7,10 @@ class Review extends Component {
   }
 
   render() {
-    const { review } = this.props
-
     return (
       <div>
         <li>
-          {review.text}
+          {this.props.review.text}
         </li>
         <button onClick={this.handleOnClick}> X </button>
       </div>
