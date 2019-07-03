@@ -9,7 +9,7 @@ export default function manageRestaurants(state = {
     case "ADD_BAND":
       const restaurant = {
         id: cuid(),
-        name: action.name
+        text: action.name
       }
       console.log(restaurant)
       console.log([...state.restaurants, restaurant])
