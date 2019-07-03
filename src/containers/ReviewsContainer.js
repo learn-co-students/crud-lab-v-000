@@ -7,17 +7,15 @@ class ReviewsContainer extends Component {
   
   render() {
 
-    let restaurantReviews = this.props.reviews.filter( review => review.restaurantId === this.props.restaurant.id)
+    const { addReview, restaurant, reviews, deleteReview } = this.props
     
-
-    console.log(restaurantReviews)
     return (
       <div>
-        <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/>
+        <ReviewInput addReview={addReview} restaurantId={restaurant.id}/>
         <Reviews 
-          restaurantReviews={restaurantReviews} 
-          restaurant={this.props.restaurant}
-          deleteReview={this.props.deleteReview}/>
+          reviews={reviews}
+          restaurantId={restaurant.id}
+          deleteReview={deleteReview} />
       </div>
     )
   }

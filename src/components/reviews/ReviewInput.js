@@ -3,23 +3,20 @@ import React, { Component } from 'react';
 
 class ReviewInput extends Component {
   state = {
-    text: '',
-    restaurantId: ''
+    text: ''
   }
 
   handleOnSubmit(event) {
     event.preventDefault()
-    this.props.addReview(this.state.text, this.state.restaurantId)
+    this.props.addReview(this.state.text, this.props.restaurantId)
     this.setState({
-      text: '',
-      restaurantId: ''
+      text: ''
     })
   }
 
   handleOnChange(event) {
     this.setState({
-      text: event.target.value,
-      restaurantId: this.props.restaurantId
+      text: event.target.value
     })
   }
 
