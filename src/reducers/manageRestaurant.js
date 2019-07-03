@@ -33,8 +33,8 @@ export default function manageRestaurants(state = {
         
             const review = {
                 id: cuid(),
-                text: action.text,
-                restaurantId: action.restaurantId
+                text: action.review.text,
+                restaurantId: action.review.restaurantId
             }
             
             return { 
