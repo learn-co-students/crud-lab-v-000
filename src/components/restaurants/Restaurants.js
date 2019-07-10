@@ -5,17 +5,19 @@ class Restaurants extends Component {
 
   render() {
     const { restaurants, deleteRestaurant } = this.props;
-    const renderRestaurants = restaurants.map(restaurant => {
+    const restaurantList = restaurants.map(restaurant => {
       return (
-        <Restaurant key={restaurant.id} 
-         restaurant={restaurant} 
-         deleteRestaurant={deleteRestaurant} />
-       )
+        <Restaurant
+            key={restaurant.id}
+            restaurant={restaurant}
+            deleteRestaurant={deleteRestaurant}
+        />
+      )
     });
 
     return(
       <ul>
-        {renderRestaurants}
+        {restaurantList}
       </ul>
     );
   }
