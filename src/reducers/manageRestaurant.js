@@ -14,23 +14,29 @@ export default function manageRestaurants(
 				id: cuidFn(),
 				text: action.payload
 			};
-			// debugger;
-			return { restaurants: state.restaurants.concat(newRestaurant) };
-		case 'DELETE_RESTAURANT':
-			// debugger;
-
 			return {
+				...state,
+				restaurants: state.restaurants.concat(newRestaurant)
+			};
+		case 'DELETE_RESTAURANT':
+			return {
+				...state,
 				restaurants: state.restaurants.filter((restaurant) => {
 					return restaurant.id !== action.id;
 				})
 			};
-
-		// case 'ADD_REVIEWS':
-		// 	const newReview = {
-		// 		id: cuidFn(),
-		// 		text: action.payload
-		// 	};
-		// 	return { reviews: state.reviews.concat(newReview) };
+		case 'ADD_REVIEW':
+			// debugger;
+			const newReview = {
+				id: cuidFn(),
+				text: action.formData.text,
+				restaurantId: action.formData.restaurantId
+			};
+			// debugger;
+			return {
+				...state,
+				reviews: state.reviews.concat(newReview)
+			};
 
 		default:
 			return state;

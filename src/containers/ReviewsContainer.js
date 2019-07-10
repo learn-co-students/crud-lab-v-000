@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 
 class ReviewsContainer extends Component {
 	render() {
-		let restaurantId = this.props.restaurant.id;
-		console.log(restaurantId);
-
+		// debugger;
 		return (
 			<div>
-				<ReviewInput addReview={this.props.addReview} />
-				<Reviews />
+				<ReviewInput restaurantId={this.props.restaurant.id} addReview={this.props.addReview} />
+				<Reviews restaurantId={this.props.restaurant.id} reviews={this.props.reviews} />
 			</div>
 		);
 	}
@@ -22,7 +20,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-	addReview: (formData) => dispatch({ type: 'ADD_REVIEWS', payload: formData })
+	addReview: (formData) => dispatch({ type: 'ADD_REVIEW', formData })
 	// 	// , deleteRestaurant: (id) => dispatch({ type: 'DELETE_RESTAURANT', id })
 });
 
