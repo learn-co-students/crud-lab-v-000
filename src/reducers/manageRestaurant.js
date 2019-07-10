@@ -25,6 +25,13 @@ export default function manageRestaurants(
 				})
 			};
 
+		// case 'ADD_REVIEWS':
+		// 	const newReview = {
+		// 		id: cuidFn(),
+		// 		text: action.payload
+		// 	};
+		// 	return { reviews: state.reviews.concat(newReview) };
+
 		default:
 			return state;
 	}
