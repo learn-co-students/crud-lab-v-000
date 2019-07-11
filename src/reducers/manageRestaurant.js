@@ -37,6 +37,14 @@ export default function manageRestaurants(
 				...state,
 				reviews: state.reviews.concat(newReview)
 			};
+		case 'DELETE_REVIEW':
+			debugger;
+			return {
+				...state,
+				reviews: state.reviews.filter((review) => {
+					return review.id !== action.id;
+				})
+			};
 
 		default:
 			return state;
