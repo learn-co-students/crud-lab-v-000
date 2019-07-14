@@ -8,8 +8,9 @@ class ReviewsContainer extends Component {
   render() {
     return (
       <div>
-        <ReviewInput addReview={this.props.addReview}/>
+        <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurantId}/>
         <Reviews reviews={this.props.reviews}
+          restaurantId={this.props.restaurantId}
           deleteReview={this.props.deleteReview}/>
       </div>
     )
@@ -21,7 +22,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addReview: name => dispatch({ type: "ADD_REVIEW", name }),
+  addReview: review => dispatch({ type: "ADD_REVIEW", review }),
   deleteReview: id => dispatch({ type: "DELETE_REVIEW", id})
 })
 
