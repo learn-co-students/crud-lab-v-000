@@ -8,9 +8,9 @@ export default class Restaurants extends Component {
 
 
     return(
-      <ul>
+      <ol>
         {restaurants}
-      </ul>
+      </ol>
     );
   }
 };
