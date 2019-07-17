@@ -8,7 +8,7 @@ class ReviewsContainer extends Component {
     return (
       <div>
         <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/>
-        <Reviews />
+        <Reviews reviews={this.props.reviews.filter(review => review.restaurantId === this.props.restaurant.id)} delete={this.props.delete} />
       </div>
     )
   }
@@ -16,7 +16,8 @@ class ReviewsContainer extends Component {
 
 const mapStateToProps= ({reviews}) => ({reviews})
 const mapDispatchToProps = dispatch => ({
-  addReview: payload => dispatch({ type: "ADD_REVIEW", payload }),
+  addReview: review => dispatch({ type: "ADD_REVIEW", review }),
   delete: id => dispatch({ type: "DELETE_REVIEW", id})
  })
+
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)
