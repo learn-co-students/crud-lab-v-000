@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
+import RestaurantInput from './RestaurantInput'
 
 class Restaurant extends Component {
 
+  handleClick(e) {
+		e.preventDefault();
+		this.props.deleteRestaurant(this.props.restaurant.id);
+	}
 
   render() {
     const { restaurant } = this.props;
@@ -11,7 +16,7 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button> X </button>
+          <button onClick={(e) => this.handleClick(e)}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
