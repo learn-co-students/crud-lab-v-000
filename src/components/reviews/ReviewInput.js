@@ -23,12 +23,14 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
+        <br/>
+        <label>Add a Review for this Restaurant:</label>
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
             value={this.state.text}
             onChange={this.handleChange}
-          />
+          />{' '}
         <button type='submit'>Add</button>
         </form>
       </div>
