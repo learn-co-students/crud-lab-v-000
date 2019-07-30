@@ -5,8 +5,7 @@ class ReviewInput extends Component {
   constructor() {
     super();
     this.state = {
-      text: '',
-      restaurantId: ''
+      text: ''
     }
   }
 
@@ -17,7 +16,8 @@ class ReviewInput extends Component {
   }
 
   handleOnSubmit = event => {
-    this.props.addReview(this.state.text)
+    event.preventDefault()
+    this.props.addReview({text:this.state.text, restaurantId:this.props.restaurantId})
     this.setState({
       text: ''
     })
