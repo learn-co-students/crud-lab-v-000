@@ -19,16 +19,16 @@ export default function manageRestaurants(state = {
     case 'DELETE_RESTAURANT':
       return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
 
-    case 'ADD_REVIEW':
-
-      const review = {
-        // id: ,
-        text: action.text
-      }
-      // return { reviews: state.reviews.concat(review) }
-      return { ...state,
-        reviews: [...state.reviews, review]
-      }
+    // case 'ADD_REVIEW':
+    //
+    //   const review = {
+    //     // id: ,
+    //     text: action.text
+    //   }
+    //   // return { reviews: state.reviews.concat(review) }
+    //   return { ...state,
+    //     reviews: [...state.reviews, review]
+    //   }
 
     default:
       return state;
