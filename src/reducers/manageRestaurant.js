@@ -10,7 +10,7 @@ export default function manageRestaurants(state = {
 
       const restaurant = {
         id: Math.random(),
-        text: action.payload.text
+        text: action.text
       }
 
       return { restaurants: state.restaurants.concat(restaurant) };

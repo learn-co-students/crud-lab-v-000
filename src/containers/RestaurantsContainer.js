@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addRestaurant: (restaurant) => dispatch({ type: 'ADD_RESTAURANT', payload: restaurant}),
+    addRestaurant: (restaurant) => dispatch({ type: 'ADD_RESTAURANT', text: restaurant}),
     deleteRestaurant: id => dispatch({type: "DELETE_RESTAURANT", id})
   };
 };
