@@ -9,34 +9,37 @@ export default function manageRestaurants(state = {
     case 'ADD_RESTAURANT':
 
       const restaurant = {
-        id: Math.random(),
+        id: cuidFn(),
         text: action.text
       }
 
-      return { restaurants: state.restaurants.concat(restaurant) };
+      return { ...state,
+        restaurants: [...state.restaurants, restaurant]
+      }
 
     case 'DELETE_RESTAURANT':
-      return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
+      return { ...state,
+        restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)
+      }
 
     case 'ADD_REVIEW':
 
       const review = {
-        // id: ,
-        text: action.text
+        id: cuidFn(),
+        restaurantId: action.review.restaurantId,
+        text: action.review.text
       }
-      // return { reviews: state.reviews.concat(review) }
+
       return { ...state,
         reviews: [...state.reviews, review]
       }
 
+    case 'DELETE_REVIEW':
+      return { ...state,
+        reviews: state.reviews.filter(review => review.id !== action.id)
+      }
 
     default:
       return state;
   }
 }
-
-
-// const band = {
-//   id: cuid(),
-//   name: action.name
-// }

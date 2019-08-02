@@ -8,7 +8,6 @@ class Restaurant extends Component {
   }
 
   render() {
-
     return (
       <div>
         <li>
