@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Restaurants from './Restaurants'
 
 class RestaurantInput extends Component {
   
@@ -8,13 +9,13 @@ class RestaurantInput extends Component {
 
   handleClick = (e) => {
     this.setState({
-      text: e.target.value,
+      text: e.target.value
     })
   }
 
-  handleOnSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addRestaurants(this.state.text);
+    this.props.addRestaurant(this.state.text);
     this.setState({
       text: '',
     });
@@ -25,6 +26,7 @@ class RestaurantInput extends Component {
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
+        <label>New Restaurant:</label>
         <input type="text" value={this.state.text} onChange={this.handleClick}/>
         <input type="submit"/>
       </form>

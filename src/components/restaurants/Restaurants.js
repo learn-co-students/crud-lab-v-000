@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
-import Restaurant from './restaurant'
+import Restaurant from './Restaurant'
 
 const Restaurants = (props) => {
-  const restaurants = props.restaurants.map(restaurant => <li> <Restaurant key={restaurant.id} {...restaurant} deleteRestaurant={props.deleteRestaurant}/> </li>);
+  render() {
+    const { restaurants, deleteRestaurant } = this.props;
+    const restaurantList = restaurants.map(restaurant => {
+      return (
+        <Restaurant
+            key={restaurant.id}
+            restaurant={restaurant}
+            deleteRestaurant={deleteRestaurant}
+        />
+      )
+    });
 
     return(
       <ul>
-        {restaurants}
+        {restaurantList}
       </ul>
     );
-
+  
 };
 
 export default Restaurants;
