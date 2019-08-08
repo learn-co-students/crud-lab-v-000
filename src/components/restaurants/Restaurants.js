@@ -13,7 +13,8 @@ class Restaurants extends Component {
             deleteRestaurant={deleteRestaurant}
         />
       )
-    });
+    }
+  );
 
     return(
       <ul>
