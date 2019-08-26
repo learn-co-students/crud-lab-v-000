@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
 
 class Restaurant extends Component {
-
-
+  handleOnClick() {
+    this.props.deleteRestaurant(this.props.restaurant.id);
+  }
+  
   render() {
     const { restaurant } = this.props;
 
@@ -11,7 +13,7 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button> X </button>
+          <button onClick={() => this.handleOnClick()}>DELETE</button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
@@ -20,3 +22,4 @@ class Restaurant extends Component {
 };
 
 export default Restaurant;
+
