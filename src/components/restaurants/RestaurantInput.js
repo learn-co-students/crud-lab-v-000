@@ -10,15 +10,15 @@ class RestaurantInput extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       text: event.target.value
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
-    this.props.addRestaurant(this.state)
+    this.props.addRestaurant(this.state.text)
     this.setState({text: ''})
   }
 
@@ -26,7 +26,9 @@ class RestaurantInput extends Component {
     return (
       <div>
         <form onSubmit={(event) => this.handleSubmit(event)}>
-          <input type='text' value={this.state.text} onChange={(event) => this.handleChange(event)}/>
+          <input type='text' 
+            value={this.state.text} 
+            onChange={(event) => this.handleChange(event)}/>
           <input type='submit'/>
         </form>
       </div>
