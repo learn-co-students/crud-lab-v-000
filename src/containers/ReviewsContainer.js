@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
 
 class ReviewsContainer extends Component {
-
   render() {
     return (
       <div>
-      <ReviewInput
+        <ReviewInput
           addReview={this.props.addReview}
           restaurantId={this.props.restaurant.id}
         />
@@ -18,7 +17,7 @@ class ReviewsContainer extends Component {
           deleteReview={this.props.deleteReview}
         />
       </div>
-    )
+    );
   }
 }
 
