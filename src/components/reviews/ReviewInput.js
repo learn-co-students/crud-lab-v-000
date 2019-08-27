@@ -6,6 +6,10 @@ class ReviewInput extends Component {
     return (
       <div>
         Review Input
+        <form>
+          <input type='text'/>
+          <input type='submit'
+        </form>
       </div>
     );
   }
