@@ -6,6 +6,7 @@ class Restaurant extends Component {
     this.props.deleteRestaurant(this.props.restaurant.id);
   }
   
+  
   render() {
     const { restaurant } = this.props;
 
@@ -13,7 +14,7 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button onClick={() => this.handleOnClick()}>DELETE</button>
+          <button onClick={this.handleOnClick}>DELETE</button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
@@ -22,4 +23,3 @@ class Restaurant extends Component {
 };
 
 export default Restaurant;
-
