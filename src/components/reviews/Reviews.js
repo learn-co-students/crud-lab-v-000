@@ -18,7 +18,7 @@ class Reviews extends Component {
   render() {
     return (
       <ul>
-        {this.props.reviews ? this.listReviews(): null}
+        {this.listReviews()}
       </ul>
     );
   }
