@@ -5,13 +5,13 @@ class RestaurantInput extends Component {
     text: ''
   }
 
-  handleOnChange(event) {
+  handleOnChange = (event) => {
     this.setState({
       text: event.target.value
     });
   }
 
-  handleOnSubmit(event) {
+  handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addRestaurant(this.state.text);
     this.setState({
@@ -22,15 +22,13 @@ class RestaurantInput extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input
-            type="text" value={this.state.text}  onChange={(event) => this.handleOnChange(event)}/>
+        <form onSubmit={this.handleOnSubmit}>
+          <input type="text" value={this.state.text}  onChange={this.handleOnChange}/>
           <input type="submit"/>
         </form>
       </div>
     );
   }
 };
-
 
 export default RestaurantInput;
