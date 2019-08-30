@@ -4,11 +4,11 @@ class Review extends Component {
 
   handleClick = () => {
     this.props.deleteReview(this.props.review.id)
+    
   }
 
   render() {
     const { review } = this.props
-
     return (
       <div>
         <li>
@@ -18,7 +18,6 @@ class Review extends Component {
       </div>
     );
   }
-
 };
 
 export default Review;

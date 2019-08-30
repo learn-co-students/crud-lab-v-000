@@ -6,7 +6,6 @@ class Restaurant extends Component {
     this.props.deleteRestaurant(this.props.restaurant.id)
   }
   
-  
   render() {
     const { restaurant } = this.props;
 

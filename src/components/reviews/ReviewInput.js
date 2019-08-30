@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
+
 
 class ReviewInput extends Component {
-  state = {
-    text: ''
+  constructor(props) {
+    super(props)
+
+     this.state = {
+      text: ''
+    }
   }
 
-  handleChange = (event) => {
+   handleChange = (event) => {
     this.setState({
       text: event.target.value
     });
