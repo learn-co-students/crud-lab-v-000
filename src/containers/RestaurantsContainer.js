@@ -6,22 +6,24 @@ import { connect } from 'react-redux'
 class RestaurantsContainer extends Component {
 
   render() {
+    console.log('In RestaurantsContainer- this.props', this.props)
+    console.log('In RestaurantsContainer- this.props.restaurants', this.props.restaurants)
+
     return (
       <div>
-        <RestaurantInput addText={this.props.addText} />
-        <Restaurants />
+        <RestaurantInput addRestaurant={this.props.addRestaurant} />
+        <Restaurants restaurants={this.props.restaurants} />
       </div>
     )
   }
 }
 
-// const mapStateToProps = ({ bands }) => ({ bands })
-// const mapStateToProps = ({})
+const mapStateToProps = ({ restaurants }) => ({ restaurants })
 
 const mapDispatchToProps = dispatch => ({
-  addText: text => dispatch({ type: "ADD_TEXT", text }),
+  addRestaurant: text => dispatch({ type: "ADD_RESTAURANT", text }),
   // deleteBand: id => dispatch({ type: "DELETE_BAND", id })
 })
 
-export default connect(null, mapDispatchToProps)(RestaurantsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
 // export default RestaurantsContainer
