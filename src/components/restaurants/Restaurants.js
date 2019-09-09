@@ -9,13 +9,13 @@ class Restaurants extends Component {
       <div>
         <ul>
           {this.props.restaurants.map((restaurant) => (
-            <li><Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={this.props.deleteRestaurant} /></li>
+            <Restaurant key={restaurant.id} restaurant={restaurant} deleteRestaurant={this.props.deleteRestaurant} />
           )
           )}
         </ul>
       </div>
-    );
+    )
   }
-};
+}
 
 export default Restaurants;
