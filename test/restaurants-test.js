@@ -41,7 +41,7 @@ describe('RestaurantInput', () => {
 
     // console.log(store.getState());
     input.simulate('change', { target: { value: 'Hello' } })
-    form.simulate('submit',  { preventDefault() {} })
+    form.simulate('submit', { preventDefault() { } })
     // console.log(store.getState());
     expect(store.getState().restaurants[0].text).to.equal('Hello')
   });
@@ -52,9 +52,9 @@ describe('Restaurants Component', () => {
   it('displays a list of restaurant components', () => {
 
     const store = createStore(manageRestaurant)
-    store.dispatch({type: 'ADD_RESTAURANT', text: "Muzarella"})
-    store.dispatch({type: 'ADD_RESTAURANT', text: "Artichoke"})
-    store.dispatch({type: 'ADD_RESTAURANT', text: "Two Brothers"})
+    store.dispatch({ type: 'ADD_RESTAURANT', text: "Muzarella" })
+    store.dispatch({ type: 'ADD_RESTAURANT', text: "Artichoke" })
+    store.dispatch({ type: 'ADD_RESTAURANT', text: "Two Brothers" })
     const wrapper = mount(<Provider store={store}><App /></Provider>)
     expect(wrapper.find(Restaurant)).to.have.length(3);
   });
@@ -82,9 +82,9 @@ describe('RestaurantInput Component with Redux', () => {
     let input = wrapper.find('input').first()
 
     input.simulate('change', { target: { value: 'Sbarro' } })
-    form.simulate('submit',  { preventDefault() {} })
+    form.simulate('submit', { preventDefault() { } })
     input.simulate('change', { target: { value: 'La Villa' } })
-    form.simulate('submit',  { preventDefault() {} })
+    form.simulate('submit', { preventDefault() { } })
 
     let ids = store.getState().restaurants.map((restaurant) => {
       return restaurant.id
@@ -106,7 +106,7 @@ describe('Restaurant Component with Redux', () => {
     let input = wrapper.find('input').first()
 
     input.simulate('change', { target: { value: 'Blooming Hill Farm' } })
-    form.simulate('submit',  { preventDefault() {} })
+    form.simulate('submit', { preventDefault() { } })
 
     wrapper.update()
 
@@ -116,15 +116,15 @@ describe('Restaurant Component with Redux', () => {
   });
 
 
-  it('has a button that dispatches a DELETE_RESTAURANT action with the proper id when clicked', ()=> {
+  it('has a button that dispatches a DELETE_RESTAURANT action with the proper id when clicked', () => {
     const store = createStore(manageRestaurant);
-    store.dispatch({type: 'ADD_RESTAURANT', text: 'Bagel World'})
+    store.dispatch({ type: 'ADD_RESTAURANT', text: 'Bagel World' })
 
     const wrapper = mount(<Provider store={store}><App /></Provider>)
 
     let deleteButton = wrapper.find('button').first();
 
-    deleteButton.simulate('click',  { preventDefault() {} });
+    deleteButton.simulate('click', { preventDefault() { } });
 
     expect(store.getState().restaurants.length).to.equal(0);
 
@@ -139,10 +139,10 @@ describe('Restaurant Component with Redux', () => {
     let input = wrapper.find('input').first();
 
     input.simulate('change', { target: { value: 'Bagel Pub' } });
-    form.simulate('submit',  { preventDefault() {} });
+    form.simulate('submit', { preventDefault() { } });
 
     input.simulate('change', { target: { value: 'Chip Shop' } });
-    form.simulate('submit',  { preventDefault() {} });
+    form.simulate('submit', { preventDefault() { } });
 
     let restaurant = store.getState().restaurants[1];
 
@@ -156,7 +156,7 @@ describe('Restaurant Component with Redux', () => {
     expect(store.getState().restaurants[0].text).to.equal('Chip Shop');
 
     input.simulate('change', { target: { value: 'Song' } });
-    form.simulate('submit',  { preventDefault() {} });
+    form.simulate('submit', { preventDefault() { } });
 
     deleteButton = wrapper.find('button').last();
 
