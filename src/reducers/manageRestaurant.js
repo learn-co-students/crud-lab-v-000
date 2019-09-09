@@ -19,7 +19,7 @@ export default function manageRestaurants(state = {
       return { restaurants }
 
     case 'ADD_REVIEW':
-      const reviewToAdd = { reviewId: cuid(), text: action.text }
+      const reviewToAdd = { reviewId: cuid(), text: action.text, restaurantId: action.restaurantId }
       // const reviewToAdd = { reviewId: cuid(), text: action.text, restaurantId: restaurantId }
 
       console.log('in Reducer', { ...state, reviews: [...state.reviews, reviewToAdd] })

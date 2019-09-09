@@ -17,8 +17,9 @@ class ReviewInput extends Component {
     event.preventDefault()
     console.log('ReviewInput - HOS - this.props', this.props)
     console.log('ReviewInput2 - HOS - this.state', this.state)
+    console.log('ReviewInput3 - HOS - this.props.restaurantID', this.props.restaurantID)
 
-    this.props.addReview(this.state.text)
+    this.props.addReview(this.props.restaurantID, this.state.text)
     this.setState({
       text: ''
     })
