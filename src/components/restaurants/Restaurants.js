@@ -4,7 +4,7 @@ import Restaurant from './Restaurant'
 class Restaurants extends Component {
 
   render() {
-    // console.log('in Restaurants - this.props.restaurants', this.props.restaurants)
+    console.log('in Restaurants - this.props.restaurants', this.props.restaurants)
     return (
       <div>
         <ul>

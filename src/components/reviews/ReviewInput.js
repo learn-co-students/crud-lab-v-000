@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Reviews from './Reviews';
 
+
 class ReviewInput extends Component {
 
   state = {
@@ -24,6 +25,7 @@ class ReviewInput extends Component {
   }
 
   render() {
+    console.log('In ReviewInput-render- this.props', this.props)
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
@@ -34,9 +36,11 @@ class ReviewInput extends Component {
           <input type="submit" value="Submit Review" />
         </form>
         Review Input
+        {/* <Review id={review.reviewId} key={review.reviewId} review={review} /> */}
+        <Reviews restaurantId={this.props.restaurantId} />
       </div>
     );
   }
 };
 
-export default ReviewInput;
+export default ReviewInput

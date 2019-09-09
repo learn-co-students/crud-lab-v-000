@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReviewInput from '../components/reviews/ReviewInput'
-import Reviews from '../components/reviews/Reviews'
-// import Restaurant from '../components/restaurants/Restaurant'
+// import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
 import { addReview } from '../actions/actionCreators'
 
@@ -12,7 +11,7 @@ class ReviewsContainer extends Component {
     return (
       <div>
         <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id} />
-        <Reviews reviews={this.props.reviews} />
+        {/* <Reviews reviews={this.props.reviews} /> */}
       </div>
     )
   }
@@ -24,8 +23,8 @@ class ReviewsContainer extends Component {
 //   // return {
 //   // restaurantId: state.restaurant.id
 // }
-const mapStateToProps = ({ reviews }) => ({ reviews })
+// const mapStateToProps = ({ reviews }) => ({ reviews })
 
 
 
-export default connect(mapStateToProps, { addReview })(ReviewsContainer)
+export default connect(null, { addReview })(ReviewsContainer)
