@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 class RestaurantsContainer extends Component {
 
   render() {
-    // console.log('In RestaurantsContainer- this.props', this.props)
-    // console.log('In RestaurantsContainer- this.props.restaurants', this.props.restaurants)
 
     return (
       <div>

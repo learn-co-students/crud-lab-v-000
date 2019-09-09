@@ -6,9 +6,8 @@ class Restaurant extends Component {
   handleOnClick = event => {
     this.props.deleteRestaurant(this.props.restaurant.id)
   }
-  render() {
-    // console.log('in Restaurant - this.props.restaurant', this.props.restaurant)
 
+  render() {
     const { restaurant } = this.props;
     return (
       <div>

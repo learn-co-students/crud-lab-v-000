@@ -6,7 +6,6 @@ export default function manageRestaurants(state = {
   restaurants: [],
   reviews: []
 }, action) {
-  console.log('in manageRestaurants - action', action);
 
   switch (action.type) {
 
@@ -19,16 +18,16 @@ export default function manageRestaurants(state = {
       return { ...state, restaurants }
 
     case 'ADD_REVIEW':
-      // debugger
       const reviewToAdd = { reviewId: cuid(), text: action.text, restaurantId: action.restaurantId }
-      // const reviewToAdd = { reviewId: cuid(), text: action.text, restaurantId: restaurantId }
-
       console.log('in Reducer', { ...state, reviews: [...state.reviews, reviewToAdd] })
       return { ...state, reviews: [...state.reviews, reviewToAdd] }
+
+    case 'DELETE_REVIEW':
+      const reviews = state.reviews.filter(reviews => reviews.reviewId !== action.reviewId)
+      return { ...state, reviews }
 
     default:
       return state;
   }
 }
 
-//? I think I need to get restaurant id in here to review To add?

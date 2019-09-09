@@ -15,21 +15,19 @@ class Reviews extends Component {
     return (
       <ul>
         {restaurantReviews.map((review) => (
-
           <Review id={review.reviewId} key={review.reviewId} review={review} />
         )
         )}
-        reviews
       </ul>
-    );
+    )
   }
-};
+}
 // const mapStateToProps = ({ reviews }) ~> const reviews = state.reviews
 // ({ reviews }) ~> (must return ab obj), {reveiws: reviews }
 // const mapStateToProps = ({ reviews }) => ({ reviews })
 
 const mapStateToProps = (state) => {
-  // debugger
   return { reviews: state.reviews }
 }
+
 export default connect(mapStateToProps)(Reviews)

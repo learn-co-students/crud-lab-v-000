@@ -6,3 +6,12 @@ export function addReview(restaurantId, text) {
   }
 }
 
+export function deleteReview(reviewId) {
+  return {
+    type: 'DELETE_REVIEW',
+    reviewId
+  }
+}
+
+
+
