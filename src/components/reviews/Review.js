@@ -8,12 +8,13 @@ class Review extends Component {
     console.log('in Review HOC 1- this.props', this.props)
 
     console.log('in Review HOC 2- this.props.review.reviewId', this.props.review.reviewId)
-    // debugger
     this.props.deleteReview(this.props.review.reviewId)
   }
 
   render() {
+
     const { review } = this.props
+
     return (
       <div>
         <li>

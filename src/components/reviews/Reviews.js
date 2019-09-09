@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 import Review from './Review';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 class Reviews extends Component {
 
   render() {
-    console.log('in Reviews - this.props.reviews', this.props.reviews)
+    const { reviews, restaurantId } = this.props
 
-    const restaurantReviews = this.props.reviews.filter(review => {
-      return review.restaurantId === this.props.restaurantId
+    const restaurantReviews = reviews.filter(review => {
+      // console.log('in restaurantReviews', review);
+
+      return review.restaurantId === restaurantId
     })
 
+    const restaurantReviewsArr = restaurantReviews.map((review, index) => {
+      console.log(review)
+      console.log(index)
+
+      return < Review key={index} review={review} />
+    }
+    )
 
     return (
-      <ul>
-        {restaurantReviews.map((review) => (
-          <Review id={review.reviewId} key={review.reviewId} review={review} />
-        )
-        )}
-      </ul>
+      <div>
+        <ul>{restaurantReviewsArr}</ul>
+      </div >
+
+
+
+
     )
   }
 }
@@ -26,8 +36,5 @@ class Reviews extends Component {
 // ({ reviews }) ~> (must return ab obj), {reveiws: reviews }
 // const mapStateToProps = ({ reviews }) => ({ reviews })
 
-const mapStateToProps = (state) => {
-  return { reviews: state.reviews }
-}
 
-export default connect(mapStateToProps)(Reviews)
+export default Reviews
