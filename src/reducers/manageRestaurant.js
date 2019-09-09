@@ -10,7 +10,7 @@ export default function manageRestaurants(state = {
   switch (action.type) {
 
     case 'ADD_RESTAURANT':
-      const text = { id: cuid(), text: action.text }
+      const text = { id: cuidFn(), text: action.text }
       return { ...state, restaurants: [...state.restaurants, text] }
 
     case 'DELETE_RESTAURANT':
@@ -18,8 +18,7 @@ export default function manageRestaurants(state = {
       return { ...state, restaurants }
 
     case 'ADD_REVIEW':
-      const reviewToAdd = { reviewId: cuid(), text: action.text, restaurantId: action.restaurantId }
-      console.log('in Reducer', { ...state, reviews: [...state.reviews, reviewToAdd] })
+      const reviewToAdd = { reviewId: cuidFn(), text: action.text, restaurantId: action.restaurantId }
       return { ...state, reviews: [...state.reviews, reviewToAdd] }
 
     case 'DELETE_REVIEW':
