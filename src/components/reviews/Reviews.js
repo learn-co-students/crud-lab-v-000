@@ -1,9 +1,22 @@
 import React, { Component } from "react";
-// import Review from './Review';
+import Review from "./Review";
 
 class Reviews extends Component {
   render() {
-    return <ul>Reviews</ul>;
+    const { reviews, restaurantId, deleteReview } = this.props;
+    const associatedReviews = reviews.filter(
+      review => review.restaurantId === restaurantId
+    );
+
+    const reviewList = associatedReviews.map((review, index) => {
+      return <Review key={index} review={review} deleteReview={deleteReview} />;
+    });
+
+    return (
+      <div>
+        <ul>{reviewList}</ul>
+      </div>
+    );
   }
 }
 
