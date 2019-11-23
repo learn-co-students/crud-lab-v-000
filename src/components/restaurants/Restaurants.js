@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
 // import RestaurantInput from './RestaurantInput'
 

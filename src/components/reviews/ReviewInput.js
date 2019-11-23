@@ -16,7 +16,7 @@ class ReviewInput extends Component {
   handleOnSubmit(event) {
 
     event.preventDefault();
-    debugger
+    
     this.props.addReview(this.state.text);
     this.setState({
 
@@ -27,7 +27,7 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
-        Review Input
+        Review Input #
 
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input

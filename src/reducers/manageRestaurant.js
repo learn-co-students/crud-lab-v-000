@@ -12,7 +12,7 @@ export default function manageRestaurants(state = {
 //    debugger
             const restaurantId = {
                 id: cuid(),
-                name: action.text
+                text: action.text
             }
             return { restaurants: state.restaurants.concat(restaurantId) }
     
@@ -23,11 +23,11 @@ export default function manageRestaurants(state = {
         //  FOR REVIEWS>
 
         case 'ADD_REVIEW':
-debugger
                 const reviewId = {
                     id: cuid(),
-                    name: action.text
+                    text: action.text
                 }
+            debugger
                 return { reviews: state.reviews.concat(reviewId) }
         
         
