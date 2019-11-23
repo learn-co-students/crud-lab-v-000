@@ -9,8 +9,10 @@ class Review extends Component {
       <div>
         <li>
           {review.text}
+    
+        <button onClICK={() => review.delete(review.review.id)}> X </button>
         </li>
-        <button> X </button>
+        
       </div>
     );
   }
