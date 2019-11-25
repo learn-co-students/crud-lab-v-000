@@ -17,12 +17,12 @@ class ReviewInput extends Component {
 
     event.preventDefault();
     
-    const resturantReview = {
+    const restaurantReview = {
       text: this.state.text,
-      restaurantId: this.props.restuarantId
+      restaurantId: this.props.restaurantId
 
     }
-      this.props.addReview(resturantReview);
+      this.props.addReview(restaurantReview);
     
     this.setState({
 

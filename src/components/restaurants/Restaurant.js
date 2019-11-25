@@ -12,9 +12,9 @@ class Restaurant extends Component {
         <ul>
           
         <li>
-          <p>Restaurant name  {this.props.restaurant.name} </p> 
+          <p>Restaurant name  {this.props.restaurant.text} </p> 
           
-            <p>Resturant Id{this.props.restaurant.id}  </p>
+            <p>Restaurant Id{this.props.restaurant.id}  </p>
           </li>
         
           </ul>
@@ -23,7 +23,7 @@ class Restaurant extends Component {
           
           <ReviewsContainer restaurant={this.props.restaurant} />
           
-          {ReviewsContainer}
+          {/* {ReviewsContainer} */}
         
       </div>
      
