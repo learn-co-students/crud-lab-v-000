@@ -10,13 +10,17 @@ class ReviewsContainer extends Component {
       <div>
         <ReviewInput addReview={this.props.addReview} restuarantId={this.props.restaurant.id} />
         
-    <ReviewInput reviews={this.props.reviews} deleteReview={this.props.deleteReview}/>
-
+    <Reviews reviews={this.props.reviews} deleteReview={this.props.deleteReview}/>
+     
       </div>
     )
   }
 }
-const mapStateToProps = ({ state }) => ({reviews: state.reviews})
+
+
+const mapStateToProps =  state  => ({reviews: state.reviews})
+
+
 
  
 const mapDispatchToProps = dispatch => ({
