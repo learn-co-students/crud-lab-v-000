@@ -5,24 +5,24 @@ import { bindActionCreators } from 'redux';
 
 class Reviews extends Component {
 
+    //  2 step process.    do a filters... and return a    .map
   renderReviews = () => {
     if (this.props.reviews && this.props.reviews.map) {
 
       // return this.props.reviews.map(
 // review => < Review delete={this.props.deleteReview} key={review.id} review={review} />)
       
+   debugger   
+    const reviewList = this.props.reviews.filter( review => review.restaurantId == this.props.restaurantId
+     
+       )
+
+     
+    return   reviewList.map(singleReview => 
       
-      return this.props.reviews.filter(
-        review => review.id !== review.restaurant.Id
-
-        // debugger
-        // review => console.log(review)
-
-
-      )
-
-      // review => < Review delete={this.props.deleteReview} key={review.id} review={review} />)
-
+            <Review delete={this.props.deleteReview} key={singleReview.id} review={singleReview} />
+        
+        )
       }
   }
   
