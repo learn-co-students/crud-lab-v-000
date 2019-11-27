@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Review from './Review';
-import { bindActionCreators } from 'redux';
 
 
 class Reviews extends Component {
@@ -12,7 +11,7 @@ class Reviews extends Component {
       // return this.props.reviews.map(
 // review => < Review delete={this.props.deleteReview} key={review.id} review={review} />)
       
-   debugger   
+      
     const reviewList = this.props.reviews.filter( review => review.restaurantId == this.props.restaurantId
      
        )

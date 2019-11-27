@@ -9,6 +9,7 @@ class ReviewsContainer extends Component {
     return (
       <div>
         <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id} />
+        {/*  We are taking  restuarant we already have and Pass it to a specific review. */}
         
         <Reviews reviews={this.props.reviews} deleteReview={this.props.deleteReview}  restaurantId={this.props.restaurant.id}/>
      

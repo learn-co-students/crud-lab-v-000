@@ -1,13 +1,13 @@
 
 import cuid from 'cuid';
-import Restaurant from '../components/restaurants/Restaurant';
+// import Restaurant from '../components/restaurants/Restaurant';
 export const cuidFn = cuid;
 
 export default function manageRestaurants(state = {
     restaurants: [], reviews: []
-}, action) {
+   }, action) {
     switch (action.type) {
-        
+        //  switch statement
         case 'ADD_RESTAURANT':
 //    debugger
             const restaurantId = {
@@ -35,7 +35,8 @@ export default function manageRestaurants(state = {
                 }
             
                 // return { reviews: (...state, this.props.state.reviews.concat(review)) }
-                return { ...state, reviews: [...state.reviews, review] }
+            //  we are building an array    // 
+            return { ...state, reviews: [...state.reviews, review] }
         
             case 'DELETE_REVIEW':
                 return { reviews: state.reviews.filter(restaurant => restaurant.id !== action.id) }

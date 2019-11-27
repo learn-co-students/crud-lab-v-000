@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect} from 'react-redux'
 
 class RestaurantInput extends Component {
 
@@ -17,7 +16,7 @@ class RestaurantInput extends Component {
     event.preventDefault();
     // debugger
 
-    console.log(this.state)
+    // console.log(this.state)
     this.props.addRestaurant(this.state.text);
 
     // this.props.store.dispatch({

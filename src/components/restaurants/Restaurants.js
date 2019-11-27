@@ -19,6 +19,7 @@ class Restaurants extends Component {
       <ul>
         Restaurants Component
         Restaurant Name
+        {/*  line 20 or 21 is just text */}
         <div>
           {/* <RestaurantInput addResturant={this.props.addResturant} /> */}
               {this.renderRestaurant()}
