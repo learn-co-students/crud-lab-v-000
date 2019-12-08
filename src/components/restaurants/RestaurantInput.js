@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { addRestaurant } from '../../actions/restaurants';
-//import RestaurantsContainer from '../../containers/RestaurantsContainer'
 
 import React, { Component } from 'react';
 
@@ -31,22 +30,14 @@ class RestaurantInput extends Component {
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <input
             type="text"
+            name="input"
             value={this.state.text}
             onChange={(event) => this.handleOnChange(event)} />
-          <input type="submit" />
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     );
   }
 };
 
-//const mapDispatchToProps = dispatch => {
-  //return {
-    //addRestaurant: (newRestaurant) => {
-      //dispatch(addRestaurant(newRestaurant))
-    //}
-  //};
-//};
-
-//export default connect(null, mapDispatchToProps)(RestaurantInput);
 export default RestaurantInput;
