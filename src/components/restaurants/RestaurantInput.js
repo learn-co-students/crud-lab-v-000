@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { addRestaurant } from '../../actions/restaurants';
+import RestaurantsContainer from '../../containers/RestaurantsContainer'
 
 import React, { Component } from 'react';
 
@@ -39,13 +40,13 @@ class RestaurantInput extends Component {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addRestaurant: (newRestaurant) => {
-      dispatch(addRestaurant(newRestaurant))
-    }
-  };
-};
+//const mapDispatchToProps = dispatch => {
+  //return {
+    //addRestaurant: (newRestaurant) => {
+      //dispatch(addRestaurant(newRestaurant))
+    //}
+  //};
+//};
 
-export default connect(null, mapDispatchToProps)(RestaurantInput);
-
+//export default connect(null, mapDispatchToProps)(RestaurantInput);
+export default RestaurantInput;
