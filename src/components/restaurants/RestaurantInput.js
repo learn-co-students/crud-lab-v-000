@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { addRestaurant } from '../../actions/restaurants';
-import RestaurantsContainer from '../../containers/RestaurantsContainer'
+//import RestaurantsContainer from '../../containers/RestaurantsContainer'
 
 import React, { Component } from 'react';
 
