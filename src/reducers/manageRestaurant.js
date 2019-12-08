@@ -10,11 +10,14 @@ export default function manageRestaurants(
     case 'ADD_RESTAURANT':
       const restaurant = {
         id: cuid(),
-        text: action.name
+        text: action.text
       }
       return { restaurants: [...state.restaurants, restaurant ] };
   
-  default:
+  case 'DELETE_RESTAURANT':
+  return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
+ 
+    default:
       return state;
   }
 }
