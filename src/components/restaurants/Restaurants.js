@@ -19,19 +19,19 @@ class Restaurants extends Component {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteRestaurant: (id) => {
-      dispatch(deleteRestaurant(id))
-    }
-  };
-};
+//const mapDispatchToProps = dispatch => {
+  //return {
+    //deleteRestaurant: (id) => {
+      //dispatch(deleteRestaurant(id))
+    //}
+  //};
+//};
 
-const mapStateToProps = (state) => {
-  return {
-    restaurants: state.restaurants
-  }
-};
+//const mapStateToProps = (state) => {
+  //return {
+    //restaurants: state.restaurants
+  //}
+//};
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Restaurants)
+export default (Restaurants)
