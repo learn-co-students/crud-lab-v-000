@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
+import { addReview } from '../actions/reviews';
 
 
 class ReviewsContainer extends Component {
@@ -9,7 +10,7 @@ class ReviewsContainer extends Component {
   render() {
     return (
       <div>
-        <ReviewInput reviews={this.props.reviews}/>
+        <ReviewInput reviews={this.props.reviews} addReview={this.props.addReview}/>
         <Reviews />
       </div>
     )

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { deleteRestaurant } from '../../actions/restaurants';
-import { connect } from 'react-redux'
 import Restaurant from './Restaurant';
 
 

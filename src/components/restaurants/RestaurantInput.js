@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-import { addRestaurant } from '../../actions/restaurants';
 
 import React, { Component } from 'react';
 

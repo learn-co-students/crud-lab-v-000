@@ -19,7 +19,7 @@ class ReviewInput extends Component {
     event.preventDefault();
     this.props.addReview(this.state.text);
     this.setState({
-      text: '',
+      text: ''
     });
   }
 
@@ -31,6 +31,7 @@ class ReviewInput extends Component {
           <input
             type="text"
             name="text"
+            id="text"
             value={this.state.text}
             onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" value="Submit"/>
