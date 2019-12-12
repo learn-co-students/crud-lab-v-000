@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 const store = createStore(manageRestaurant)
+//  manageRestaurant is located in the reducer.
+//  And we connect it to the store. 
 
 
 ReactDOM.render(
