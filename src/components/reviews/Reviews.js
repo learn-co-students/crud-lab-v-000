@@ -3,12 +3,16 @@ import Review from './Review';
 
 class Reviews extends Component {
 
+  renderReviews = () => {
+  	console.log(this.props)
+  return this.props.reviews.map(review => <Review key={review.id} review={review} delete={this.props.deleteReview}/>)
+} 
 
   render() {
     return (
       <ul>
         Reviews
-        <li key={props.review.id}>{props.review.name}</li><button onClick={() => props.delete(props.review.id)}>DELETE_BAND</button>
+        {this.renderReviews()}
       </ul>
     );
   }

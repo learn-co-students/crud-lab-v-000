@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RestaurantsContainer from './containers/RestaurantsContainer';
-import ReviewsContainer from './containers/ReviewsContainer';
 
 
 class App extends Component {
@@ -8,7 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <RestaurantsContainer />
-        <ReviewsContainer />
       </div>
     );
   }

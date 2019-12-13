@@ -3,6 +3,7 @@ import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
 import { addReview } from '../actions/reviews';
+import { deleteReview } from '../actions/reviews';
 
 
 class ReviewsContainer extends Component {
@@ -11,7 +12,7 @@ class ReviewsContainer extends Component {
     return (
       <div>
         <ReviewInput reviews={this.props.reviews} addReview={this.props.addReview}/>
-        <Reviews />
+        <Reviews reviews={this.props.reviews} deleteReview={this.props.deleteReview}/>
       </div>
     )
   }
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => {
   return {
     addReview: (text) => {
       dispatch(addReview(text))
+    },
+    deleteReview: (id) => {
+      dispatch(deleteReview(id))
     }
   };
 };
