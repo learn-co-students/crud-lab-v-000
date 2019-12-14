@@ -20,6 +20,7 @@ export default function manageRestaurants(
   case 'ADD_REVIEW':
       const review = {
         text: action.text
+
       }
       return { ...state, reviews: [...state.reviews, review ] };
   
