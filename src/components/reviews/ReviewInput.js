@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
-import { addReview } from '../../actions/reviews';
 
 
 class ReviewInput extends Component {
@@ -19,6 +17,7 @@ class ReviewInput extends Component {
     event.preventDefault();
     const newReview = {...this.state, restaurantId: this.props.restaurant.id };
     this.props.addReview(newReview);
+      console.log(newReview)
     this.setState({
       text: ''
     });

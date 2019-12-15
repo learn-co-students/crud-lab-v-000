@@ -9,6 +9,7 @@ import { deleteReview } from '../actions/reviews';
 class ReviewsContainer extends Component {
 
   render() {
+  	console.log(this.props)
     return (
       <div>
         <ReviewInput restaurant={this.props.restaurant} reviews={this.props.reviews} addReview={this.props.addReview}/>
