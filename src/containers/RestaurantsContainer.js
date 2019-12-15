@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import RestaurantInput from '../components/restaurants/RestaurantInput'
 import Restaurants from '../components/restaurants/Restaurants'
 import { connect } from 'react-redux'
-import { addRestaurant } from '../actions/restaurants';
-import { deleteRestaurant } from '../actions/restaurants';
-
 
 class RestaurantsContainer extends Component {
 
@@ -24,16 +21,10 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addRestaurant: (text) => {
-      dispatch(addRestaurant(text))
-    },
-    deleteRestaurant: (id) => {
-      dispatch(deleteRestaurant(id))
-    }
-  };
-};
+const mapDispatchToProps = dispatch => ({
+addRestaurant: text => dispatch({type: 'ADD_RESTAURANT', text}),
+deleteRestaurant: id => dispatch({type: 'DELETE_RESTAURANT', id})
+  });
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
