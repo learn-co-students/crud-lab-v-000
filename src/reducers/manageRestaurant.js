@@ -15,7 +15,7 @@ export default function manageRestaurants(
       return { ...state, restaurants: [...state.restaurants, restaurant ] };
   
   case 'DELETE_RESTAURANT':
-  return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
+   return {...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
 
   case 'ADD_REVIEW':
       const review = {
@@ -24,14 +24,12 @@ export default function manageRestaurants(
         id: cuidFn()
 
       }
-      return { ...state, reviews: [...state.reviews, review ] };
+      return { ...state, reviews: [...state.reviews, review ]};
 
   case 'DELETE_REVIEW':
-  return {reviews: state.reviews.filter(review => review.id !== action.id)}
- 
- 
+    return {...state, reviews: state.reviews.filter(review => review.id !== action.id)}
+
     default:
       return state;
   }
-
 }
