@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import Review from './Review';
 
 class Reviews extends Component {
-   
-  renderReviews = () => {
-  return this.props.reviews.map(review => <Review key={review.id} review={review} delete={this.props.deleteReview}/>)
-} 
 
   render() {
+    const { reviews, restaurantId} = this.props;
+
+    const ifAssoc = reviews.filter(review => review.restaurantId === restaurantId);
+
+    const renderReviews = ifAssoc.map((review) => {
+      return <Review key={review.id} review={review} delete={this.props.deleteReview} />
+   })
+
     return (
       <ul>
         Reviews
-        {this.renderReviews()}
+        {renderReviews}
       </ul>
     );
   }
