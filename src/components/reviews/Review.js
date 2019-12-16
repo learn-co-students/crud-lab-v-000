@@ -4,13 +4,12 @@ class Review extends Component {
 
   render() {
     const { review } = this.props
-
     return (
       <div>
-        <li>
+        <li key="review.id">
           {review.text}
+           <button onClick={() => this.props.delete(review.id)}>DELETE_REVIEW</button>
         </li>
-        <button> X </button>
       </div>
     );
   }
@@ -18,3 +17,5 @@ class Review extends Component {
 };
 
 export default Review;
+
+
