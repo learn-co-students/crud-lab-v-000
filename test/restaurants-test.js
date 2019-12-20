@@ -123,7 +123,7 @@ describe('Restaurant Component with Redux', () => {
     const wrapper = mount(<Provider store={store}><App /></Provider>)
 
     let deleteButton = wrapper.find('button').first();
-
+    console.log(deleteButton)
     deleteButton.simulate('click',  { preventDefault() {} });
 
     expect(store.getState().restaurants.length).to.equal(0);
