@@ -5,6 +5,7 @@
 * Implement a Yelp-like application where users can create and delete both
 restaurants and reviews of each restaurant.
 
+
 ## Introduction
 
 In this lab, we will practice creating and removing various items using Redux. We are
