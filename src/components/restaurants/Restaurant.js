@@ -3,6 +3,8 @@ import ReviewsContainer from '../../containers/ReviewsContainer'
 
 class Restaurant extends Component {
 
+  //testing git
+
   handleOnClick = () => {
     this.props.deleteRestaurant(this.props.restaurant.id)
   }
