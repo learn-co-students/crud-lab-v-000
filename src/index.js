@@ -6,7 +6,10 @@ import manageRestaurant from './reducers/manageRestaurant'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-const store = createStore(manageRestaurant)
+const store = createStore(
+  manageRestaurant,
+  window.__REDUX_DEV_TOOLS__ && window.__REDUX_DEV_TOOLS__()
+);
 
 
 ReactDOM.render(
