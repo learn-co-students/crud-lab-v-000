@@ -10,7 +10,7 @@ class RestaurantsContainer extends Component {
     return (
       <div>
         <RestaurantInput addRestuarant={this.props.addRestuarant} />
-        <Restaurants delete={this.props.delete} restaurants={this.props.state.restaurants} />
+        <Restaurants delete={this.props.delete} restaurants={this.props.restaurants} />
       </div>
     )
   }
@@ -18,12 +18,12 @@ class RestaurantsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    state
+    restaurants: state.restaurants
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  addRestuarant: restaurant => dispatch({type: 'ADD_RESTAURANT', restaurant}),
+  addRestuarant: restaurant => dispatch({type: 'ADD_RESTAURANT', restaurant: {text: restaurant} }),
   delete: restaurantId => dispatch({type: 'DELETE_RESTAURANT', restaurantId})
 })
 

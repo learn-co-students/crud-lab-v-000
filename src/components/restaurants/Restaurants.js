@@ -6,11 +6,9 @@ class Restaurants extends Component {
     return(
       <div>Restaurants:
       <ul>
-        {this.props.restaurants.map(restaurant => <Restaurant
-                                                   key={restaurant.id}
-                                                   id={restaurant.id}
-                                                   restaurant={restaurant.text}
-                                                   delete={this.props.delete} />)}
+        {this.props.restaurants.map(restaurant => <Restaurant key={restaurant.id}
+                                                   restaurant={restaurant}
+                                                   delete={this.props.delete}/>)}
       </ul>
       </div>
     );
