@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 class Review extends Component {
 
   render() {
-
+    const { review } = this.props
 
     return (
       <div>
         <li>
-          {this.props.review}
+          {review.text}
         </li>
         <button> X </button>
       </div>
