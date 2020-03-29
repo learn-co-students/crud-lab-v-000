@@ -18,10 +18,25 @@ export default function manageRestaurants(
             }
 
         case 'DELETE_RESTAURANT':
-            console.log(action)
+            console.log(action.restaurant)
             return {
                 ...state,
                 restaurants: state.restaurants.filter(rest => rest.id !== action.restaurantID)
+            }
+
+        case 'ADD_REVIEW':
+            let newReview = Object.assign({}, action.review)
+            newReview.id = cuid()
+            return {
+                ...state,
+                reviews: state.reviews.concat(newReview)
+            }
+
+        case 'DELETE_REVIEW':
+            console.log(action.reviewID)
+            return {
+                ...state,
+                reviews: state.reviews.filter(review => review.id !== action.reviewID)
             }
 
         default:
