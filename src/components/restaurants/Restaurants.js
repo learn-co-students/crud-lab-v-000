@@ -1,13 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Restaurant from "./Restaurant";
 
 class Restaurants extends Component {
+  handleDelete = (id) => {
+    this.props.delete(id);
+  };
   render() {
-    return(
+    return (
       <ul>
-        Restaurants Component
+        {this.props.restaurants.map((r, idx) => (
+          <Restaurant
+            key={idx}
+            restaurant={r}
+            delete={(_) => this.handleDelete(r.id)}
+          />
+        ))}
       </ul>
     );
   }
-};
+}
 
 export default Restaurants;
