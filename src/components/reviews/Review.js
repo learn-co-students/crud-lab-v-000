@@ -16,6 +16,7 @@ class Review extends Component {
           </li>
           :
           <form onSubmit={this.onFormSubmit}>
+            <label>Edit Review: </label>
             <input 
               type="text"
               onChange={this.onInputChange}

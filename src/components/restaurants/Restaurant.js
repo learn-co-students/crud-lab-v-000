@@ -12,12 +12,12 @@ class Restaurant extends Component {
         { !this.state.isEditing ? 
           <li>
             {restaurant.text}
-            {/* <button onClick={this.onEditClick}>Edit Reurant</button> */}
+            {/* <button onClick={this.onEditClick}>Edit</button> */}
             <button onClick={() => this.props.deleteRestaurant(restaurant.id)}>Delete</button>
-            <ReviewsContainer restaurant={restaurant}/> <br/>
           </li>
           :
           <form onSubmit={this.onFormSubmit}>
+            <label>Edit Restaurant: </label>
             <input 
               type="text" 
               onChange={this.onInputChange}
@@ -27,6 +27,7 @@ class Restaurant extends Component {
             <button>Submit</button>
           </form>
         }
+        <ReviewsContainer restaurant={restaurant}/> <br/>
       </div>
     )
   }
