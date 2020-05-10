@@ -6,8 +6,6 @@ import Reviews from '../components/reviews/Reviews'
 class ReviewsContainer extends Component {
 
   render() {
-    console.log('reviewsContainer', this.props);
-    
     return (
       <div>
         <ReviewInput 

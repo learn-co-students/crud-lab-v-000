@@ -5,7 +5,7 @@ class Restaurant extends Component {
   state = { text: '', isEditing: false }
 
   render() {
-    const { restaurant } = this.props;
+    const { restaurant } = this.props
 
     return (
       <div> 
@@ -28,7 +28,7 @@ class Restaurant extends Component {
           </form>
         }
       </div>
-    );
+    )
   }
 
   onInputChange = (event) => {

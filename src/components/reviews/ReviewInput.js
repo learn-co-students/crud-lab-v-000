@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Reviews from './Reviews';
 
 class ReviewInput extends Component {
   state = { text: '' }
@@ -25,13 +24,11 @@ class ReviewInput extends Component {
     this.setState({ 
       [event.target.name]: event.target.value 
     })
-  };
+  }
 
   onFormSubmit = (event) => {
     event.preventDefault()
-
     this.props.addReview({...this.state, restaurantId: this.props.restaurantId })
-
     this.setState({ 
       text: ''  
     })

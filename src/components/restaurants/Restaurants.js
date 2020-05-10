@@ -18,7 +18,7 @@ class Restaurants extends Component {
       <ul>
         {this.renderRestaurants()}
       </ul>
-    );
+    )
   }
 };
 

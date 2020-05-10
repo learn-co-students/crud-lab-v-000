@@ -4,8 +4,6 @@ class RestaurantInput extends Component {
   state = { text: '' }
   
   render() {
-    console.log('restaurant input', this.state.text);
-    
     return (
       <div>
         <form onSubmit={this.onFormSubmit}>
@@ -16,10 +14,10 @@ class RestaurantInput extends Component {
             onChange={this.onInputSubmit} 
             value={this.state.text}
           />
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" />
         </form>
       </div>
-    );
+    )
   }
 
   onInputSubmit = (event) => {

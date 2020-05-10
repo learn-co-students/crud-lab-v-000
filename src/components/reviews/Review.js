@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 
 class Review extends Component {
   state = { text: '', isEditing: false }
+  
   render() {
-    console.log('review component', this.state.text);
-    
     const { review } = this.props
 
     return (
@@ -27,7 +26,7 @@ class Review extends Component {
           </form>
         }
       </div>
-    );
+    )
   }
 
   onInputChange = (event) => {
@@ -36,9 +35,7 @@ class Review extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault()
-
     this.props.editReview({ id: this.props.review.id, text: this.state.text })
-
     this.setState({ 
       text: '',
       isEditing: !this.state.isEditing  
