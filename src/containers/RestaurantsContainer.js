@@ -23,8 +23,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addRestaurant: formData => dispatch({type: 'ADD_RESTAURANT', payload: formData}),
-  deleteRestaurant: formData => dispatch({type: 'DELETE_RESTAURANT', id: formData})
+  addRestaurant: text => dispatch({type: 'ADD_RESTAURANT', text: text}),
+  deleteRestaurant: id => dispatch({type: 'DELETE_RESTAURANT', id: id})
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(RestaurantsContainer)
