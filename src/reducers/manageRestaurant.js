@@ -35,9 +35,19 @@ export default function manageRestaurants(state = {
     }
 
     case 'DELETE_REVIEW':
-    console.log(action)
     return{ ...state,
       reviews: state.reviews.filter(review => review.id !== action.review)
+    }
+
+    case 'UPDATE_REVIEW':
+    console.log(action)
+    return{ ...state,
+      reviews: state.reviews.map(review => {
+    if(review.id === action.updatedReview.id){
+      return action.updatedReview
+      }
+      return review
+      })
     }
 
 
