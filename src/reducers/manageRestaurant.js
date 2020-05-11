@@ -13,7 +13,7 @@ export default function manageRestaurants(state = {
       text: action.text
     }
 
-    return{
+    return{ ...state,
       restaurants: state.restaurants.concat(restaurant)
           }
 
