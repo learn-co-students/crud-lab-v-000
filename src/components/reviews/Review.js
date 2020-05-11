@@ -11,9 +11,11 @@ handleChange = event => {
     text: event.target.value
   })
 }
+
+
   render() {
     const { review } = this.props
-
+    console.log(this.state.text)
 
     return (
       <div>
@@ -22,7 +24,7 @@ handleChange = event => {
         </li>
         <button onClick={() => this.props.delete(review.id)}> X </button>
         <input type='text' onChange={this.handleChange} value={this.state.text}></input>
-        <button onClick={() => this.props.update({id: review.id, text: this.state.text})}> Update </button>
+        <button onClick={() => this.props.update({...review, text: this.state.text})}> Update </button>
       </div>
     );
   }
