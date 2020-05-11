@@ -18,7 +18,7 @@ export default function manageRestaurants(state = {
           }
 
     case 'DELETE_RESTAURANT':
-    return{
+    return{ ...state,
       restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)
     }
 
@@ -29,12 +29,15 @@ export default function manageRestaurants(state = {
       text: action.review.text,
       restaurantId: action.review.restaurantId
     }
-
-    return{
+    console.log(action)
+    return{ ...state,
       reviews: state.reviews.concat(review)
     }
 
-
+    case 'DELETE_REVIEW':
+    return{ ...state,
+      reviews: state.reviews.filter(review =>  review.id !== action.id)
+    }
 
 
     default:
