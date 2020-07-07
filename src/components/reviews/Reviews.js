@@ -3,13 +3,13 @@ import Review from './Review';
 
 class Reviews extends Component {
 
-  // renderReviews = () => this.props.reviews.map((review, idx) => <Review key={idx} review={review} delete={this.props.delete}/>)
+  renderReviews = () => this.props.reviews.map(review => <Review key={review.id} review={review} delete={this.props.deleteReview}/>)
 
   render() {
-    // console.log(this.props.reviews)
+    console.log(this.props.reviews)
     return (
       <ul>
-        {/* {this.renderReviews()} */}
+        {this.renderReviews()}
       </ul>
     );
   }

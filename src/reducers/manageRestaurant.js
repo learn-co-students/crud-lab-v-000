@@ -1,22 +1,20 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
-export default function manageRestaurants(state = {restaurants: []}, action) {
-    let restaurants
+export default function manageRestaurants(state = {restaurants: [], reviews:[]}, action) {
     switch (action.type) {
         case 'ADD_RESTAURANT':
     
           const restaurant= {
             id: cuid(),
-            text: action.text,
-            reviews: []
+            text: action.text
           }
     
-          return { ...state, restaurants: [...state.restaurants, restaurant] }
+          return { ...state, restaurants: [...state.restaurants, restaurant], reviews: [...state.reviews]}
     
         case 'DELETE_RESTAURANT':
      
-          return {...state, restaurants: [...state.restaurants.filter(restaurant => restaurant.id !== action.id)] }
+          return {...state, restaurants: [...state.restaurants.filter(restaurant => restaurant.id !== action.id)], reviews: [...state.reviews.filter(review => review.restaurantId !== action.id)] }
 
         case 'ADD_REVIEW':
 
@@ -26,30 +24,32 @@ export default function manageRestaurants(state = {restaurants: []}, action) {
               restaurantId: action.review.restaurantId
             }
 
-            restaurants = state.restaurants.map(restaurant => {
-              if (restaurant.id === review.restaurantId) {
-                let reviewedRestaurant = {...restaurant, reviews: [...restaurant.reviews]}
-                reviewedRestaurant.reviews.push(review)
-                return reviewedRestaurant
-              } else {
-                return {...restaurant}
-              }
-            })
+            console.log(review)
 
-          return {...state, restaurants: restaurants }
+            // restaurants = state.restaurants.map(restaurant => {
+            //   if (restaurant.id === review.restaurantId) {
+            //     let reviewedRestaurant = {...restaurant, reviews: [...restaurant.reviews]}
+            //     reviewedRestaurant.reviews.push(review)
+            //     return reviewedRestaurant
+            //   } else {
+            //     return {...restaurant}
+            //   }
+            // })
+
+          return {...state, restaurants: [...state.restaurants], reviews: [...state.reviews, review]}
         
         case 'DELETE_REVIEW':
 
-          restaurants = state.restaurants.map(restaurant => {
-            if (restaurant.id === action.restaurantId) {
-              let selectedRestaurant = {...restaurant, reviews: [...restaurant.reviews.filter(review => review.id !== action.id)]}
-              return selectedRestaurant
-            } else {
-              return {...restaurant}
-            }
-          })
+          // restaurants = state.restaurants.map(restaurant => {
+          //   if (restaurant.id === action.restaurantId) {
+          //     let selectedRestaurant = {...restaurant, reviews: [...restaurant.reviews.filter(review => review.id !== action.id)]}
+          //     return selectedRestaurant
+          //   } else {
+          //     return {...restaurant}
+          //   }
+          // })
      
-          return {...state, restaurants: restaurants }
+          return {...state, restaurants: [...state.restaurants], reviews: [...restaurant.reviews.filter(review => review.id !== action.id)] }
     
         default:
           return state;
