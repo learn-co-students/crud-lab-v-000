@@ -24,32 +24,11 @@ export default function manageRestaurants(state = {restaurants: [], reviews:[]},
               restaurantId: action.review.restaurantId
             }
 
-            console.log(review)
-
-            // restaurants = state.restaurants.map(restaurant => {
-            //   if (restaurant.id === review.restaurantId) {
-            //     let reviewedRestaurant = {...restaurant, reviews: [...restaurant.reviews]}
-            //     reviewedRestaurant.reviews.push(review)
-            //     return reviewedRestaurant
-            //   } else {
-            //     return {...restaurant}
-            //   }
-            // })
-
           return {...state, restaurants: [...state.restaurants], reviews: [...state.reviews, review]}
         
         case 'DELETE_REVIEW':
-
-          // restaurants = state.restaurants.map(restaurant => {
-          //   if (restaurant.id === action.restaurantId) {
-          //     let selectedRestaurant = {...restaurant, reviews: [...restaurant.reviews.filter(review => review.id !== action.id)]}
-          //     return selectedRestaurant
-          //   } else {
-          //     return {...restaurant}
-          //   }
-          // })
-     
-          return {...state, restaurants: [...state.restaurants], reviews: [...restaurant.reviews.filter(review => review.id !== action.id)] }
+          
+          return {...state, restaurants: [...state.restaurants], reviews: [...state.reviews.filter(review => review.id !== action.id)] }
     
         default:
           return state;
