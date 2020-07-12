@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import ReviewUpdate from './ReviewUpdate';
 
 class Review extends Component {
-
   render() {
     const { review } = this.props
 
@@ -9,12 +9,13 @@ class Review extends Component {
       <div>
         <li>
           {review.text}
+          
+          <ReviewUpdate review={review} updateReview={this.props.updateReview} />
+          <button onClick={() => this.props.deleteReview(review.id)}> X </button>
         </li>
-        <button> X </button>
       </div>
     );
   }
-
 };
 
 export default Review;
