@@ -158,7 +158,9 @@ describe('Restaurant Component with Redux', () => {
     input.simulate('change', { target: { value: 'Song', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} });
 
-    deleteButton = wrapper.find('button').last();
+    // Re-wrote test to pass with new buttons add for updating
+    // deleteButton = wrapper.find('button').last();
+    deleteButton = wrapper.find('button').slice(2, 3)
 
     deleteButton.simulate('click');
 
