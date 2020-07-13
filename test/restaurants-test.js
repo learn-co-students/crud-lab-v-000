@@ -128,7 +128,6 @@ describe('Restaurant Component with Redux', () => {
 
     expect(store.getState().restaurants.length).to.equal(0);
 
-
   });
 
   it('updates the state of the store to remove the component', () => {
