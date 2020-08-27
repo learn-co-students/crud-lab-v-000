@@ -7,7 +7,7 @@ export default function manageRestaurants(
   action
 ) {
   switch(action.type) {
-    case 'CREATE_RESTAURANT':
+    case 'ADD_RESTAURANT':
       return {
         ...state,
         restaurants: [
@@ -15,6 +15,12 @@ export default function manageRestaurants(
           { text: action.text, id: cuid() }
         ]
       };
+    
+    case 'DELETE_RESTAURANT':
+      return {
+        ...state,
+        restaurants: state.restaurants.filter(rest => rest.id !== action.id)
+      }
 
     default: return state;
   }
