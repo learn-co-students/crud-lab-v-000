@@ -2,11 +2,12 @@
 import cuid from 'cuid';
 export const cuidFn = cuid;
 
+// Idea: When I delete a restaurant, its reviews should ALSO be deleted.
+
 export default function manageRestaurants(
   state = { restaurants: [], reviews: [] },
   action
 ) {
-  // console.log(action);
   switch(action.type) {
     case 'ADD_RESTAURANT':
       return {
@@ -22,19 +23,30 @@ export default function manageRestaurants(
       return {
         ...state,
         restaurants: state.restaurants.filter(rest => rest.id !== action.id),
-        reviews: [...state.reviews]
+        reviews: state.reviews.filter(review => review.restaurantId !== action.id)
+        // I added this ^^^; no sense keeping the reviews for a deleted restaurant!
       }
 
     case 'ADD_REVIEW':
+      const { text, restaurantId } = action.review;
+
       return {
         ...state,
         restaurants: [...state.restaurants],
         reviews: [
           ...state.reviews,
-          { text: action.text, restaurantId: action.restaurantId, id: cuid() }
+          { text, restaurantId, id: cuid() }
         ]
       }
 
-    default: return state;
+    case 'DELETE_REVIEW':
+      return {
+        ...state,
+        restaurants: [...state.restaurants],
+        reviews: state.reviews.filter(review => review.id !== action.id)
+      }
+
+    default:
+      return state;
   }
 }
