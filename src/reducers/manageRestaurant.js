@@ -16,9 +16,15 @@ function manageRestaurants(state = [], action) {
                 id: cuid(),
                 text: action.text
             }
+            // return [ ...state, restaurant]
             return state.concat(restaurant)
         case 'DELETE_RESTAURANT':
             return state.filter(restaurant => restaurant.id !== action.id)
+        case 'UPDATE_RESTAURANT':
+            return [
+                ...state.filter(restaurant => restaurant.id !== action.restaurant.id),
+                Object.assign({}, action.restaurant)
+            ]
         default:
             return state;
     }
@@ -37,6 +43,11 @@ function manageReviews(state = [], action) {
             return state.concat(review)
         case 'DELETE_REVIEW':
             return state.filter(review => review.id !== action.id)
+        case 'UPDATE_REVIEW':
+            return [
+                ...state.filter(review => review.id !== action.review.id),
+                Object.assign({}, action.review)
+            ]
         default:
             return state;
     }

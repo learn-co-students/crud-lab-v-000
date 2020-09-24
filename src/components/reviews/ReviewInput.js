@@ -23,14 +23,13 @@ class ReviewInput extends Component {
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
-          <h4>Review Input</h4>
+          <h4>Add A Review</h4>
           <input 
             type="text"
             value={this.state.text}
             onChange={this.handleOnChange}></input>
           <input type="submit"></input>
         </form>
-        
       </div>
     );
   }
