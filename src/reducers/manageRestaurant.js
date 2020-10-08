@@ -1,5 +1,57 @@
 import cuid from 'cuid';
 
-export default function manageRestaurants(state, action) {
+import { combineReducers } from "redux";
+ 
+const rootReducer = combineReducers({
+  restaurants: restaurantReducer,
+  reviews: reviewReducer
+});
+ 
+export default rootReducer;
+
+function restaurantReducer(state = [], action) {
+
+    switch (action.type) {
+        case 'ADD_RESTAURANT':
+
+        const restaurant = {
+            id: cuid(),
+            text: action.text,
+        }
+     
+         return [...state, restaurant];
+            
+        case 'DELETE_RESTAURANT':
+            return state.filter(restaurant => restaurant.id !== action.id)
+  
+        default:
+            return state;
+    }
+
+}
+
+function reviewReducer(state = [], action) {
+
+    switch (action.type) {
+        case 'ADD_REVIEW':
+        debugger
+        const review = {
+            id: cuid(),
+            text: action.text,
+            // restaurantId: action.text.restaurantId
+        }
+            
+        return [...state, review];
+
+        // return { ...state, reviews: [...state.reviews, review]}
+        
+
+        case 'DELETE_REVIEW':
+            return state.filter(review => review.id !== action.id)
+  
+
+        default:
+            return state;
+    }
 
 }
