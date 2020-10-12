@@ -34,7 +34,6 @@ function reviewReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_REVIEW':
 
-        console.log(action.text.text)
         const review = {
             id: cuid(),
             text: action.text.text,
