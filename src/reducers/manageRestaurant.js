@@ -7,7 +7,7 @@ export default function manageRestaurants(state = {
 }, action) {
   switch (action.type) {
     case 'ADD_RESTAURANT':
-    const restaurant = { id: Math.random(), name: action.name }
+    const restaurant = { id: cuid(), name: action.name }
       return { ...state, restaurants: [...state.restaurants, restaurant] }
     case 'DELETE_RESTAURANT':
     const restaurants = state.restaurants.filter(restaurant => restaurant.id !== action.id);
