@@ -8,8 +8,12 @@ export default function manageRestaurant(state = [], action) {
         id: cuid(),
         text: action.text
       }
-      
+
       return [...state, restaurant];
+
+    case "DELETE_RESTAURANT":
+    //debugger;
+      return [...state.filter(restaurant => restaurant.id !== action.id)]
     default:
       return state;
   }

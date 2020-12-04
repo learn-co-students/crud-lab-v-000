@@ -11,6 +11,9 @@ export default function manageReviews(state = [], action) {
       }
 
       return [...state, review];
+      case "DELETE_REVIEW":
+      //debugger;
+        return [...state.filter(review => review.id !== action.id)]
     default:
       return state;
   }

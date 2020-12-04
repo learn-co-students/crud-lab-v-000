@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer';
 
 class Restaurant extends Component {
+  handleOnClick = () => {
+    //debugger;
+    this.props.deleteRestaurant(this.props.restaurant.id)
+  }
 
 
   render() {
@@ -13,7 +17,7 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button> Delete </button>
+          <button onClick={this.handleOnClick}> Delete </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
