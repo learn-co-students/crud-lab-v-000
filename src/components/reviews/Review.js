@@ -11,7 +11,7 @@ class Review extends Component {
         <li>
           {review.text}
         </li>
-        <button> X </button>
+        <button> Delete Review </button>
       </div>
     );
   }
