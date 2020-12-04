@@ -3,7 +3,8 @@ import manageRestaurant from './manageRestaurant';
 import manageReviews from './manageReviews';
 
 const rootReducer = combineReducers({
-  restaurants: manageRestaurant
+  restaurants: manageRestaurant,
+  reviews: manageReviews
 })
 
 export default rootReducer;
