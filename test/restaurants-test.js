@@ -134,7 +134,9 @@ describe('Restaurant Component with Redux', () => {
     const wrapper = mount(<Provider store={store}><App /></Provider>)
 
     let form = wrapper.find('form');
+    
     let input = wrapper.find('input').first();
+    
 
     input.simulate('change', { target: { value: 'Bagel Pub', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} });
@@ -147,9 +149,10 @@ describe('Restaurant Component with Redux', () => {
     wrapper.update()
 
     let deleteButton = wrapper.find('button').first();
+    
 
     deleteButton.simulate('click');
-
+    
     expect(store.getState().restaurants.length).to.equal(1);
     expect(store.getState().restaurants[0].text).to.equal('Chip Shop');
 
@@ -157,9 +160,9 @@ describe('Restaurant Component with Redux', () => {
     form.simulate('submit',  { preventDefault() {} });
 
     deleteButton = wrapper.find('button').last();
-
+    
     deleteButton.simulate('click');
-
+    
     expect(store.getState().restaurants.length).to.equal(1);
     expect(store.getState().restaurants[0].text).to.equal('Chip Shop');
   });
