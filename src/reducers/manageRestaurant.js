@@ -26,8 +26,9 @@ export default function manageRestaurant(state= {
             // let idx;
     // switch(action.type){
         case 'ADD_REVIEW':
-            // console.log(action)
-            const newReview = {text: action.review, id: cuidFn(), restaurantId: action.restaurantId}
+            
+            const newReview = {text: action.review.text, id: cuidFn(), restaurantId: action.review.restaurantId}
+            debugger
             return {
                 ...state, 
                 reviews: [...state.reviews, newReview]
