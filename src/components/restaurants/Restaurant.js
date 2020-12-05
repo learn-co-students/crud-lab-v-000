@@ -14,6 +14,7 @@ class Restaurant extends Component {
 
 
     return (
+  
       <div>
         <li>
           {restaurant.text}
@@ -21,6 +22,7 @@ class Restaurant extends Component {
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
+
     );
   }
 };
