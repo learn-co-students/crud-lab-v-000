@@ -4,6 +4,7 @@ import Restaurant from './Restaurant';
 class Restaurants extends Component {
 
   renderRestaurants = () => {
+    
     return this.props.restaurants.map(restaurant => <Restaurant key={restaurant.id} restaurant={restaurant} id={restaurant.id}  deleteRestaurant={this.props.deleteRestaurant}/>)
   }
 

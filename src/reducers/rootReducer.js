@@ -7,4 +7,5 @@ const rootReducer = combineReducers({
   reviews: manageReviews
 })
 
+
 export default rootReducer;
