@@ -9,8 +9,8 @@ export default function manageRestaurant(state = [], action) {
         text: action.text
       }
 
-      //return [...state, restaurant];
-      return state.concat(restaurant)
+      return [...state, restaurant];
+      
 
     case "DELETE_RESTAURANT":
     //debugger;

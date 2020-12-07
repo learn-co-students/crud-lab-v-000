@@ -5,6 +5,7 @@ class Restaurant extends Component {
   handleOnClick = () => {
     //debugger;
     this.props.deleteRestaurant(this.props.restaurant.id)
+    this.props.deleteAssociatedReview(this.props.restaurant.id)
   }
 
 
@@ -14,12 +15,13 @@ class Restaurant extends Component {
 
 
     return (
-  
+
       <div>
         <li>
           {restaurant.text}
           <button onClick={this.handleOnClick}> Delete </button>
           <ReviewsContainer restaurant={restaurant}/>
+          
         </li>
       </div>
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ReviewInput from '../components/reviews/ReviewInput';
 import Reviews from '../components/reviews/Reviews';
 
+
 class ReviewsContainer extends Component {
 
   render() {
@@ -12,8 +13,9 @@ class ReviewsContainer extends Component {
 
     return (
       <div>
-        <ReviewInput restaurant={restaurant} addReview={this.props.addReview}/>
-        <Reviews restaurantReviews={restaurantReviews} deleteReview={this.props.deleteReview}/>
+        <ReviewInput restaurant={restaurant} addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/>
+        <Reviews restaurantReviews={restaurantReviews} deleteReview={this.props.deleteReview} restaurant={restaurant}/>
+
       </div>
     )
   }

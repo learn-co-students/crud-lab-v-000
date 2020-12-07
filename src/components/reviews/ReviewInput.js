@@ -7,28 +7,37 @@ class ReviewInput extends Component {
 
 
   state = {
-    text: '',
-    restaurantId: ''
+    text: ''
+    //restaurantId: ''
   }
+
+
+
 
   handleOnChange = event => {
     this.setState({
-      text: event.target.value,
-      restaurantId: this.props.restaurant.id
+      text: event.target.value
+      //restaurantId: this.props.restaurant.id
     });
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addReview(this.state);
+    this.props.addReview({
+      text: this.state.text,
+      restaurantId: this.props.restaurant.id
+    });
+    //debugger;
     this.setState({
-      text: '',
-      restaurantId: ''
+      text: ''
+      //restaurantId: ''
     });
   }
 
   render() {
-    //const restaurant = this.props.restaurant;
+
+    //const restaurantId = this.props.restaurant.id;
+
     return (
       <div>
         <form onSubmit ={(event) => this.handleOnSubmit(event)}>

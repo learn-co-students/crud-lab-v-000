@@ -4,6 +4,7 @@ import { configure, shallow, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import manageRestaurant, { cuidFn } from '../src/reducers/manageRestaurant';
+import rootReducer from '../src/reducers/rootReducer';
 import App from '../src/App';
 import Restaurant from '../src/components/restaurants/Restaurant';
 import ReviewInput from '../src/components/reviews/ReviewInput';
@@ -16,7 +17,7 @@ configure({ adapter: new Adapter() })
 
 describe('ReviewInput Component', () => {
   it('displays the ReviewInput component as a child of each Restaurant Component', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Bogota'})
     const wrapper = mount(<Provider store={store}><App /></Provider>);
     expect(wrapper.find(ReviewInput)).to.have.length(1);
@@ -43,7 +44,7 @@ describe('ReviewInput Component', () => {
   })
 
   it('adds a review to the store when the form is submitted', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Rice Thai Kitchen'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -60,7 +61,7 @@ describe('ReviewInput Component', () => {
   });
 
   it('updates the state of the store after submitting the form', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Blue Ribbon'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -75,7 +76,7 @@ describe('ReviewInput Component', () => {
   });
 
   it('sets a property of restaurantId on the review input component from the parent components id', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Helm'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -86,7 +87,7 @@ describe('ReviewInput Component', () => {
   });
 
   it('associates the review with the restaurant with a foreign key on the review', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Burger Loft'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -104,7 +105,7 @@ describe('ReviewInput Component', () => {
 // move on to testing the reviews component
 describe('Reviews Component', () => {
   it('is a child of the ReviewsContainer component', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Home'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -113,7 +114,7 @@ describe('Reviews Component', () => {
   });
 
   it('displays a review for when it is associated with the restaurant', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'LoKi'})
     let restaurantId = store.getState().restaurants[0].id
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "Was great", restaurantId } })
@@ -125,7 +126,7 @@ describe('Reviews Component', () => {
   });
 
   it('does not display any review unassociated with the restaurant', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Tarry Lodge'})
     let restaurantId = store.getState().restaurants[0].id
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "it was good", restaurantId } })
@@ -138,7 +139,7 @@ describe('Reviews Component', () => {
   });
 
   it('has an unique id property that for each element', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Head'})
     const wrapper = mount(<Provider store={store}><App /></Provider>);
     let reviewForm = wrapper.find(Restaurant).find('form');
@@ -156,7 +157,7 @@ describe('Reviews Component', () => {
   });
 
   it('has a button that dispatches a DELETE_REVIEW action when clicked', ()=> {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Head'})
     let restaurantId = store.getState().restaurants[0].id
     store.dispatch({ type: 'ADD_REVIEW', review: { text: "became friends with bartender", restaurantId } })
@@ -172,7 +173,7 @@ describe('Reviews Component', () => {
   });
 
   it('updates the state of the store to remove the component', () => {
-    const store = createStore(manageRestaurant);
+    const store = createStore(rootReducer);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Arms'})
     let restaurantId = store.getState().restaurants[0].id
 
