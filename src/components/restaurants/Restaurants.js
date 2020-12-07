@@ -3,17 +3,19 @@ import Restaurant from './Restaurant';
 
 
 class Restaurants extends Component {
-
-
+  render(){
+    const { restaurants } = this.props
 
     return (
       <div>
         <ul>
-          this.props.restaurants.map((restaurant, index) => <li key={index}>{restaurant.name}</li>);
+          {restaurants.map(restaurant => <Restaurant key={restaurant.id} restaurant={restaurant} />)}
         </ul>
       </div>
     );
 
 };
+  }
+
 
 export default Restaurants;
