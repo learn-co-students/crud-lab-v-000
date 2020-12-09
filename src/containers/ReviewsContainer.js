@@ -4,6 +4,7 @@ import ReviewInput from '../components/reviews/ReviewInput';
 import Reviews from '../components/reviews/Reviews';
 
 
+
 class ReviewsContainer extends Component {
 
   render() {
@@ -14,7 +15,7 @@ class ReviewsContainer extends Component {
     return (
       <div>
         <ReviewInput restaurant={restaurant} addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/>
-        <Reviews restaurantReviews={restaurantReviews} deleteReview={this.props.deleteReview} restaurant={restaurant}/>
+        <Reviews restaurantReviews={restaurantReviews} deleteReview={this.props.deleteReview} editReview={this.props.editReview} restaurant={restaurant}/>
 
       </div>
     )
@@ -36,6 +37,10 @@ const mapDispatchToProps = dispatch => ({
   deleteReview: id => dispatch({
     type: "DELETE_REVIEW",
     id
+  }),
+  editReview: editedReview => dispatch({
+    type: "EDIT_REVIEW",
+    editedReview
   })
 })
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer);

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+//import Restaurant from './Restaurant';
 
-class RestaurantInput extends Component {
+class EditReviewInput extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-    text: ''
+    text: this.props.review.text
+
     };
   }
 
@@ -18,7 +20,11 @@ class RestaurantInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addRestaurant(this.state.text);
+    let review = {
+      id: this.props.review.id,
+      text: this.state.text
+    }
+    this.props.editReview(review);
     this.setState({
       text: ''
     });
@@ -31,7 +37,6 @@ class RestaurantInput extends Component {
           <input
             type="text"
             value={this.state.text}
-            placeholder="Enter restaurant"
             onChange={(event) => this.handleOnChange(event)}/>
           <input type="submit" />
         </form>
@@ -41,4 +46,4 @@ class RestaurantInput extends Component {
   }
 };
 
-export default RestaurantInput
+export default EditReviewInput
