@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class RestaurantInput extends Component {
+class EditRestaurant extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-    text: ''
+    text: this.props.restaurant.text
     };
   }
 
@@ -31,7 +31,6 @@ class RestaurantInput extends Component {
           <input
             type="text"
             value={this.state.text}
-            placeholder="Enter restaurant"
             onChange={(event) => this.handleOnChange(event)}/>
           <input type="submit" />
         </form>
@@ -41,4 +40,4 @@ class RestaurantInput extends Component {
   }
 };
 
-export default RestaurantInput
+export default EditRestaurant

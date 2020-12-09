@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
+//import Reviews from './Reviews';
 
 
 class ReviewInput extends Component {
@@ -45,6 +45,7 @@ class ReviewInput extends Component {
           <input
               type="text"
               value={this.state.text}
+              placeholder="Enter review"
               onChange={(event) => this.handleOnChange(event)}/>
           </p>
             <input type="submit" />
