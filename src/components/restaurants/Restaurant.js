@@ -1,27 +1,24 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 //import React, {  } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer';
 import EditRestaurantInput from './EditRestaurantInput'
 
 class Restaurant extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      edit: ""
-    };
-  }
+  state = initialState
+
 
   handleOnClick = () => {
-    //debugger;
-    this.props.deleteRestaurant(this.props.restaurant.id)
-    this.props.deleteAssociatedReview(this.props.restaurant.id)
+    this.props.deleteRestaurant(this.props.restaurant.id);
+    this.props.deleteAssociatedReview(this.props.restaurant.id);
+
+
   }
 
   handleEdit = () => {
     //this.props.editRestaurant(this.props.reastaurant.id)
     this.setState({
       edit: "edit"
-    })
+    });
   }
 
 
@@ -49,6 +46,9 @@ class Restaurant extends Component {
   }
 };
 
+const initialState = {
+  edit: ""
+};
 
 
 export default Restaurant;

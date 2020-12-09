@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+//import Restaurant from './Restaurant';
 
-class EditRestaurant extends Component {
+class EditReviewInput extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-    text: this.props.restaurant.text
+    text: this.props.review.text
+
     };
   }
 
@@ -18,7 +20,11 @@ class EditRestaurant extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addRestaurant(this.state.text);
+    let review = {
+      id: this.props.review.id,
+      text: this.state.text
+    }
+    this.props.editReview(review);
     this.setState({
       text: ''
     });
@@ -40,4 +46,4 @@ class EditRestaurant extends Component {
   }
 };
 
-export default EditRestaurant
+export default EditReviewInput
