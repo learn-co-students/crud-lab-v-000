@@ -1,5 +1,5 @@
 import cuid from 'cuid';
-export const cuidFn = cuid;
+
 
 export default function manageRestaurants(state = {
     restaurants: [],
@@ -7,7 +7,7 @@ export default function manageRestaurants(state = {
   }, action) {
     switch(action.type){
         case 'ADD_RESTAURANT':
-            const restaurant = {text: action.text, id: cuidFn()};
+            const restaurant = {text: action.text, id: cuid()};
             return{
                 ...state,
                 restaurants: [...state.restaurants, restaurant]
@@ -19,7 +19,7 @@ export default function manageRestaurants(state = {
 
         case 'ADD_REVIEW':
 
-            const review = { text: action.review.text, restaurantId: action.review.restaurantId, id: cuidFn() };
+            const review = { text: action.review.text, restaurantId: action.review.restaurantId, id: cuid() };
             return { ...state,
               reviews: [...state.reviews, review]
             }
