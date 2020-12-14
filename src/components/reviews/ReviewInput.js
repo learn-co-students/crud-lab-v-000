@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-
-  state = {
-    text: ''
-  }
+  constructor() {
+		super();
+		this.state = {
+			text: ''
+		};
+	}
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addReview(this.state.text, restaurantId: this.props.restaurantId)
+    this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId})
     this.setState({
       text: ''
     });
