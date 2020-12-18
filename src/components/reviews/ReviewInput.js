@@ -1,36 +1,34 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
 
 class ReviewInput extends Component {
-  constructor() {
-		super();
-		this.state = {
-			text: ''
-		};
-	}
 
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId})
+  state = {
+    text: ''
+  }
+
+  handleOnChange = event => {
     this.setState({
-      text: ''
+      text: event.target.value,
     });
   }
 
-    handleOnChange(event) {
-      this.setState({
-        text: event.target.value,
-      });
-    }
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId });
+    this.setState({
+      text: '',
+    });
+  }
+
   render() {
     return (
-      <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <label>add review </label>
-            <input
-              type="text"
-              value={this.state.text}
-              onChange={(event) => this.handleOnChange(event)}/>
+     <div>
+        <form onSubmit={this.handleOnSubmit} >
+          <label>Add Review</label>
+          <input
+            type="text"
+            value={this.state.text}
+            onChange={this.handleOnChange} />
           <input type="submit" />
         </form>
       </div>
