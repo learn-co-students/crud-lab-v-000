@@ -39,10 +39,8 @@ describe('RestaurantInput', () => {
     let form = wrapper.find('form');
     let input = wrapper.find('input').first();
 
-    // console.log(store.getState());
     input.simulate('change', { target: { value: 'Hello', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} })
-    // console.log(store.getState());
     expect(store.getState().restaurants[0].text).to.equal('Hello')
   });
 
@@ -50,7 +48,6 @@ describe('RestaurantInput', () => {
 
 describe('Restaurants Component', () => {
   it('displays a list of restaurant components', () => {
-
     const store = createStore(manageRestaurant)
     store.dispatch({type: 'ADD_RESTAURANT', text: "Muzarella"})
     store.dispatch({type: 'ADD_RESTAURANT', text: "Artichoke"})
