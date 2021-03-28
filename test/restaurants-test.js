@@ -37,10 +37,9 @@ describe('RestaurantInput', () => {
     let form = wrapper.find('form');
     let input = wrapper.find('input').first();
 
-    // console.log(store.getState());
     input.simulate('change', { target: { value: 'Hello', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} })
-    // console.log(store.getState());
+
     expect(store.getState().restaurants[0].text).to.equal('Hello')
   });
 
@@ -119,6 +118,7 @@ describe('Restaurant Component with Redux', () => {
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Bagel World'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>)
+    console.log(wrapper)
 
     let deleteButton = wrapper.find('button').first();
 
