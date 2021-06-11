@@ -13,15 +13,21 @@ export default function manageRestaurants(state={
         case "DELETE_RESTAURANT":
             // debugger;
             return {...state, 
-                reviews:[...state.reviews],
+                reviews: state.reviews.filter(review=>review.restaurantId!==action.id),
                 restaurants: state.restaurants.filter(restaurant=>restaurant.id!==action.id)}
         case "ADD_REVIEW":
             // debugger;
-            return {...state,
-                restaurants:[...state.restaurants], 
-                 reviews:[...state.reviews,{...action.review, id:cuid()}]}
+            const existingRestaurant = state.restaurants.find(restaurant=>restaurant.id===action.review.restaurantId);
+            if(!!existingRestaurant){
+                return {...state,
+                    restaurants:[...state.restaurants], 
+                     reviews:[...state.reviews,{...action.review, id:cuid()}]}
+    
+            }
+            return state;
+
         case "DELETE_REVIEW":
-              debugger;
+            //   debugger;
             return {...state, 
                 restaurants:[...state.restaurants], 
                 reviews: state.reviews.filter(review=>review.id!==action.id)}        
