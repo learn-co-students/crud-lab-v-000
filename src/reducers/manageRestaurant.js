@@ -13,6 +13,14 @@ export default function manageRestaurants(state={
             // debugger;
             return {...state, 
                 restaurants: state.restaurants.filter(restaurant=>restaurant.id!==action.id)}
+        case "ADD_REVIEW":
+            // debugger;
+            return {...state, 
+                 reviews:[...state.reviews,{...action.review, id:cuid()}]}
+        case "DELETE_REVIEW":
+            return {...state, 
+                reviews:[...state.review,{...action.review, id:cuid()}]}
+        
         default:
             return state;
     }
