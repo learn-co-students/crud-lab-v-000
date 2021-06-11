@@ -21,10 +21,10 @@ export default function manageRestaurants(state={
                 restaurants:[...state.restaurants], 
                  reviews:[...state.reviews,{...action.review, id:cuid()}]}
         case "DELETE_REVIEW":
+              debugger;
             return {...state, 
                 restaurants:[...state.restaurants], 
-                reviews:[...state.review,{...action.review, id:cuid()}]}
-        
+                reviews: state.reviews.filter(review=>review.id!==action.id)}        
         default:
             return state;
     }
