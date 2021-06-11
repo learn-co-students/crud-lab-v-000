@@ -17,14 +17,9 @@ export default function manageRestaurants(state={
                 restaurants: state.restaurants.filter(restaurant=>restaurant.id!==action.id)}
         case "ADD_REVIEW":
             // debugger;
-            const existingRestaurant = state.restaurants.find(restaurant=>restaurant.id===action.review.restaurantId);
-            if(!!existingRestaurant){
-                return {...state,
-                    restaurants:[...state.restaurants], 
-                     reviews:[...state.reviews,{...action.review, id:cuid()}]}
-    
-            }
-            return state;
+            return {...state,
+                restaurants:[...state.restaurants], 
+                    reviews:[...state.reviews,{...action.review, id:cuid()}]}
 
         case "DELETE_REVIEW":
             //   debugger;

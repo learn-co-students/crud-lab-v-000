@@ -5,21 +5,25 @@ import ReviewInput from '../components/reviews/ReviewInput';
 import Reviews from '../components/reviews/Reviews';
 
 class ReviewsContainer extends Component {
+    getReviewsByRestaurant(){
+        return this.props.reviews.filter(review=>review.restaurantId===this.props.restaurantId)||[]
+    }
 
-  render() {
-    return (
-      <div>
-        <ReviewInput 
-            restaurantId={this.props.restaurantId} 
-            addReview={this.props.addReview}
-            />
-        <Reviews 
-            reviews={this.props.reviews}  
-            deleteReview={this.props.deleteReview}
-            />
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+            <ReviewInput 
+                restaurantId={this.props.restaurantId} 
+                addReview={this.props.addReview}
+                />
+            <Reviews 
+                reviews={this.getReviewsByRestaurant()}  
+                deleteReview={this.props.deleteReview}
+                restaurantId={this.props.restaurantId}
+                />
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = ({reviews})=>({reviews});
