@@ -9,6 +9,10 @@ export default function manageRestaurants(state={
             //   debugger;
             return {...state, 
                 restaurants:[...state.restaurants,{...action.restaurant, id:cuid()}]}
+        case "DELETE_RESTAURANT":
+            // debugger;
+            return {...state, 
+                restaurants: state.restaurants.filter(restaurant=>restaurant.id!==action.id)}
         default:
             return state;
     }
