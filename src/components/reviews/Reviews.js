@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import Review from './Review';
+ import React, { Component } from 'react';
+ import Review from './Review';
 
-class Reviews extends Component {
-  render() {
-    return (
-      <ul>
-        Reviews
-      </ul>
-    );
-  }
-};
+ class Reviews extends Component {
+   render() {
+     
+     return (
+       <ul>
+         {this.props.reviews.map(review=> <Review review={review} actions={this.props.actions}/>)}
+       </ul>
+     );
+   }
+ };
 
-export default Reviews;
+ export default Reviews;
